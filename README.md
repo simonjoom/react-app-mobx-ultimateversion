@@ -24,7 +24,6 @@ ex folder /templates/app-mytemplate
 
 
 I added 
-
 -> 1 webpackconfig for ssr
 -> select template in scripts
 
