@@ -48,9 +48,12 @@ function copy(src, dest) {
     readStream.pipe(writeStream);
   });
 }
+let tmp='../templates/app';
+if (process.env.template)
+tmp='../templates/app-'+process.env.template;
 
 module.exports = () => Promise.resolve()
-  .then(() => copy(path.resolve(__dirname, '../templates/app'), process.cwd()))
+  .then(() => copy(path.resolve(__dirname, tmp), process.cwd()))
   .then(() => install('--production'))
   .then(() => {
     console.log();

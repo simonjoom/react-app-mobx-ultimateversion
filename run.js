@@ -61,7 +61,11 @@ const findConfig = (() => {
       config = {};
     }
 
-    const webpackConfig = require('./webpack.config');
+let tmp='./webpack.config';
+if (process.env.template)
+tmp='./webpack'+process.env.template+'.config';
+
+    const webpackConfig = require(tmp);
 
     if (typeof config.webpack === 'function') {
       config.webpack = config.webpack(webpackConfig) || webpackConfig;

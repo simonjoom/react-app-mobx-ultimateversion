@@ -134,7 +134,9 @@
     "test": "mocha --compilers js:babel-register",
     "test:watch": "mocha --compilers js:babel-register --reporter min --watch",
     "new": "node ./app/bin/react-app new --test-sdk",
+    "newssr": "template=ssr  node ./app/bin/react-app new --test-sdk",
     "build": "node ./app/bin/react-app build --test-sdk",
-    "start": "babel-node ./app/bin/react-app start --test-sdk"
+    "start": "babel-node ./app/bin/react-app start --test-sdk",
+    "startssr": "template=ssr babel-node ./app/bin/react-app start --test-sdk"
   }
 }

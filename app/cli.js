@@ -14,10 +14,13 @@ const path = require('path');
 const readline = require('readline');
 const { spawn } = require('child_process');
 const pkg = require('./package.json');
-
+let tmp='../temp'
 if (process.argv.includes('--test-sdk')) {
   process.env.TEST_SDK = true;
-  const tempDir = path.resolve(__dirname, '../temp');
+  if (process.env.template)
+  tmp='../'+process.env.template;
+
+  const tempDir = path.resolve(__dirname, tmp);
   if (!fs.existsSync(tempDir)) fs.mkdirSync(tempDir);
   process.chdir(tempDir);
 }
