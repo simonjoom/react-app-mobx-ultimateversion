@@ -1,7 +1,7 @@
 # react-app-ssr
 forked react-app for ssr
 
-Add fonctionalities
+Add fonctionnalities
 
 deploy react-app-ssr application:
 npm run newssr
@@ -38,6 +38,8 @@ New npm:
 * webpack-middleware was important to replace over webpack-dev-middleware who is not done for ssr
 
 * add dotenv to control easily application port with a file .env
+
+* cssnano just to optimize css output
 
 * simple-universal-style to push style in server -> important
 
