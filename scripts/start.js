@@ -10,7 +10,7 @@ module.exports = config => {
   return new Promise(resolve => {
     const bs = require('browser-sync').create();
     const compiler = webpack(config.webpack);
-if (process.env.template!="ssr"){
+if (!process.env.template){
 const webpackMiddl = webpackDevMiddleware(compiler, {
       publicPath: config.webpack.output.publicPath,
       stats: config.webpack.stats,

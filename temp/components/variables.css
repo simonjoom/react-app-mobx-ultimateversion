@@ -1,0 +1,37 @@
+:root {
+  /*
+   * Typography
+   * ======================================================================== */
+
+  --font-family-base: 'Segoe UI', 'HelveticaNeue-Light', sans-serif;
+
+  /*
+   * Layout
+   * ======================================================================== */
+
+  --max-content-width: 1000px;
+
+  /*
+   * Media queries breakpoints
+   * ======================================================================== */
+
+  --screen-xs-min: 480px;  /* Extra small screen / phone */
+  --screen-sm-min: 768px;  /* Small screen / tablet */
+  --screen-md-min: 992px;  /* Medium screen / desktop */
+  --screen-lg-min: 1200px; /* Large screen / wide desktop */
+
+    --button-color: #1C2541;
+  --button-background-color: #5BC0BE;
+
+  .btn.btn-outline {
+    transition: all 0.2s;
+  }
+
+  .btn-outline {
+    color: #5BC0BE;
+  }
+
+  .btn.btn-outline:hover {
+    background-color: #0B132B;
+  }
+}

@@ -1,16 +1,8 @@
-/**
- * React App SDK (https://github.com/kriasoft/react-app)
- *
- * Copyright © 2015-present Kriasoft, LLC. All rights reserved.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE.txt file in the root directory of this source tree.
- */
-
-/* eslint-disable global-require */
-
+require('dotenv').config();
 const path = require('path');
 const webpack = require('webpack');
+const extend = require('extend')
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const AssetsPlugin = require('assets-webpack-plugin');
 const pkg = require(path.resolve(process.cwd(), './package.json'));
 
@@ -23,6 +15,24 @@ const babelConfig = Object.assign({}, pkg.babel, {
   cacheDirectory: hmr,
 });
 
+const exposevar = {
+    'process': {
+        'env': {
+            'BROWSER': true,
+            'WEB_HOST': JSON.stringify(process.env['WEB_HOST']),
+            'WEB_PORT': JSON.stringify(process.env['WEB_PORT']),
+            'API_HOST': JSON.stringify(process.env['API_HOST']),
+            'API_PORT': JSON.stringify(process.env['API_PORT']),
+            'IO_HOST': JSON.stringify(process.env['IO_HOST']),
+            'IO_PORT': JSON.stringify(process.env['IO_PORT'])
+        }
+    }
+}
+
+const configvar={
+      'process.env.NODE_ENV': debug ? '"development"' : '"production"',
+      __DEV__: debug,
+    }
 // Webpack configuration (main.js => public/dist/main.{hash}.js)
 // http://webpack.github.io/docs/configuration.html
 const config = {
@@ -33,6 +43,7 @@ const config = {
   // The entry point for the bundle
   entry: [
     /* The main entry point of your JavaScript application */
+      "font-awesome-webpack!" + path.resolve(process.cwd(),'./font-awesome.config.js'),
     './main.js',
   ],
 
@@ -67,13 +78,16 @@ const config = {
 
   // The list of plugins for Webpack compiler
   plugins: [
+   new webpack.ProvidePlugin({
+            "React": "react"
+        }),
+    new webpack.DefinePlugin(extend(true, {}, configvar, exposevar)),
     new webpack.optimize.OccurrenceOrderPlugin(),
-    new webpack.DefinePlugin({
-      'process.env.NODE_ENV': debug ? '"development"' : '"production"',
-      __DEV__: debug,
-    }),
+
     // Emit a JSON file with assets paths
     // https://github.com/sporto/assets-webpack-plugin#options
+
+    new CopyWebpackPlugin([{from: 'assets', to: ''}]),
     new AssetsPlugin({
       path: path.resolve(process.cwd(), './public/dist'),
       filename: 'assets.json',
@@ -86,16 +100,44 @@ const config = {
     loaders: [
       {
         test: /\.jsx?$/,
-        include: [
+        exclude: /node_modules/,
+        /*include: [
+          path.resolve(process.cwd(), './store'),
+          path.resolve(process.cwd(), './shared'),
           path.resolve(process.cwd(), './actions'),
           path.resolve(process.cwd(), './components'),
           path.resolve(process.cwd(), './core'),
           path.resolve(process.cwd(), './pages'),
           path.resolve(process.cwd(), './routes'),
           path.resolve(process.cwd(), './main.js'),
-        ],
+        ],*/
         loader: `babel-loader?${JSON.stringify(babelConfig)}`,
       },
+      {
+  test: /App\.css$/,  // only App will go through this loader. e.g. app.css
+  loaders: [
+    'style-loader',
+    'css?sourceMap&-minimize',
+    'postcss'
+  ]
+},
+    {
+        test: /^((?!\App).)*\.css/,
+        loaders: [
+            'style-loader',
+      `css-loader?${JSON.stringify({
+            sourceMap: debug,
+            // CSS Modules https://github.com/css-modules/css-modules
+            modules: true,
+            localIdentName: debug ? '[name]_[local]_[hash:base64:3]' : '[hash:base64:4]',
+            // CSS Nano http://cssnano.co/options/
+            minimize: !debug,
+          })}`,
+            'postcss',
+        ],
+        // happy: { id: 'css' }
+    },
+    /*
       {
         test: /\.css/,
         loaders: [
@@ -110,7 +152,7 @@ const config = {
           })}`,
           'postcss-loader',
         ],
-      },
+      },*/
       {
         test: /\.json$/,
         exclude: [
@@ -136,13 +178,39 @@ const config = {
         test: /\.(png|jpg|jpeg|gif|svg|woff|woff2)$/,
         loader: 'url-loader?limit=10000',
       },
+        {
+            test: /\.woff(\?.*)?$/,
+            loader: 'url?prefix=fonts/&name=[path][name].[ext]&limit=10000&mimetype=application/font-woff'
+        },
+        {
+            test: /\.woff2(\?.*)?$/,
+            loader: 'url?prefix=fonts/&name=[path][name].[ext]&limit=10000&mimetype=application/font-woff2'
+        },
+        {test: /\.otf(\?.*)?$/, loader: 'file?prefix=fonts/&name=[path][name].[ext]&limit=10000&mimetype=font/opentype'},
+        {
+            test: /\.ttf(\?.*)?$/,
+            loader: 'url?prefix=fonts/&name=[path][name].[ext]&limit=10000&mimetype=application/octet-stream'
+        },
+        {test: /\.eot(\?.*)?$/, loader: 'file?prefix=fonts/&name=[path][name].[ext]'},
+        {test: /\.svg(\?.*)?$/, loader: 'url?prefix=fonts/&name=[path][name].[ext]&limit=10000&mimetype=image/svg+xml'},
       {
-        test: /\.(eot|ttf|wav|mp3)$/,
+        test: /\.(wav|mp3)$/,
         loader: 'file-loader',
       },
     ],
   },
+  resolve: {
+  //  packageMains: ['webpack', 'browser', 'web', 'style', 'main'],
 
+        extensions: ['', '.webpack.js', '.web.js', '.js', '.jsx', '.json'],
+
+    },
+
+    externals: {
+    jquery: 'jQuery',
+    ajv:'Ajv'
+        }
+    ,
   // The list of plugins for PostCSS
   // https://github.com/postcss/postcss
   postcss(bundler) {
@@ -192,6 +260,7 @@ const config = {
 };
 
 // Optimize the bundle in release (production) mode
+
 if (!debug) {
   config.plugins.push(new webpack.optimize.DedupePlugin());
   config.plugins.push(new webpack.optimize.UglifyJsPlugin({
@@ -209,7 +278,6 @@ if (!debug) {
   }));
   config.plugins.push(new webpack.optimize.AggressiveMergingPlugin());
 }
-
 // Hot Module Replacement (HMR) + React Hot Reload
 if (hmr) {
   babelConfig.plugins.unshift('react-hot-loader/babel');
