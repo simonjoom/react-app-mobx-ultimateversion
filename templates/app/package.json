@@ -39,6 +39,7 @@
     "feathers-authentication": "^0.7.9",
     "feathers-configuration": "^0.3.0",
     "feathers-hooks": "^1.5.4",
+    "feathers-memory": "^0.7.5",
     "feathers-mongoose": "^3.5.1",
     "feathers-rest": "^1.4.3",
     "feathers-socketio": "^1.4.1",
