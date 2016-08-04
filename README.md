@@ -22,8 +22,6 @@ Then run application 'npm run start'
 node ./bin/api
 
 
-
-
 you re done ! (no need install after new the scalfolding react-app will do for you).
 see webpack.config.js for configuration
 
@@ -36,9 +34,8 @@ see webpack.config.js for configuration
 
 * copy-webpack-plugin to push asset from a directory (else assets didn't found from memory)
 
-If you have some dependances problem to run it please say me.
-
-
+If you have some dependances problem to run it please say me 
+on skype simonzkyp or simon@skiscool.com
 
 
 
