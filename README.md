@@ -1,9 +1,33 @@
-# react-app-ssr
+
+# react-app/temp
+forked react-app  with fontawesome + mobx + material-ui
+
+in root folder react-app
+run 
+npm install
+npm run start to deploy developpement
+
+see webpack.config.js for configuration
+
+
+* add dotenv to control easily application port with a file .env
+
+* cssnano just to optimize css output 
+
+* fontawesome
+
+* copy-webpack-plugin to push asset from a directory (else assets didn't found from memory)
+
+
+
+
+# react-app/ssr
 forked react-app for ssr
+see webpackssr.config.js for configuration
 
 Add fonctionnalities
 
-deploy react-app-ssr application:
+deploy react-app-ssr application: (this work is temporary stopped but should work)
 npm run newssr
 npm run startssr
 
