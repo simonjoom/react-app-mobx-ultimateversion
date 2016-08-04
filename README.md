@@ -7,11 +7,13 @@ forked react-app  with fontawesome + mobx + material-ui + https://github.com/kri
 
 IN root folder react-app 
 
+npm install
+
 npm run new
 
 then 'npm run start'
 
-you re done ! (no need install in new the scalfolding react-app will do for you).
+you re done ! (no need install after new the scalfolding react-app will do for you).
 see webpack.config.js for configuration
 
 
