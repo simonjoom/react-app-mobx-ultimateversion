@@ -2,8 +2,10 @@
 # react-app
 forked react-app  with fontawesome + mobx + material-ui
  
-in root folder react-app 
+IN root folder react-app 
+
 npm run new
+
 then 'npm run start'
 
 you re done ! 
