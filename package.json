@@ -11,12 +11,13 @@
   "keywords": [
     "react",
     "reactjs",
+    "font-awesome",
     "webpack",
     "babel",
     "es6",
     "es2015",
     "jsx",
-    "redux",
+    "mobx",
     "browsersync",
     "browser-sync",
     "template",
@@ -67,7 +68,6 @@
     "eslint-plugin-import": "^1.12.0",
     "eslint-plugin-jsx-a11y": "^2.0.1",
     "eslint-plugin-react": "^5.2.2",
-    "fastclick": "^1.0.6",
     "file-loader": "^0.9.0",
     "font-awesome": "^4.6.3",
     "font-awesome-webpack": "0.0.4",
@@ -78,7 +78,6 @@
     "json-stringify-safe": "^5.0.1",
     "jsx-control-statements": "^3.1.2",
     "markdown-it": "^7.0.0",
-    "mobx-ajv-form": "^1.7.1",
     "path-to-regexp": "^1.5.3",
     "pixrem": "^3.0.1",
     "pleeease-filters": "^3.0.0",
@@ -95,7 +94,6 @@
     "postcss-selector-matches": "^2.0.1",
     "postcss-selector-not": "^2.0.0",
     "react-hot-loader": "^3.0.0-beta.2",
-    "safe-access": "^0.1.0",
     "simple-universal-style-loader": "^0.14.4",
     "style-loader": "^0.13.1",
     "stylelint": "^7.0.3",
@@ -104,8 +102,7 @@
     "webpack": "^1.13.1",
     "webpack-dev-middleware": "^1.6.1",
     "webpack-hot-middleware": "^2.12.2",
-    "webpack-middleware": "^1.5.1",
-    "why-did-you-update": "0.0.8"
+    "webpack-middleware": "^1.5.1"
   },
   "optionalDependencies": {
     "react-app": "^1.1.2"
@@ -114,8 +111,8 @@
     "history": "^3.0.0",
     "react": "^15.3.0",
     "react-dom": "^15.3.0",
-    "react-redux": "^4.4.5",
-    "redux": "^3.5.2"
+    "mobx": "^2.4.1",
+    "mobx-react": "^3.5.3"
   },
   "babel": {
     "presets": [
