@@ -1,14 +1,17 @@
+This thread call react-app-ssr; i did a version fully working with server side rendering, 
+But we decided to start from single page application instead, will be easier to maintain!
+So see the first "react-app"
 
 # react-app
-forked react-app  with fontawesome + mobx + material-ui
- 
+forked react-app  with fontawesome + mobx + material-ui + https://github.com/kriasoft/react-app
+
 IN root folder react-app 
 
 npm run new
 
 then 'npm run start'
 
-you re done ! 
+you re done ! (no need install in new the scalfolding react-app will do for you).
 see webpack.config.js for configuration
 
 
@@ -20,7 +23,7 @@ see webpack.config.js for configuration
 
 * copy-webpack-plugin to push asset from a directory (else assets didn't found from memory)
 
-
+If you have some dependances problem to run it please say me.
 
 
 # react-app/ssr
