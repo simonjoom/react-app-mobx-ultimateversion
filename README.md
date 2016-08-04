@@ -11,7 +11,18 @@ npm install
 
 npm run new
 
-then 'npm run start'
+
+* Run server for feathers (watch mode)
+node ./bin/server
+
+Then run application 'npm run start'
+
+
+* To Run API (watch mode)
+node ./bin/api
+
+
+
 
 you re done ! (no need install after new the scalfolding react-app will do for you).
 see webpack.config.js for configuration
@@ -26,6 +37,10 @@ see webpack.config.js for configuration
 * copy-webpack-plugin to push asset from a directory (else assets didn't found from memory)
 
 If you have some dependances problem to run it please say me.
+
+
+
+
 
 
 # react-app/ssr
