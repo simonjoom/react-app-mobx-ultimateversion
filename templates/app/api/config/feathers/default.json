@@ -1,0 +1,39 @@
+{
+  "server": {
+    "db": {
+      "host": "DB_HOST",
+      "name": "DB_NAME",
+      "port": "DB_PORT"
+    },
+    "web": {
+      "host": "WEB_HOST",
+      "port": "WEB_PORT"
+    },
+    "api": {
+      "host": "API_HOST",
+      "port": "API_PORT"
+    }
+  },
+  "auth": {
+    "idField": "uuid",
+    "userEndpoint": "/user",
+    "token": {
+      "secret": "JNoSF4uRkGB1zhccVkpX3ulB/1KErbj/tuhCTY0dkpVNyYTU8bJiNC4ErCUK4sDSe/YMjuC0kqtlYnWuK8tHsQ=="
+    },
+    "local": {},
+    "facebook": {
+      "clientID": "562112907171338",
+      "clientSecret": "f3750cc751c48b20d895003a173d6f0f",
+      "permissions": {
+        "scope": ["public_profile","email"]
+      }
+    },
+    "instagram": {
+      "clientID": "09ad8a5223fe471c9448a49ff07cc676",
+      "clientSecret": "31db525184ac4c3fba6a26b1005178aa",
+      "permissions": {
+        "scope": ["basic"]
+      }
+    }
+  }
+}

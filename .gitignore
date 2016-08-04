@@ -11,3 +11,6 @@ tools/npm-debug.log
 # Misc
 temp
 
+app/.DS_Store
+scripts/.DS_Store
+ssr/

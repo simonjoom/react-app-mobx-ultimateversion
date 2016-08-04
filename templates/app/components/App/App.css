@@ -1,0 +1,279 @@
+@import 'animate.css';
+@import 'normalize.css';
+@import "flex-object";
+@import 'basscss';
+@import 'basscss-base-reset';
+@import 'basscss-base-forms';
+@import 'basscss-base-tables';
+@import 'basscss-base-typography';
+@import 'basscss-color-forms';
+@import 'basscss-btn';
+@import 'basscss-btn-outline';
+@import 'basscss-btn-primary';
+@import 'basscss-utility-layout';
+@import 'basscss-responsive-states';
+@import 'basscss-colors';
+@import 'basscss-background-colors';
+@import 'basscss-ui-utility-groups';
+@import '../variables.css';
+
+
+span[type=button] {
+  appearance: none;
+}
+a[type=button] {
+  appearance: none;
+}
+
+/*
+ * Base styles
+ * ========================================================================== */
+
+html {
+  font-weight: 100;
+  font-size: 1em; /* ~16px; */
+  line-height: 1.375; /* ~22px */
+  font-family: Roboto, Helvetica, Arial, sans-serif;
+
+  /* Prevent iOS and IE text size adjust after device orientation change,
+   * without disabling user zoom. */
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  line-height: 1.4;
+}
+
+a {
+  /* Remove the gray background color from active links in IE 10. */
+  background-color: transparent;
+}
+
+a:active,
+a:hover {
+  /* Improve readability of focused elements when they are also in an
+   * active/hover state. */
+  outline: 0;
+}
+
+h1 {
+  margin: 0.67em 0;
+  font-size: 2em;
+}
+/*
+a {
+  color: #0074c2;
+}
+
+
+ * Remove text-shadow in selection highlight:
+ * https://twitter.com/miketaylr/status/12228805301
+ *
+ * These selection rule sets have to be separate.
+ * Customize the background color to match your design.
+
+::-moz-selection {
+  background: #b3d4fc;
+  text-shadow: none;
+}
+
+::selection {
+  background: #b3d4fc;
+  text-shadow: none;
+}
+ */
+/*
+ * A better looking default horizontal rule
+ */
+
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 1em 0;
+  padding: 0;
+}
+
+/*
+ * Remove the gap between audio, canvas, iframes,
+ * images, videos and the bottom of their containers:
+ * https://github.com/h5bp/html5-boilerplate/issues/440
+ */
+
+audio,
+canvas,
+iframe,
+img,
+svg,
+video {
+  vertical-align: middle;
+}
+
+/*
+ * Remove default fieldset styles.
+ */
+
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+/*
+ * Allow only vertical resizing of textareas.
+ */
+
+textarea {
+  resize: vertical;
+}
+
+/*
+ * Browser upgrade prompt
+ * ========================================================================== */
+
+:global(.browserupgrade) {
+  margin: 0.2em 0;
+  background: #ccc;
+  color: #000;
+  padding: 0.2em 0;
+}
+
+/*
+ * Print styles
+ * Inlined to avoid the additional HTTP request:
+ * http://www.phpied.com/delay-loading-your-print-css/
+ * ========================================================================== */
+
+@media print {
+  *,
+  *::before,
+  *::after {
+    background: transparent !important;
+    color: #000 !important; /* Black prints faster: http://www.sanbeiji.com/archives/953 */
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  a,
+  a:visited {
+    text-decoration: underline;
+  }
+
+  a[href]::after {
+    content: ' (' attr(href) ')';
+  }
+
+  abbr[title]::after {
+    content: ' (' attr(title) ')';
+  }
+
+  /*
+   * Don't show links that are fragment identifiers,
+   * or use the `javascript:` pseudo protocol
+   */
+
+  a[href^='#']::after,
+  a[href^='javascript:']::after {
+    content: '';
+  }
+
+  pre,
+  blockquote {
+    border: 1px solid #999;
+    page-break-inside: avoid;
+  }
+
+  /*
+   * Printing Tables:
+   * http://css-discuss.incutio.com/wiki/Printing_Tables
+   */
+
+  thead {
+    display: table-header-group;
+  }
+
+  tr,
+  img {
+    page-break-inside: avoid;
+  }
+
+  img {
+    max-width: 100% !important;
+  }
+
+  p,
+  h2,
+  h3 {
+    orphans: 3;
+    widows: 3;
+  }
+
+  h2,
+  h3 {
+    page-break-after: avoid;
+  }
+}
+
+
+
+
+/* :global
+
+html * {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+*, *:after, *:before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+body {
+  color: #5BC0BE;
+  font-weight: 200;
+  font-size: 100%;
+}
+
+a {
+  font-weight: bold;
+  color: #5BC0BE;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+*/
+
+a:hover,
+a:focus {
+  outline: 0;
+  color: #6FFFE9;
+}
+
+h1, h3, h4 {
+  color: #FFD98E;
+}
+
+img {
+  max-width: 100%;
+}
+
+input, textarea {
+  font-size: 16px;
+  font-size: 1rem;
+}
+
+input::-ms-clear, textarea::-ms-clear {
+  display: none;
+}
+
+.divider {
+  color: #3A506B;
+}
+
+/* COLORS */
+
+._yellow {
+  color: #FFD98E !important;
+}
