@@ -135,12 +135,28 @@ const webpackConfig = {
         test: /\.md$/,
         loader: path.resolve(process.cwd(), './utils/markdown-loader.js'),
       },
+
       {
         test: /\.(png|jpg|jpeg|gif|svg|woff|woff2)$/,
         loader: 'url-loader?limit=10000',
       },
+        {
+            test: /\.woff(\?.*)?$/,
+            loader: 'url?prefix=fonts/&name=[path][name].[ext]&limit=10000&mimetype=application/font-woff'
+        },
+        {
+            test: /\.woff2(\?.*)?$/,
+            loader: 'url?prefix=fonts/&name=[path][name].[ext]&limit=10000&mimetype=application/font-woff2'
+        },
+        {test: /\.otf(\?.*)?$/, loader: 'file?prefix=fonts/&name=[path][name].[ext]&limit=10000&mimetype=font/opentype'},
+        {
+            test: /\.ttf(\?.*)?$/,
+            loader: 'url?prefix=fonts/&name=[path][name].[ext]&limit=10000&mimetype=application/octet-stream'
+        },
+        {test: /\.eot(\?.*)?$/, loader: 'file?prefix=fonts/&name=[path][name].[ext]'},
+        {test: /\.svg(\?.*)?$/, loader: 'url?prefix=fonts/&name=[path][name].[ext]&limit=10000&mimetype=image/svg+xml'},
       {
-        test: /\.(eot|ttf|wav|mp3)$/,
+        test: /\.(wav|mp3)$/,
         loader: 'file-loader',
       },
     ],

@@ -5,6 +5,7 @@ const webpack = require('webpack');
 const webpackMiddleware = require('webpack-middleware')
 const webpackDevMiddleware = require('webpack-dev-middleware')
 
+
 module.exports = config => {
   let count = 0;
   return new Promise(resolve => {
@@ -27,10 +28,12 @@ const webpackMiddl = webpackDevMiddleware(compiler, {
       // For more information visit https://browsersync.io/docs/options
       if (++count === 1) {
         bs.init({
-          port: process.env.PORT || 3000,
-          ui: { port: Number(process.env.PORT || 3000) + 1 },
-          server: {
-            baseDir: 'public',
+         // port: process.env.PORT || 3000,
+         // ui: { port: Number(process.env.PORT || 3000) + 1 },
+         // server: {
+         //   baseDir: 'public',
+         proxy: {
+         target: 'localhost:3000',
             middleware: [
               webpackMiddl,
               require('webpack-hot-middleware')(compiler),

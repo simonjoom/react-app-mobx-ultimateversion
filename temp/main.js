@@ -11,6 +11,9 @@ import {Provider} from 'mobx-react';
 import jsonStringifySafe from 'json-stringify-safe';
 import {toJS} from 'mobx';
 import $store from './store/stores'; // initialize stores
+
+
+
 import {
   addEventListener,
   removeEventListener,
@@ -41,6 +44,9 @@ const context = {
             .appendChild(meta);
     }
 };
+
+
+
 
 function restoreScrollPosition(state) {
     if (state && state.scrollY !== undefined) {
@@ -167,3 +173,7 @@ if (module.hot) {
     render(history.getCurrentLocation());
   });
 }
+
+
+
+
