@@ -8,6 +8,14 @@
     }
   },
   {
+    "path": "/login",
+    "component": "./routes/login"
+  },
+  {
+    "path": "/root",
+    "component": "./routes/root"
+  },
+  {
     "path": "/error",
     "component": "./routes/Error",
     "chunk": "main"

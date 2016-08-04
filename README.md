@@ -1,12 +1,12 @@
 
-# react-app/temp
+# react-app
 forked react-app  with fontawesome + mobx + material-ui
+ 
+in root folder react-app 
+npm run new
+then 'npm run start'
 
-in root folder react-app
-run 
-npm install
-npm run start to deploy developpement
-
+you re done ! 
 see webpack.config.js for configuration
 
 

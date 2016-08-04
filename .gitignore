@@ -9,4 +9,5 @@ tools/npm-debug.log
 *.tgz
 .idea
 # Misc
+temp
 
