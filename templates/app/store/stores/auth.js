@@ -15,23 +15,21 @@ export default class AuthStore {
       : null;
       console.log(window.localStorage)
     // auto-login with jwt
-   // if (token)
+   if (token)
     this.jwtAuth();
   }
 
   @action
   updateUser(data = {}) {
-console.log(data)
-  if(data.token)
-  window.localStorage.setItem('feathers-jwt',data.token);
-let av={email:data.email,username:data.username}
-  this.user = av || {};
+ /* if(data.token)
+  window.localStorage.setItem('feathers-jwt',data.token);*/
+  this.user = data || {};
   }
 
  jwtAuth() {
     return app()
       .authenticate({})
-      .then((result) => this.updateUser(result))
+      .then((result) => this.updateUser(result.user))
       .catch((err) => {
       console.error('errorauth')
       console.error(err)}
@@ -40,6 +38,7 @@ let av={email:data.email,username:data.username}
 
   @computed
   get check() {
+  console.log(_.isEmpty(this.user))
     return !_.isEmpty(this.user);
   }
 
