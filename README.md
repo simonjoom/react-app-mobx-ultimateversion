@@ -53,12 +53,18 @@ sudo nginx (in super user because we listen 80)
 
 * Run server for feathers (watch mode with debug mode authentication)
 
+from ./temp
+
+run:
+
 DEBUG=feathers-authentication:* node bin/server.js  
 
 
-* Finally Run Application
+* Finally Run Application in other console: 
 
-Then run application 'npm start'
+from root (parent of temp folder)
+
+npm start
 
 
 
