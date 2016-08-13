@@ -9,10 +9,15 @@ class UserForm extends Form {
         if (!this.validate()) return;
 
         dispatch('auth.register', this.values())
+        .then((token) => console.log(token))
             .then(() => dispatch('ui.authModal.toggleSection', 'signin'))
             .then(() => dispatch('ui.snackBar.open', 'Register Successful.'))
             .then(() => this.clear())
-            .catch(() => this.invalidate('The user already exist.'));
+            .catch((err) => {
+            console.log(err);
+            this.invalidate('The user already exist.'+err)
+            }
+            );
     }
 }
 

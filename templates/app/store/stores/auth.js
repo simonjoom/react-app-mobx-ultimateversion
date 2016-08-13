@@ -6,27 +6,32 @@ export default class AuthStore {
 
   jwt = null;
 
-  @observable user = {};
+   @observable user = {};
 
   init() {
     // get token from localStorage
-    const token = (process.env.BROWSER)
-      ? window.localStorage.token
+  const token = (process.env.BROWSER)
+      ? window.localStorage.getItem('feathers-jwt')
       : null;
-
+      console.log(window.localStorage)
     // auto-login with jwt
-    if (token) this.jwtAuth({ token });
+   // if (token)
+    this.jwtAuth();
   }
 
   @action
-  updateUser(data = null) {
-    this.user = data || {};
+  updateUser(data = {}) {
+console.log(data)
+  if(data.token)
+  window.localStorage.setItem('feathers-jwt',data.token);
+let av={email:data.email,username:data.username}
+  this.user = av || {};
   }
 
-  jwtAuth({ token }) {
+ jwtAuth() {
     return app()
-      .authenticate({ type: 'token', token })
-      .then((result) => this.updateUser(result.data))
+      .authenticate({})
+      .then((result) => this.updateUser(result))
       .catch((err) => {
       console.error('errorauth')
       console.error(err)}
@@ -41,15 +46,15 @@ export default class AuthStore {
   @action
   loginfb() {
     return app()
-      .authenticate({ type: 'local'})
-      .then((result) => this.updateUser(result.data));
+      .authenticate()
+      .then((result) => this.updateUser(result.user));
   }
 
   @action
   login({ email, password }) {
-    return app()
-      .authenticate({ type: 'local', email, password })
-      .then((result) => this.updateUser(result.data));
+return app()
+      .authenticate({ type: 'local', email, password})
+      .then((result) => this.updateUser(result.user));
   }
 
   @action

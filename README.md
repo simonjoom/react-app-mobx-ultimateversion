@@ -5,28 +5,57 @@ So see the first "react-app"
 # react-app
 forked react-app  with fontawesome + mobx + material-ui + https://github.com/kriasoft/react-app
 
-IN root folder react-app 
-
-npm install
-
-npm run new
 
 
-* Run server for feathers (watch mode)
-node ./bin/server
+1 - install nginx for mac-os
+
+see:
+https://coderwall.com/p/dgwwuq/installing-nginx-in-mac-os-x-maverick-with-homebrew
 
 
-* To Run API for login/system (watch mode) 
-node ./bin/api
+2 - Install app 
 
 
-Then run application 'npm run start'
+IN root folder of react-app
+
+a) npm install (install babel dependencies)
+
+b) npm run new (this install and deps of my application in ./temp)
+
+normally i checked all dependencies
+
+b) install my config with nginx for proxy
+cp -f ./temp/nginx /usr/local/etc/nginx/nginx.conf
+
+add in /etc/hosts :
+
+127.0.0.1       localhost skiscool.com fr.skiscool.com ru.skiscool.com fr.skiscool.com uk.skiscool.com pt.skiscool.com skiscool.eu
+
+like that we link all my server to localhost 
+
+to check the port running it's in config file .env in ./temp
+
+3 Run APP:
 
 
+First run nginx simply:
+
+sudo nginx (in super user because we listen 80)
+
+
+* Run server for feathers (watch mode with debug mode authentication)
+
+DEBUG=feathers-authentication:* node bin/server.js  
+
+
+* Finally Run Application
+
+Then run application 'npm start'
 
 
 
 you re done ! (no need install after new the scalfolding react-app will do for you).
+
 see webpack.config.js for configuration
 
 

@@ -31,7 +31,7 @@ const handleLogout = (e) => {
 };
 
 const UserSubMenu = () => {
-    const ul = cx(list-reset, mb0);
+    const ul = cx('list-reset','mb0');
     return (
         <ul className={ul}>
             <li>

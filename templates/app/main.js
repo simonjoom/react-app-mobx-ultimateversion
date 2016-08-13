@@ -1,6 +1,4 @@
-import 'whatwg-fetch';
 import ReactDOM from 'react-dom';
-
 import router from './core/router';
 import history from './core/history';
 import App from './components/App';
@@ -11,12 +9,17 @@ import {Provider} from 'mobx-react';
 import jsonStringifySafe from 'json-stringify-safe';
 import {toJS} from 'mobx';
 import $store from './store/stores'; // initialize stores
+import login from './routes/login';
+
+
 import {
   addEventListener,
   removeEventListener,
   windowScrollX,
   windowScrollY,
 } from './core/DOMUtils';
+
+//import 'whatwg-fetch';
 
 let routes = require('./routes.json'); // Loaded with utils/routes-loader.js
 const MOUNT_NODE = document.getElementById('root');
@@ -41,6 +44,9 @@ const context = {
             .appendChild(meta);
     }
 };
+
+
+
 
 function restoreScrollPosition(state) {
     if (state && state.scrollY !== undefined) {
@@ -110,13 +116,16 @@ function render(location) {
       });
     }
     currentLocation = location;
-
+if(/auth.*/.test(location.pathname)) {
+// renderComponent(<login/>);
+ }else{
+ console.log('render')
 // if (location.pathname !== currentLocation){
   router.resolve(routes, location)
     .then(renderComponent)
     .catch(error => router.resolve(routes, { ...location, error }).then(renderComponent));
   //  }
-
+}
   // currentLocation = location.pathname;
 }
 
@@ -125,8 +134,8 @@ function createApp(history) {
 currentLocation = history.getCurrentLocation();
 
 const removeHistoryListener = history.listen(render);
-//render(currentLocation);
-history.replace(currentLocation);
+render(currentLocation);
+//history.replace(currentLocation);
 
  let originalScrollRestoration;
     if (window.history && 'scrollRestoration' in window.history) {
@@ -167,3 +176,7 @@ if (module.hot) {
     render(history.getCurrentLocation());
   });
 }
+
+
+
+

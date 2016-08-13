@@ -52,7 +52,7 @@ return _.map(_.toPlainObject(appstat),function(val,key) {
               </div>
               <div className="sm-col-12 p4">
                 <i className="mb3 fa fa-bolt" />
-                <br /> Blazing fast Real Time by Feathers
+                <br /> Blazing fast Real Time by
               </div>
               <div className="sm-col-12 p4">
                 <i className="mb3 fa fa-arrows-h" />
