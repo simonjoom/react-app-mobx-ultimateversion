@@ -1,0 +1,7 @@
+.editorconfig
+.jshintrc
+.babelrc
+.idea/
+src/
+test/
+!lib/
