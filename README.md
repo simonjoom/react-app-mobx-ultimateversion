@@ -35,8 +35,16 @@ like that we link all my server to localhost
 
 to check the port running it's in config file .env in ./temp
 
-3 Run APP:
 
+
+IMPORTANT:
+delete the feathers-authentication installed in ./temp/node_modules/ and replace by mine (i did some little hack to make the new work with my config)
+unzip ./temp/feathers-authentication.zip to ./temp/node_modules/
+
+
+
+
+3 Run APP:
 
 First run nginx simply:
 
@@ -54,7 +62,7 @@ Then run application 'npm start'
 
 
 
-you re done ! (no need install after new the scalfolding react-app will do for you).
+You re done ! (no need install after new the scalfolding react-app will do for you).
 
 see webpack.config.js for configuration
 
