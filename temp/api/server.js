@@ -24,9 +24,10 @@ setupServicesAutoload({
   adapter,
   connector,
 });
+const app = feathers();
+app.configure(configuration(path.join(__dirname,'..')));
 
-
-const app = feathers().configure(configuration(path.join(__dirname,'/config'), 'feathers'));
+//const app = feathers().configure(configuration(path.join(__dirname,'/config'), 'feathers'));
 
 
 app.use(cors({credentials: true,allowedOrigins: [

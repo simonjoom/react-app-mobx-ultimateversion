@@ -15,11 +15,15 @@ npm run new
 * Run server for feathers (watch mode)
 node ./bin/server
 
+
+* To Run API for login/system (watch mode) 
+node ./bin/api
+
+
 Then run application 'npm run start'
 
 
-* To Run API (watch mode)
-node ./bin/api
+
 
 
 you re done ! (no need install after new the scalfolding react-app will do for you).

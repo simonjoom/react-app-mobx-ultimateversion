@@ -30,6 +30,7 @@ const exposevar = {
 }
 
 const configvar={
+    '__resourceQuery': '"?path=http://fr.skiscool.com:3001/__webpack_hmr"',
       'process.env.NODE_ENV': debug ? '"development"' : '"production"',
       __DEV__: debug,
     }
@@ -57,7 +58,7 @@ const config = {
   },
 
   // Switch loaders to debug or release mode
-  debug,
+  debug:debug,
 
   // Developer tool to enhance debugging, source maps
   // http://webpack.github.io/docs/configuration.html#devtool
@@ -87,7 +88,7 @@ const config = {
     // Emit a JSON file with assets paths
     // https://github.com/sporto/assets-webpack-plugin#options
 
-    new CopyWebpackPlugin([{from: 'assets', to: ''}]),
+    new CopyWebpackPlugin([{from: 'assets', to:''}]),
     new AssetsPlugin({
       path: path.resolve(process.cwd(), './public/dist'),
       filename: 'assets.json',

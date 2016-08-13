@@ -12,6 +12,8 @@ import TextField from 'material-ui/TextField';
 
 //const AuthModal = ({ form }) => {
 
+
+
 @observer(['context'])
 class AuthModal extends React.Component {
     constructor(props) {
@@ -26,7 +28,7 @@ class AuthModal extends React.Component {
 
 <div className="col-8 px2 mx-auto">
 
-<Link className="btn btn-lg btn-fb block" to="/auth/facebook" onClick={form.handleOnSubmit} hoverColor="#8AA62F" icon={<i className="mb3 fa fa-login" />} >
+<Link className="btn btn-lg btn-fb block" to="/auth/facebook" onClick={form.loginfb} hoverColor="#8AA62F" icon={<i className="mb3 fa fa-login" />} >
 <div className="mb3"><i className="fa fa-facebook left"></i>Login with Facebook</div></Link>
 
 <Link className="btn btn-lg btn-fb block" to="/auth/instagram" >

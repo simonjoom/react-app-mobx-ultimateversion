@@ -86,7 +86,7 @@ class App extends Component {
                     <Header />
 
                 </AppNav>
-                { isDev ? <DevTools position={{ bottom: 0, right: '20px' }}/> : null }
+                { isDev ? <DevTools position={{ bottom: 0, right: '10px' }}/> : null }
 
                 <Paper zDepth={1}
                        className={cx({ [styles.su]: ui.layoutIsShifted },{'m0':breakpoints.xs,'m1':breakpoints.su,'m2':breakpoints.mu})}>

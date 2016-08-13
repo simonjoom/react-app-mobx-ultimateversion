@@ -10,22 +10,20 @@ const InstagramTokenStrategy = require('passport-instagram-token');
 
 //const GoogleStrategy = require('passport-google-oauth20').Strategy;
 //const GoogleTokenStrategy = require('passport-google-token').Strategy;
-
 export default function () {
   const app = this;
 
-  const config = app.get('auth');
+  var token = authentication.TokenService;
+  var local = authentication.LocalService;
 
 
-  config.facebook.strategy = FacebookStrategy;
+  /*config.facebook.strategy = FacebookStrategy;
   config.facebook.tokenStrategy = FacebookTokenStrategy;
   config.instagram.strategy = InstagramStrategy;
-  config.instagram.tokenStrategy = InstagramTokenStrategy;
+  config.instagram.tokenStrategy = InstagramTokenStrategy;*/
   //config.google.strategy = GoogleStrategy;
   //config.google.tokenStrategy = GoogleTokenStrategy;
 
-
-  app.set('auth', config);
-  app.configure(authentication(config));
+  app.configure(authentication({cookies: {enable:true}})).configure(token()).configure(local())
 }
 

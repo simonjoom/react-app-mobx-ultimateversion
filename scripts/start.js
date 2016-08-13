@@ -11,6 +11,13 @@ module.exports = config => {
   return new Promise(resolve => {
     const bs = require('browser-sync').create();
     const compiler = webpack(config.webpack);
+     const middlewarecross =function (req, res, next) {
+            res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader('Access-Control-Allow-Credentials', true);
+  res.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+            next();
+        }
+
 if (!process.env.template){
 const webpackMiddl = webpackDevMiddleware(compiler, {
       publicPath: config.webpack.output.publicPath,
@@ -28,12 +35,14 @@ const webpackMiddl = webpackDevMiddleware(compiler, {
       // For more information visit https://browsersync.io/docs/options
       if (++count === 1) {
         bs.init({
+       // host: "fr.skiscool.com",
          // port: process.env.PORT || 3000,
          // ui: { port: Number(process.env.PORT || 3000) + 1 },
          // server: {
          //   baseDir: 'public',
          proxy: {
          target: 'localhost:3000',
+        ws: true,
             middleware: [
               webpackMiddl,
               require('webpack-hot-middleware')(compiler),
@@ -66,6 +75,7 @@ const webpackMiddl = webpackDevMiddleware(compiler, {
          target: 'localhost:3000',
         // baseDir: 'public',
             middleware: [
+            middlewarecross,
               webpackMiddl,
               require('webpack-hot-middleware')(compiler),
               //require('connect-history-api-fallback')(),
