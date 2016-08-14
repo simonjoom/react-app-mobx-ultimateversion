@@ -9,7 +9,7 @@
   },
   {
     "path": "/login",
-    "component": "./routes/login"
+    "component": "./routes/Login"
   },
   {
     "path": "/root",

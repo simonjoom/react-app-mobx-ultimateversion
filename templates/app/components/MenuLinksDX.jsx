@@ -25,6 +25,11 @@ const handleAuthModalSignup = (e) => {
     dispatch('ui.authModal.toggle', 'open', 'signup');
 };
 
+const handleProfile = (e) => {
+    e.preventDefault();
+    dispatch('auth.logout');
+};
+
 const handleLogout = (e) => {
     e.preventDefault();
     dispatch('auth.logout');
@@ -35,7 +40,7 @@ const UserSubMenu = () => {
     return (
         <ul className={ul}>
             <li>
-                <Link to="/Profile" key="1" hoverColor="#c2c22F" icon={<i className="mb3 fa fa-user" />}>Profile</Link>
+                <Link to="/Profile" key="1" hoverColor="#c2c22F" onClick={handleProfile} icon={<i className="mb3 fa fa-user" />}>Profile</Link>
             </li>
             <li>
                 <Link to="/Settings" key="2" hoverColor="#c2c22F"
@@ -88,7 +93,7 @@ const MenuLinksDX = ({user, inline, authCheck, accountMenuIsOpen}) => (
           [styles.registerBtn]: inline,
           'inline-block': inline,
           'block': !inline,
-        })} key="2"><i className="mb3 fa fa-sign-up"/> Register</Link2>
+        })} key="2" icon={<i className="mb3 fa fa-sign-up"/>}> Register</Link2>
 
     </If>
   </span>

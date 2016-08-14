@@ -58,7 +58,7 @@ const config = {
   },
 
   // Switch loaders to debug or release mode
-  debug:debug,
+  debug,
 
   // Developer tool to enhance debugging, source maps
   // http://webpack.github.io/docs/configuration.html#devtool

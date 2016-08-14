@@ -10,20 +10,17 @@ export default class AuthStore {
 
   init() {
     // get token from localStorage
-  const token = (process.env.BROWSER)
-      ? window.localStorage.getItem('feathers-jwt')
-      : null;
       console.log(window.localStorage)
     // auto-login with jwt
-   if (token)
+   //if (window.localStorage.getItem('feathers-jwt'))
     this.jwtAuth();
   }
 
   @action
   updateUser(data = {}) {
- /* if(data.token)
-  window.localStorage.setItem('feathers-jwt',data.token);*/
-  this.user = data || {};
+  if(data.token)
+  window.localStorage.setItem('feathers-jwt',data.token);
+  this.user = data.facebook ||data || {};
   }
 
  jwtAuth() {
@@ -38,7 +35,6 @@ export default class AuthStore {
 
   @computed
   get check() {
-  console.log(_.isEmpty(this.user))
     return !_.isEmpty(this.user);
   }
 
