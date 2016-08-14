@@ -12,6 +12,10 @@
     "component": "./routes/Login"
   },
 {
+    "path": "/contact",
+    "component": "./routes/contact"
+  },
+{
     "path": "/profile",
     "component": "./routes/Profile"
   },
