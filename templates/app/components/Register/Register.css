@@ -1,0 +1,21 @@
+@import '../variables.css';
+.container {
+  margin: 0 auto;
+  padding: 0 0 40px;
+  max-width: 380px;
+}
+
+.lead {
+  font-size: 1.25em;
+}
+
+.formGroup {
+  margin-bottom: 15px;
+}
+
+.label {
+  display: inline-block;
+  margin-bottom: 5px;
+  max-width: 100%;
+  font-weight: 700;
+}

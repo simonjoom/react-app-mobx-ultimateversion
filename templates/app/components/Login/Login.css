@@ -1,0 +1,56 @@
+@import '../variables.css';
+
+.container {
+  margin: 0 auto;
+  padding: 0 0 40px;
+  max-width: 380px;
+}
+
+.lead {
+  font-size: 1.25em;
+}
+
+.formGroup {
+  margin-bottom: 15px;
+}
+
+.label {
+  display: inline-block;
+  margin-bottom: 5px;
+  max-width: 100%;
+  font-weight: 700;
+}
+
+.lineThrough {
+  position: relative;
+  z-index: 1;
+  display: block;
+  margin-bottom: 15px;
+  width: 100%;
+  color: #757575;
+  text-align: center;
+  font-size: 80%;
+}
+
+.lineThrough::before {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: -1;
+  margin-top: -5px;
+  margin-left: -20px;
+  width: 40px;
+  height: 10px;
+  background-color: #fff;
+  content: '';
+}
+
+.lineThrough::after {
+  position: absolute;
+  top: 49%;
+  z-index: -2;
+  display: block;
+  width: 100%;
+  border-bottom: 1px solid #ddd;
+  content: '';
+}
