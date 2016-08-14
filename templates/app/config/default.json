@@ -20,17 +20,23 @@
   },
   "auth": {
 	"token": {
-		"secret": "JNoSF4uRkGB1zhccVkpX3ulB/1KErbj/tuhCTY0dkpVNyYTU8bJiNC4ErCUK4sDSe/YMjuC0kqtlYnWuK8tHsQ=="
+		"secret": "JNoSF4uRkGB1zhccVkpX3ulB/1KErbj/tuhCTY0dkpVNyYTU8bJiNC4ErCUK4sDSe/YMjuC0kqtlYnWuK8tHsQ==",
+"successRedirect": "/profile",
+  		"failureRedirect": "/",
 		},
 	"user": {
     		"idField": "uuid",
-    		"endpoint": "/user"
+    		"endpoint": "/user",
+		"successRedirect": "/profile",
+  		"failureRedirect": "/",
 		},
     	"facebook": {
 		"endpoint":"/auth/facebook",
 		"callbackSuffix":"callback",
       		"clientID": "562112907171338",
       		"clientSecret": "f3750cc751c48b20d895003a173d6f0f",
+		"successRedirect": "/profile",
+  		"failureRedirect": "/",
 "permissions": {
         "scope": ["public_profile", "email"]
       },

@@ -11,6 +11,10 @@
     "path": "/login",
     "component": "./routes/Login"
   },
+{
+    "path": "/profile",
+    "component": "./routes/Profile"
+  },
   {
     "path": "/root",
     "component": "./routes/root"
