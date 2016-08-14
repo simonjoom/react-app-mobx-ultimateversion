@@ -9,8 +9,6 @@ import {Provider} from 'mobx-react';
 import jsonStringifySafe from 'json-stringify-safe';
 import {toJS} from 'mobx';
 import $store from './store/stores'; // initialize stores
-import login from './routes/login';
-
 
 import {
   addEventListener,
