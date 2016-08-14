@@ -21,14 +21,14 @@
   "auth": {
 	"token": {
 		"secret": "JNoSF4uRkGB1zhccVkpX3ulB/1KErbj/tuhCTY0dkpVNyYTU8bJiNC4ErCUK4sDSe/YMjuC0kqtlYnWuK8tHsQ==",
-"successRedirect": "/profile",
-  		"failureRedirect": "/",
+		"successRedirect": "/profile",
+  		"failureRedirect": "/"
 		},
 	"user": {
     		"idField": "uuid",
     		"endpoint": "/user",
 		"successRedirect": "/profile",
-  		"failureRedirect": "/",
+  		"failureRedirect": "/"
 		},
     	"facebook": {
 		"endpoint":"/auth/facebook",
@@ -37,7 +37,7 @@
       		"clientSecret": "f3750cc751c48b20d895003a173d6f0f",
 		"successRedirect": "/profile",
   		"failureRedirect": "/",
-"permissions": {
+		"permissions": {
         "scope": ["public_profile", "email"]
       },
       "profileFields": ["id", "displayName", "photos", "email", "first_name", "last_name", "age_range"]
