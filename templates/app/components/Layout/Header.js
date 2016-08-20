@@ -8,9 +8,10 @@
  */
 
 import React from 'react';
-import Navigation from './Navigation';
+import Navig from './Navigation';
 import Link from '../Link';
 import s from './Header.css';
+
 
 function Header() {
   return (
@@ -19,7 +20,7 @@ function Header() {
         <Link className={s.title} to="/">
           React App <strong>Starter Kit</strong>
         </Link>
-        <Navigation />
+        <Navig />
       </div>
     </header>
   );

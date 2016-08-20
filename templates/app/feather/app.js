@@ -40,31 +40,47 @@ const mycors=cors({credentials: true,allowedOrigins: [
   var token = authentication.TokenService;
   var local = authentication.LocalService;
 var oauth2 = authentication.OAuth2Service;
-
+let lang='en';
 const FacebookStrategy = require('passport-facebook').Strategy;
 const FacebookTokenStrategy = require('passport-facebook-token');
 const InstagramStrategy = require('passport-instagram').Strategy;
 const InstagramTokenStrategy = require('passport-instagram-token');
 
-console.log(app.get('auth'))
 var providerOptions = Object.assign({ provider: 'facebook',strategy:FacebookStrategy,tokenStrategy:FacebookTokenStrategy}, app.get('auth').facebook);
  var options = Object.assign({}, providerOptions);
+
+app.all('*', function (req, res, next) {
+console.log(req)
+if (req.query.lang)
+lang=req.query.lang;
+
+  next();
+});
 
 app.use(compress())
 //cors is done by nginx
    // .options('*', cors())
-   // .use(cors())
    // .use(favicon(path.join(app.get('public'), 'favicon.ico')))
 
     .configure(rest())
-    .configure(socketio())
+   .configure(socketio(
+   function(io) {
+io.on('connection', function(socket) {
+ socket.on('setlang', function(data) {
+    lang=data;
+    });
+    socket.on('lang', function(data,func) {
+    func(lang)
+    });
+})
+}))
     .configure(hooks())
     .use(bodyParser.json())
     .use(bodyParser.urlencoded({extended: true}))
 .configure(authentication({cookies: {enable:true}})).configure(token()).configure(local()).configure(oauth2(options))
  // .configure(auth)
   .configure(initServicesAutoload).use('/', serveStatic(app.get('public')))
-    .configure(middleware);
+    .configure(middleware)
 
 app.on('login', function(data) {
   console.log('User logged in', data);

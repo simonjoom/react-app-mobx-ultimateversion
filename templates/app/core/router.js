@@ -1,3 +1,11 @@
+/**
+ * React App SDK (https://github.com/kriasoft/react-app)
+ *
+ * Copyright © 2015-present Kriasoft, LLC. All rights reserved.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE.txt file in the root directory of this source tree.
+ */
 
 import React from 'react';
 
@@ -43,37 +51,35 @@ function resolve(routes, context) {
   for (const route of routes) {
     const params = matchURI(route, context.error ? '/error' : context.pathname);
 
-    if (!params) {
-      continue;
-    }
+    if (params) {
+      // Check if the route has any data requirements, for example:
+      //
+      //   {
+      //     path: '/tasks/:id',
+      //     data: { task: 'GET /api/tasks/$id' },
+      //     component: './routes/TaskDetails'
+      //   }
+      //
+      if (route.data) {
+        // Load route component and all required data in parallel
+        const keys = Object.keys(route.data);
+        return Promise.all([
+          route.load(),
+          ...keys.map(key => {
+            const query = route.data[key];
+            const method = query.substring(0, query.indexOf(' ')); // GET
+            const url = query.substr(query.indexOf(' ') + 1);      // /api/tasks/$id
+            // TODO: Replace query parameters with actual values coming from `params`
+            return fetch(url, { method }).then(resp => resp.json());
+          }),
+        ]).then(([Component, ...data]) => {
+          const props = keys.reduce((result, key, i) => ({ ...result, [key]: data[i] }), {});
+          return <Component route={route} error={context.error} {...props} />;
+        });
+      }
 
-    // Check if the route has any data requirements, for example:
-    //
-    //   {
-    //     path: '/tasks/:id',
-    //     data: { task: 'GET /api/tasks/$id' },
-    //     component: './routes/TaskDetails'
-    //   }
-    //
-    if (route.data) {
-      // Load route component and all required data in parallel
-      const keys = Object.keys(route.data);
-      return Promise.all([
-        route.load(),
-        ...keys.map(key => {
-          const query = route.data[key];
-          const method = query.substring(0, query.indexOf(' ')); // GET
-          const url = query.substr(query.indexOf(' ') + 1);      // /api/tasks/$id
-          // TODO: Replace query parameters with actual values coming from `params`
-          return fetch(url, { method }).then(resp => resp.json());
-        }),
-      ]).then(([Component, ...data]) => {
-        const props = keys.reduce((result, key, i) => ({ ...result, [key]: data[i] }), {});
-        return <Component route={route} error={context.error} {...props} />;
-      });
+      return route.load().then(Component => <Component route={route} error={context.error} />);
     }
-
-    return route.load().then(Component => <Component route={route} error={context.error} />);
   }
 
   const error = new Error('Page not found');

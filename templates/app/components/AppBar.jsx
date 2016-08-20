@@ -6,6 +6,7 @@ import {observer} from "mobx-react";
 // components
 import MenuLinksSX from './MenuLinksSX.jsx';
 import MenuLinksDX from './MenuLinksDX.jsx';
+import Flag from './Flag.jsx';
 
 // styles
 import styles from '../styles/app.bar.css';
@@ -38,6 +39,7 @@ function AppBar({authCheck, user, accountMenuIsOpen, layoutIsShifted}) {
                 <MenuLinksSX styles/>
             </div>
             <div className="right">
+            <Flag/>
                 <div className="inline-block">
                     <div className="relative">
                         <MenuLinksDX inline

@@ -11,8 +11,8 @@ class LoginPage extends React.Component {
     history.goBack();
   };
 
-render() {
- return (
+  render() {
+    return (
  <Layout className={s.content}>
    <h1>{title}</h1>
   <Login />

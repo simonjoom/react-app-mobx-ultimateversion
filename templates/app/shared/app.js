@@ -18,7 +18,7 @@ const socket = io(host);
 
 export function app() {
   if (instance) return instance;
-
+console.log('runapp');
   instance = feathers()
   .configure(socketio(socket))
   .configure(hooks())
@@ -31,14 +31,7 @@ export function app() {
       tokenKey: 'token',
       cookie: 'token'
     }))*/
-/*
-instance.authenticate({
-  type: 'local',
-  'email': 'admin@feathersjs.com',
-  'password': 'admin'
-}).then(function(result){
-console.log("test")
-})*/
+
 
   return instance;
 }

@@ -1,0 +1,39 @@
+[
+  {
+    "path": "/",
+    "component": "./routes/Home",
+    "chunk": "main",
+    "data": {
+      "articles": "GET https://gist.githubusercontent.com/koistya/a32919e847531320675764e7308b796a/raw/articles.json"
+    }
+  },
+  {
+    "path": "/login_ru",
+    "component": "./routes/Login"
+  },
+{
+    "path": "/contact_ru",
+    "component": "./routes/contact"
+  },
+{
+    "path": "/profile",
+    "component": "./routes/Profile"
+  },
+  {
+    "path": "/root_ru",
+    "component": "./routes/root"
+  },
+  {
+    "path": "/error",
+    "component": "./routes/Error",
+    "chunk": "main"
+  },
+  {
+    "path": "/get-started_ru",
+    "component": "./routes/GetStarted"
+  },
+  {
+    "path": "/tasks/:status(pending|completed)?",
+    "component": "./routes/Home"
+  }
+]

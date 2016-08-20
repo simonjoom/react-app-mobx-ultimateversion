@@ -15,11 +15,11 @@ const Login = observer((context) => {
       <div className={s.container}>
         <p className={s.lead}>Log in with your username or company email address.</p>
 
-<Link className={s.facebook} to="/auth/facebook" key="1" width="100%" marginBottom="15" padding="5" hoverColor="#2d4373" backgroundColor="#3b5998" label="Log in with Facebook" icon={<i className="h1 fa fa-facebook" />}/>
+<Link className={s.facebook} to="/auth/facebook" onClick={form.loginauth2} key="1" width="100%" marginBottom="15" padding="5" hoverColor="#2d4373" backgroundColor="#3b5998" label="Log in with Facebook" icon={<i className="h1 fa fa-facebook" />}/>
 
-<Link className={s.google} to="/auth/google" key="2" width="100%" marginBottom="15" padding="5" hoverColor="#c23321" backgroundColor="#dd4b39" label="Log in with Google" icon={<i className="h1 fa fa-google" />}/>
+<Link className={s.google} to="/auth/google" onClick={form.loginauth2} key="2" width="100%" marginBottom="15" padding="5" hoverColor="#c23321" backgroundColor="#dd4b39" label="Log in with Google" icon={<i className="h1 fa fa-google" />}/>
 
-<Link className={s.twitter} to="/auth/twitter" key="3" width="100%" marginBottom="15" padding="5" hoverColor="#2795e9" backgroundColor="#55acee" label="Log in with twitter" icon={<i className="h1 fa fa-twitter" />}/>
+<Link className={s.twitter} to="/auth/twitter" onClick={form.loginauth2} key="3" width="100%" marginBottom="15" padding="5" hoverColor="#2795e9" backgroundColor="#55acee" label="Log in with twitter" icon={<i className="h1 fa fa-twitter" />}/>
 
         <Divider />
         <span className="h1">OR</span>

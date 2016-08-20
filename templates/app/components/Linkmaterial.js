@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import history from '../core/history';
 import FlatButton from 'material-ui/FlatButton';
+var _ = require('lodash');
 
 function isLeftClickEvent(event) {
   return event.button === 0;
@@ -12,7 +13,15 @@ function isModifiedEvent(event) {
 const padding_def="5";
 const margin_def="0";
 class Link extends Component { // eslint-disable-line react/prefer-stateless-function
-
+constructor(props) {
+        super(props);
+this.toward="/";
+_.map(window.__routes__,(val,key)=> {
+if (val.component=="./routes/"+this.props.to){
+this.toward=val.path;return;
+}
+});
+    }
   static propTypes = {
     to: PropTypes.oneOfType([PropTypes.string, PropTypes.object]).isRequired,
     onClick: PropTypes.func,
@@ -47,8 +56,8 @@ class Link extends Component { // eslint-disable-line react/prefer-stateless-fun
     }
 
     event.preventDefault();
-      if (this.props.to) {
-        history.push(this.props.to);
+      if (this.toward) {
+        history.push(this.toward);
       } else {
         history.push({
           pathname: event.currentTarget.pathname,
@@ -62,9 +71,9 @@ class Link extends Component { // eslint-disable-line react/prefer-stateless-fun
   delete myprops.marginTop;
   delete myprops.marginBottom;
   delete myprops.padding;
-    const { to, ...props } = this.props; // eslint-disable-line no-use-before-define
-
-    return <FlatButton href={history.createHref(to)} {...myprops} onClick={this.handleClick} style={this.Mystyle()}/>
+    const {to, ...props } = this.props; // eslint-disable-line no-use-before-define
+const toward=this.toward;
+    return <FlatButton href={history.createHref(toward)} {...myprops} onClick={this.handleClick} style={this.Mystyle()}/>
   }
 
 }

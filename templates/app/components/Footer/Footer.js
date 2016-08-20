@@ -7,9 +7,9 @@ function Footer() {
             <div className={s.container}>
                 <span className={s.text}>© Your Company</span>
                 <span className={s.spacer}>·</span>
-                <Link className={s.link} to="/">Home</Link>
+                <Link className={s.link} to="Home">Home</Link>
                 <span className={s.spacer}>·</span>
-                <Link className={s.link} to="/root">root</Link>
+                <Link className={s.link} to="root">root</Link>
                 <span className={s.spacer}>·</span>
                 <Link className={s.link} to="/privacy">Privacy</Link>
                 <span className={s.spacer}>·</span>

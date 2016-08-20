@@ -15,12 +15,7 @@ import Toggle from 'material-ui/Toggle';
 import AppBar from '../AppBar';
 import AppNav from '../AppNav';
 import AuthModal from '../AuthModal';
-//import MenuLinksSX from '../MenuLinksSX';
-//import MenuLinksDX from '../MenuLinksDX';
 
-// forms
-import authForm from '../forms/auth';
-import userForm from '../forms/user';
 
 // global styles
 //import '../styles/_.global.css';
@@ -30,7 +25,6 @@ import styles from '../../styles/app.layout.css';
 
 const handleThemeToggle = () => {
     dispatch('ui.theme.toggleTheme');
-    //dispatch('ui.theme.switchMui');
 };
 
 
@@ -43,6 +37,7 @@ class App extends Component {
             muiTheme: PropTypes.object.isRequired
         }).isRequired,
         appstate: PropTypes.object.isRequired,
+        breakpoints:PropTypes.object.isRequired,
         children: PropTypes.element.isRequired,
         error: PropTypes.object,
     };
@@ -72,13 +67,12 @@ class App extends Component {
     }
 
     render() {
-
         const {ui, auth} = this.props.appstate;
         const isDev = true;
         console.log(typeof window === 'object' ? 'client-side' : 'server-side');
-        const breakpoints = ui.breakpoints;
+        const breakpoints=this.props.breakpoints;
         return (
-            <MatchMediaProvider breakpoints={breakpoints}>
+        <div>
                 <AppNav
                     open={ui.appNav.isOpen}
                     docked={ui.appNav.isDocked}
@@ -120,12 +114,8 @@ class App extends Component {
                 <AuthModal
                     open={ui.authModal.isOpen}
                     showSection={ui.authModal.showSection}
-                    forms={{
-            login     : authForm,
-            register  : userForm,
-          }}
                 />
-            </MatchMediaProvider>
+            </div>
         );
     }
 

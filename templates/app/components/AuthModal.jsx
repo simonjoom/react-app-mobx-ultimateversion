@@ -7,8 +7,8 @@ import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
 import TextField from 'material-ui/TextField';
 
-import AuthFormLogin from './AuthFormLogin.jsx';
-import AuthFormRegister from './AuthFormRegister.jsx';
+import AuthFormLogin from './Login';
+import AuthFormRegister from './Register';
 
 // styles
 import modalBaseStyle from '../styles/_.modal.js';
@@ -31,11 +31,11 @@ const handleShowSignupSection = () =>
     dispatch('ui.authModal.toggleSection', 'signup');
 
 
-const AuthModal2 = ({open, showSection, forms}) => {
+const AuthModal2 = ({open, showSection}) => {
 
     return (
         <Dialog
-            title="Register or Login"
+            title="Register / Login"
             modal={false}
             open={open}
             contentStyle={styles}
@@ -46,32 +46,30 @@ const AuthModal2 = ({open, showSection, forms}) => {
                     <FlatButton
                         label="Login"
                         primary={true}
+                        keyboardFocused={true}
                         onClick={handleShowSigninSection}
                         className={cx(buttonGroup,'rounded-left', {
             'btn-primary': showSection === 'signin',
-            'btn-outline': showSection !== 'signin',
-          })}
+            'btn-outline': showSection !== 'signin'})}
                     />
                     <FlatButton
                         label="Register"
-                        primary={true}
-                        keyboardFocused={true}
+                        primary={false}
                         className={cx(buttonGroup,'rounded-right', {
             'btn-primary': showSection === 'signup',
-            'btn-outline': showSection !== 'signup',
-          })}
+            'btn-outline': showSection !== 'signup'})}
                         onClick={handleShowSignupSection}
                     />
                 </div>
             </div>
             <div className={cx(authSection, {'hide' : showSection !== 'signin' })}>
                 <h3>Login</h3>
-                <AuthFormLogin form={forms.login}/>
+                <AuthFormLogin />
             </div>
 
             <div className={cx(authSection, {'hide': showSection !== 'signup' })}>
                 <h3>Register</h3>
-                <AuthFormRegister form={forms.register}/>
+                <AuthFormRegister />
             </div>
         </Dialog>
     );
@@ -79,7 +77,6 @@ const AuthModal2 = ({open, showSection, forms}) => {
 
 AuthModal2.propTypes = {
     open: React.PropTypes.bool,
-    forms: React.PropTypes.object,
     showSection: React.PropTypes.string,
 };
 

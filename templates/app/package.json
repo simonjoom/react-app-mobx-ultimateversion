@@ -48,6 +48,7 @@
     "history": "^3.0.0",
     "less": "^2.7.1",
     "material-ui": "^0.15.3",
+    "material-ui-country-flags": "^3.0.1",
     "mobx": "^2.4.1",
     "mobx-ajv-form": "^1.7.1",
     "mobx-react": "^3.5.3",

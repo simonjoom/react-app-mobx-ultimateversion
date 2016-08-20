@@ -6,9 +6,11 @@ import FastClick from 'fastclick';
 import {readState, saveState} from 'history/lib/DOMStateStorage';
 import {AppContainer} from 'react-hot-loader'
 import {Provider} from 'mobx-react';
+import {MatchMediaProvider} from 'mobx-react-matchmedia';
 import jsonStringifySafe from 'json-stringify-safe';
 import {toJS} from 'mobx';
 import $store from './store/stores'; // initialize stores
+import { app, service } from '~/temp/shared/app';
 
 import {
   addEventListener,
@@ -18,9 +20,35 @@ import {
 } from './core/DOMUtils';
 
 //import 'whatwg-fetch';
+let routes;
+window.__routesen__ =require("./routes.json");
+window.__routesfr__ =require("./routes_fr.json");
+window.__routesru__ =require("./routes_ru.json");
+window.__routesuk__ =require("./routes_uk.json");
+window.__routespt__ =require("./routes_pt.json");
+let data=window.location.hostname;
+console.log(process.env['SITEFR'])
+ if (data==process.env['SITEFR']){
+ routes = window.__routesfr__;
+window.__lang__='fr';
+}else if (data==process.env['SITEPT']){
+ routes =window.__routespt__;
+ window.__lang__='pt';
+}else if (data==process.env['SITERU']){
+ routes =window.__routesru__;
+window.__lang__='ru';
+}else if (data==process.env['SITEUK']){
+ routes =window.__routesuk__;
+window.__lang__='uk';
+}else{
+ routes =window.__routesen__;
+window.__lang__='en';
+}
+ window.__routes__=routes;
 
-let routes = require('./routes.json'); // Loaded with utils/routes-loader.js
+
 const MOUNT_NODE = document.getElementById('root');
+
 let currentLocation;
 const context = {
     muiTheme: {},
@@ -43,8 +71,21 @@ const context = {
     }
 };
 
+let initialState = {
+  app: { },
+  ui: {
+  theme: {mui: {}}
+  }
+  }
 
 
+const store = $store.set(initialState);
+window.__STORE=store;
+
+
+
+
+// Loaded with utils/routes-loader.js
 
 function restoreScrollPosition(state) {
     if (state && state.scrollY !== undefined) {
@@ -65,16 +106,6 @@ let renderComplete = (s) => {
     };
 
 
-let initialState = {
-  app: { },
-  ui: {
-  theme: {mui: {}}
-  }
-  }
-
-
-const store = $store.set(initialState);
-window.__STORE=store;
 
 function renderComponent(component) {
 let setinjectTapEventPlugin=true;
@@ -88,10 +119,13 @@ let setinjectTapEventPlugin=true;
     if (setinjectTapEventPlugin) {
         store.ui.myinjectTapEventPlugin(); // material-ui fix
         }
+        const breakpoints=store.ui.breakpoints;
         ReactDOM.render(
         <Provider context={ context } appstate={ store }>
         <AppContainer>
-        <App children={ component }/>
+         <MatchMediaProvider breakpoints={breakpoints}>
+            <App children={ component } breakpoints={breakpoints}/>
+         </MatchMediaProvider>
         </AppContainer>
          </Provider>, MOUNT_NODE, () => {
           //document.title = result.title || '';
@@ -114,12 +148,14 @@ function render(location) {
       });
     }
     currentLocation = location;
+    console.log(location);
 if(/auth.*/.test(location.pathname)) {
 // renderComponent(<login/>);
  }else{
+
  console.log('render')
 // if (location.pathname !== currentLocation){
-  router.resolve(routes, location)
+  router.resolve(window.__routes__, location)
     .then(renderComponent)
     .catch(error => router.resolve(routes, { ...location, error }).then(renderComponent));
   //  }
@@ -132,8 +168,7 @@ function createApp(history) {
 currentLocation = history.getCurrentLocation();
 
 const removeHistoryListener = history.listen(render);
-render(currentLocation);
-//history.replace(currentLocation);
+history.replace(currentLocation);
 
  let originalScrollRestoration;
     if (window.history && 'scrollRestoration' in window.history) {
@@ -152,7 +187,7 @@ render(currentLocation);
         }
     });
 }
-
+/*
 if ([   'complete',
         'loaded',
         'interactive'
@@ -160,17 +195,48 @@ if ([   'complete',
     createApp.bind(null, history)
 } else {
     document.addEventListener('DOMContentLoaded', createApp.bind(null, history), false);
-}
+}*/
 
 // Handle client-side navigation by using HTML5 History API
 // For more information visit https://github.com/ReactJSTraining/history/tree/master/docs#readme
+/*
+app().io.on('connect',function(){
+    // Send ehlo event right after connect:
+    //app().io.emit('setlang','en');
+    app().io.emit('lang','name',function(data){
+    */
 
 
+ //currentLocation = history.getCurrentLocation();
+//    render(history.getCurrentLocation());
+createApp(history)
+
+/*currentLocation = history.getCurrentLocation();
+    render(history.getCurrentLocation());
+  //routes =require("./routes.json");
+   });
+});*/
 
 // Enable Hot Module Replacement (HMR)
 if (module.hot) {
   module.hot.accept('./routes.json', () => {
     routes = require('./routes.json'); // eslint-disable-line global-require
+    render(history.getCurrentLocation());
+  });
+  module.hot.accept('./routes_fr.json', () => {
+    routes = require('./routes_fr.json'); // eslint-disable-line global-require
+    render(history.getCurrentLocation());
+  });
+  module.hot.accept('./routes_uk.json', () => {
+    routes = require('./routes_uk.json'); // eslint-disable-line global-require
+    render(history.getCurrentLocation());
+  });
+  module.hot.accept('./routes_ru.json', () => {
+    routes = require('./routes_ru.json'); // eslint-disable-line global-require
+    render(history.getCurrentLocation());
+  });
+    module.hot.accept('./routes_pt.json', () => {
+    routes = require('./routes_pt.json'); // eslint-disable-line global-require
     render(history.getCurrentLocation());
   });
 }
