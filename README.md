@@ -30,13 +30,20 @@ b) install my config with nginx for proxying all listening mysite.com:80 to loca
 
 i installed 4 language: french, ukrainien, russian, english (you can modify it for your need)
 
-generic conf work for url in 
-fr.mysite.com (for french)
-www.mysite.eu (for english)
+Generic-conf work for url like 
+
+* fr.mysite.com (for french)
+
+* www.mysite.eu (for english)
+
 
 IN react-app run:
+
+
 sudo cp -f ./temp/domain-conf-nginx/generic_conf/nginx.conf /usr/local/etc/nginx/nginx.conf
+
 sudo cp -f ./temp/domain-conf-nginx/generic_conf/hosts /etc/hosts
+
 sudo cp -f ./temp/domain-conf-nginx/generic_conf/.env ./temp/.env
 
 like that we link all my server to localhost 
@@ -46,10 +53,13 @@ to check the port running it's in config file .env in ./temp
 
 
 IMPORTANT before to run:
+
 delete the feathers-authentication installed in ./temp/node_modules/ and replace by mine (i did some little hack to make the new work with my config)
+
 unzip ./temp/feathers-authentication.zip to ./temp/node_modules/
 
 I added ukrainien flag in material-ui-country-flags 
+
 unzip ./temp/material-ui-country-flags.zip to ./temp/node_modules/
 
 
@@ -98,6 +108,8 @@ on skype simonzkyp or simon@skiscool.com
 
 
 # react-app/ssr
+Old not work with last configuration
+
 forked react-app for ssr
 see webpackssr.config.js for configuration
 
