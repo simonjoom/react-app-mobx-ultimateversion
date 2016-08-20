@@ -19,6 +19,11 @@ const exposevar = {
     'process': {
         'env': {
             'BROWSER': true,
+            'SITEFR': JSON.stringify(process.env['SITEFR']),
+            'SITERU': JSON.stringify(process.env['SITERU']),
+            'SITEUK': JSON.stringify(process.env['SITEUK']),
+            'SITEPT': JSON.stringify(process.env['SITEPT']),
+            'SITEEN': JSON.stringify(process.env['SITEEN']),
             'WEB_HOST': JSON.stringify(process.env['WEB_HOST']),
             'WEB_PORT': JSON.stringify(process.env['WEB_PORT']),
             'API_HOST': JSON.stringify(process.env['API_HOST']),
@@ -30,7 +35,7 @@ const exposevar = {
 }
 
 const configvar={
-    '__resourceQuery': '"?path=http://fr.skiscool.com:3001/__webpack_hmr"',
+    '__resourceQuery': '"?path=http://localhost:3001/__webpack_hmr"',
       'process.env.NODE_ENV': debug ? '"development"' : '"production"',
       __DEV__: debug,
     }
@@ -156,15 +161,19 @@ const config = {
       },*/
       {
         test: /\.json$/,
-        exclude: [
-          path.resolve(process.cwd(), './routes.json'),
-        ],
+        exclude: /routes/,
+         /* path.resolve(process.cwd(), './routes.json'),
+        ],*/
         loader: 'json-loader',
       },
       {
         test: /\.json$/,
         include: [
           path.resolve(process.cwd(), './routes.json'),
+          path.resolve(process.cwd(), './routes_pt.json'),
+          path.resolve(process.cwd(), './routes_fr.json'),
+          path.resolve(process.cwd(), './routes_ru.json'),
+          path.resolve(process.cwd(), './routes_uk.json')
         ],
         loaders: [
           `babel-loader?${JSON.stringify(babelConfig)}`,
