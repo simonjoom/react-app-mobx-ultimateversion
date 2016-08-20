@@ -2,9 +2,11 @@ This thread call react-app-ssr; i did a version fully working with server side r
 But we decided to start from single page application instead, will be easier to maintain!
 So see the first "react-app"
 
-# react-app
+# react-app for developpement use
+
 forked react-app  with fontawesome + mobx + material-ui + https://github.com/kriasoft/react-app
 
+NEW! Multi-language support with flags languages selection
 
 
 1 - install nginx for mac-os
@@ -24,12 +26,18 @@ b) npm run new (this install and deps of my application in ./temp)
 
 normally i checked all dependencies
 
-b) install my config with nginx for proxy
-cp -f ./temp/nginx /usr/local/etc/nginx/nginx.conf
+b) install my config with nginx for proxying all listening mysite.com:80 to localhost
 
-add in /etc/hosts :
+i installed 4 language: french, ukrainien, russian, english (you can modify it for your need)
 
-127.0.0.1       localhost skiscool.com fr.skiscool.com ru.skiscool.com fr.skiscool.com uk.skiscool.com pt.skiscool.com skiscool.eu
+generic conf work for url in 
+fr.mysite.com (for french)
+www.mysite.eu (for english)
+
+IN react-app run:
+sudo cp -f ./temp/domain-conf-nginx/generic_conf/nginx.conf /usr/local/etc/nginx/nginx.conf
+sudo cp -f ./temp/domain-conf-nginx/generic_conf/hosts /etc/hosts
+sudo cp -f ./temp/domain-conf-nginx/generic_conf/.env ./temp/.env
 
 like that we link all my server to localhost 
 
@@ -37,10 +45,12 @@ to check the port running it's in config file .env in ./temp
 
 
 
-IMPORTANT:
+IMPORTANT before to run:
 delete the feathers-authentication installed in ./temp/node_modules/ and replace by mine (i did some little hack to make the new work with my config)
 unzip ./temp/feathers-authentication.zip to ./temp/node_modules/
 
+I added ukrainien flag in material-ui-country-flags 
+unzip ./temp/material-ui-country-flags.zip to ./temp/node_modules/
 
 
 
