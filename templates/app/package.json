@@ -49,21 +49,22 @@
     "less": "^2.7.1",
     "material-ui": "^0.15.3",
     "material-ui-country-flags": "^3.0.1",
-    "mobx": "^2.4.1",
+    "mobx": "^2.4.4",
     "mobx-ajv-form": "^1.7.1",
-    "mobx-react": "^3.5.3",
+    "mobx-react": "^3.5.5",
     "mobx-react-devtools": "^4.2.4",
-    "mobx-react-matchmedia": "^1.0.2",
+    "mobx-react-matchmedia": "^1.1.0",
     "mongoose": "^4.5.8",
     "normalize.css": "^4.2.0",
+    "object.entries": "^1.0.3",
     "passport-facebook": "^2.1.1",
     "passport-facebook-token": "^3.3.0",
     "passport-instagram": "^1.0.0",
     "passport-instagram-token": "^2.3.0",
     "piping": "^1.0.0-rc.3",
-    "react": "^15.3.0",
+    "react": "^15.3.1",
     "react-app": "^1.1.2",
-    "react-dom": "^15.3.0",
+    "react-dom": "^15.3.1",
     "react-tap-event-plugin": "^1.0.0",
     "safe-access": "^0.1.0",
     "serve-favicon": "^2.3.0",
@@ -72,9 +73,6 @@
     "why-did-you-update": "0.0.8",
     "winston": "^2.2.0"
   },
-  "devDependencies": {
-    "react-app-tools": "^1.1.2"
-  },
   "babel": {
     "presets": [
       "react",
@@ -82,6 +80,7 @@
       "stage-0"
     ],
     "plugins": [
+      "transform-promise-to-bluebird",
       "transform-decorators-legacy",
       "transform-runtime",
       "babel-root-import",
@@ -90,7 +89,20 @@
   },
   "eslintConfig": {
     "parser": "babel-eslint",
-    "extends": "airbnb"
+    "extends": "airbnb",
+    "env": {
+      "browser": true
+    },
+    "rules": {
+      "react/jsx-filename-extension": [
+        1,
+        {
+          "extensions": [
+            ".js"
+          ]
+        }
+      ]
+    }
   },
   "scripts": {
     "lint": "eslint actions components core routes test utils main.js",

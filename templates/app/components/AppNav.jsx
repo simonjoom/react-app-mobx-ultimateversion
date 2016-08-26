@@ -1,6 +1,5 @@
 import dispatch from '~/temp/core/dispatch';
 import cx from 'classnames';
-import {observer} from "mobx-react";
 
 // components
 import Drawer from 'material-ui/Drawer';
@@ -18,7 +17,7 @@ const handleOnClick = () => {
 
 const AppNav = ({children, open, docked, accountMenuIsOpen}) => (
     <Drawer
-        className={cx(styles.drawer)}
+        className={cx({ [styles.drawer]: accountMenuIsOpen})}
         open={open}
         docked={docked}
         onRequestChange={handleOnRequestChange}

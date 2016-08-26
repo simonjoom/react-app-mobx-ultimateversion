@@ -3,8 +3,7 @@ import { app, service } from '~/temp/shared/app';
 import _ from 'lodash';
 
 export default class AuthStore {
-
-  jwt = null;
+  jwt = undefined;
 
    @observable user = {};
 

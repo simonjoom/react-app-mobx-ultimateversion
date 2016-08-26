@@ -7,10 +7,7 @@ import {readState, saveState} from 'history/lib/DOMStateStorage';
 import {AppContainer} from 'react-hot-loader'
 import {Provider} from 'mobx-react';
 import {MatchMediaProvider} from 'mobx-react-matchmedia';
-import jsonStringifySafe from 'json-stringify-safe';
-import {toJS} from 'mobx';
 import $store from './store/stores'; // initialize stores
-import { app, service } from '~/temp/shared/app';
 
 import {
   addEventListener,
@@ -19,33 +16,59 @@ import {
   windowScrollY,
 } from './core/DOMUtils';
 
-//import 'whatwg-fetch';
+
+/*
+import { app } from '~/temp/shared/app';
+/socket use and working!
+currentlocation={lat:0,lont:0};
+app().io.on('connect',function(){
+    // Send ehlo event right after connect:
+    //app().io.emit('setlocation',currentlocation);
+    app().io.emit('location','name',function(data){
+
+    })
+    */
+let oldhost=window.location.hostname;
 let routes;
 window.__routesen__ =require("./routes.json");
 window.__routesfr__ =require("./routes_fr.json");
 window.__routesru__ =require("./routes_ru.json");
 window.__routesuk__ =require("./routes_uk.json");
 window.__routespt__ =require("./routes_pt.json");
+
+function checkhostnamechange(oh){
 let data=window.location.hostname;
-console.log(process.env['SITEFR'])
+oldhost=window.location.hostname;
+if (data!=oh){
+console.log('hostchanging')
  if (data==process.env['SITEFR']){
  routes = window.__routesfr__;
 window.__lang__='fr';
+window.dico=require('./dico_fr').default()
 }else if (data==process.env['SITEPT']){
  routes =window.__routespt__;
  window.__lang__='pt';
+window.dico=require('./dico_pt').default()
 }else if (data==process.env['SITERU']){
  routes =window.__routesru__;
 window.__lang__='ru';
+window.dico=require('./dico_ru').default()
 }else if (data==process.env['SITEUK']){
  routes =window.__routesuk__;
 window.__lang__='uk';
+window.dico=require('./dico_ru').default()
 }else{
  routes =window.__routesen__;
 window.__lang__='en';
+window.dico=require('./dico_en').default()
 }
+ console.log(routes)
  window.__routes__=routes;
 
+}
+}
+
+checkhostnamechange('');
 
 const MOUNT_NODE = document.getElementById('root');
 
@@ -109,7 +132,7 @@ let renderComplete = (s) => {
 
 function renderComponent(component) {
 let setinjectTapEventPlugin=true;
- if (__DEV__) {
+ if (process.env['__DEV__']) {
      console.log('React rendering. Stat:');
       if (window.location.search.includes('debugRender')) {
             const {whyDidYouUpdate} = require('why-did-you-update')
@@ -147,18 +170,20 @@ function render(location) {
         scrollY: windowScrollY(),
       });
     }
-    currentLocation = location;
-    console.log(location);
+   // currentLocation = location;
 if(/auth.*/.test(location.pathname)) {
 // renderComponent(<login/>);
  }else{
-
+ checkhostnamechange(oldhost);
+ console.log(currentLocation)
+ console.log(location.pathname)
+ if (location.pathname !== currentLocation.pathname){
  console.log('render')
-// if (location.pathname !== currentLocation){
+ currentLocation = location;
   router.resolve(window.__routes__, location)
     .then(renderComponent)
-    .catch(error => router.resolve(routes, { ...location, error }).then(renderComponent));
-  //  }
+    .catch(error => {console.log(error);router.resolve(routes, { ...location, error }).then(renderComponent)});
+    }
 }
   // currentLocation = location.pathname;
 }
@@ -166,9 +191,9 @@ if(/auth.*/.test(location.pathname)) {
 function createApp(history) {
 
 currentLocation = history.getCurrentLocation();
-
+currentLocation.pathname='init';
 const removeHistoryListener = history.listen(render);
-history.replace(currentLocation);
+history.replace(history.getCurrentLocation());
 
  let originalScrollRestoration;
     if (window.history && 'scrollRestoration' in window.history) {
@@ -199,16 +224,8 @@ if ([   'complete',
 
 // Handle client-side navigation by using HTML5 History API
 // For more information visit https://github.com/ReactJSTraining/history/tree/master/docs#readme
-/*
-app().io.on('connect',function(){
-    // Send ehlo event right after connect:
-    //app().io.emit('setlang','en');
-    app().io.emit('lang','name',function(data){
-    */
 
 
- //currentLocation = history.getCurrentLocation();
-//    render(history.getCurrentLocation());
 createApp(history)
 
 /*currentLocation = history.getCurrentLocation();

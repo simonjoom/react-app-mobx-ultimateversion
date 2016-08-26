@@ -1,9 +1,6 @@
 import React from 'react';
 import dispatch from '~/temp/core/dispatch';
 import cx from 'classnames';
-import {observer} from "mobx-react";
-
-// components
 import MenuLinksSX from './MenuLinksSX.jsx';
 import MenuLinksDX from './MenuLinksDX.jsx';
 import Flag from './Flag.jsx';

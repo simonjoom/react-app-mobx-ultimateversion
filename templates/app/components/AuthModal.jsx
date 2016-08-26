@@ -2,10 +2,8 @@ import cx from 'classnames';
 import _ from 'lodash';
 
 import dispatch from '~/temp/core/dispatch';
-import {observer} from "mobx-react";
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
-import TextField from 'material-ui/TextField';
 
 import AuthFormLogin from './Login';
 import AuthFormRegister from './Register';

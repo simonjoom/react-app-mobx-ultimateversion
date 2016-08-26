@@ -1,4 +1,4 @@
-import { observable,computed,action,toJS} from 'mobx';
+import { observable} from 'mobx';
 import { toggle } from '~/temp/core/decorators';
 import _ from 'lodash';
 
@@ -6,8 +6,6 @@ import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 import lightBaseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
 import materialOverrideStyles from '~/temp/styles/_.material.js';
-
-import jsonStringifySafe from 'json-stringify-safe';
 
 /*
 for debug
@@ -48,7 +46,8 @@ export default class Theme {
 mui = {};
 
   @observable toggleThemestate = true;
-  init(state) {
+  init() {
+  //before: init(state) {
  // this.mui=state.mui;
   }
 
@@ -56,10 +55,6 @@ mui = {};
    let theme;
 
     const mui = (process.env.BROWSER) ? { userAgent: navigator.userAgent }: this.mui;
-
-/*   let b=JSON.parse(JSON.stringify(toJS(dark, false)))
-    let bool1=objectEquals(dark,b);
- console.log(bool1)*/
 
 if (!this.toggleThemestate)
 theme=getMuiTheme(this.mui, _.merge(

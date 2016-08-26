@@ -1,11 +1,11 @@
 import Form from 'mobx-ajv-form';
 import schema from '~/temp/shared/schemas/auth';
 import dispatch from '~/temp/core/dispatch';
-import history from '~/temp/core/history';
 
 class LoginForm extends Form {
- loginauth2 = (e) => {
-window.location.reload(true);return true;
+ loginauth2 = (e) => {e.preventDefault();
+window.location.reload(true);
+return true;
     }
 
     handleOnSubmit = (e) => {

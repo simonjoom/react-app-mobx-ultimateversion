@@ -1,6 +1,11 @@
 [
   {
     "path": "/",
+    "component": "./routes/Skiscool",
+    "chunk": "main"
+  },
+  {
+    "path": "/exemple_getdata_api",
     "component": "./routes/Home",
     "chunk": "main",
     "data": {
@@ -13,7 +18,7 @@
   },
 {
     "path": "/contact_fr",
-    "component": "./routes/contact"
+    "component": "./routes/Contact"
   },
 {
     "path": "/profile_fr",
@@ -21,7 +26,12 @@
   },
   {
     "path": "/root_fr",
-    "component": "./routes/root"
+    "component": "./routes/Root"
+  },
+  {
+    "path": "/error",
+    "component": "./routes/Error",
+    "chunk": "main"
   },
   {
     "path": "/Skiscool",

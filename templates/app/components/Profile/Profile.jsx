@@ -1,15 +1,13 @@
-import { PropTypes } from 'react';
-import s from './Profile.css';
+//import s from './Profile.css';
 import Paper from 'material-ui/Paper';
 import {observer} from "mobx-react"
 import Divider from 'material-ui/Divider';
 
 import {Card, CardHeader, CardTitle, CardText} from 'material-ui/Card';
-
-const underlineStyle = { display: 'none' };
 const style = { marginLeft: 0 };
 
 const Profile = observer(({user}) => {
+console.log(this)
 console.log(user)
 let avatar="https://graph.facebook.com/"+(user.id)+"/picture?type=large";
   return (

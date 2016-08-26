@@ -1,11 +1,3 @@
-/**
- * React App SDK (https://github.com/kriasoft/react-app)
- *
- * Copyright © 2015-present Kriasoft, LLC. All rights reserved.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE.txt file in the root directory of this source tree.
- */
 
 import React, { PropTypes } from 'react';
 import Layout from '../../components/Layout';
@@ -45,7 +37,7 @@ class HomePage extends React.Component {
         </p>
         <p>
           To learn more visit project's <a href="https://github.com/kriasoft/react-app">homepage</a>
-          , <Link to="/get-started">getting started</Link> guide,
+          , <Link to="GetStarted">getting started</Link> guide,
           join <a href="https://gitter.im/kriasoft/react-app">#react-app</a> chat room on Gitter to
           stay up to date.
         </p>

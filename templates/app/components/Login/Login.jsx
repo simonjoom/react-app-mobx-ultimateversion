@@ -1,4 +1,3 @@
-import { PropTypes } from 'react';
 import s from './Login.css';
 import Link from '../Linkmaterial';
 import form from '../forms/login';
@@ -9,7 +8,7 @@ import FlatButton from 'material-ui/FlatButton';
 const errorMessage = cx('red', 'm2');
 import {observer} from "mobx-react"
 
-const Login = observer((context) => {
+const Login = observer(() => {
  let myrefs = 'btn-disabled';
   return (
       <div className={s.container}>

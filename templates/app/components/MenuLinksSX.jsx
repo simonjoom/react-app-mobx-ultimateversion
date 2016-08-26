@@ -1,6 +1,4 @@
-import dispatch from '~/temp/core/dispatch';
 import cx from 'classnames';
-import Link from './Link';
 import Navigation from './Navigation';
 
 

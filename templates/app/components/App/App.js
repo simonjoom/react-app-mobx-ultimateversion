@@ -1,6 +1,5 @@
 import {Component, PropTypes} from 'react';
 import emptyFunction from 'fbjs/lib/emptyFunction';
-import s from './App.css';
 import Header from '../Header';
 import Feedback from '../Feedback';
 import Footer from '../Footer';
@@ -8,13 +7,16 @@ import DevTools from 'mobx-react-devtools';
 import {observer} from "mobx-react";
 import cx from 'classnames';
 import dispatch from '~/temp/core/dispatch';
-import {MatchMediaProvider} from 'mobx-react-matchmedia';
 import Snackbar from 'material-ui/Snackbar';
 import Paper from 'material-ui/Paper';
 import Toggle from 'material-ui/Toggle';
 import AppBar from '../AppBar';
 import AppNav from '../AppNav';
 import AuthModal from '../AuthModal';
+
+//important to load all framework css and disable eslint for that
+// eslint-disable-next-line no-unused-vars
+import s from './App.css';
 
 
 // global styles
@@ -23,15 +25,15 @@ import AuthModal from '../AuthModal';
 // module styles
 import styles from '../../styles/app.layout.css';
 
+
 const handleThemeToggle = () => {
     dispatch('ui.theme.toggleTheme');
 };
 
-
-@observer(['context', 'appstate'])
+@observer(['context','appstate'])
 class App extends Component {
     static propTypes = {
-        context: PropTypes.shape({
+      context: PropTypes.shape({
             setTitle: PropTypes.func,
             setMeta: PropTypes.func,
             muiTheme: PropTypes.object.isRequired
@@ -41,7 +43,6 @@ class App extends Component {
         children: PropTypes.element.isRequired,
         error: PropTypes.object,
     };
-
     constructor(props) {
         super(props)
     }
@@ -67,6 +68,7 @@ class App extends Component {
     }
 
     render() {
+    console.log(this.props.context)
         const {ui, auth} = this.props.appstate;
         const isDev = true;
         console.log(typeof window === 'object' ? 'client-side' : 'server-side');
@@ -80,7 +82,9 @@ class App extends Component {
                     <Header />
 
                 </AppNav>
-                { isDev ? <DevTools position={{ bottom: 0, right: '10px' }}/> : null }
+                <If condition={isDev}>
+                <DevTools position={{ bottom: 0, right: '15px' }}/>
+                </If>
 
                 <Paper zDepth={1}
                        className={cx({ [styles.su]: ui.layoutIsShifted },{'m0':breakpoints.xs,'m1':breakpoints.su,'m2':breakpoints.mu})}>

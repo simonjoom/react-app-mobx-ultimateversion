@@ -1,4 +1,4 @@
-import { PropTypes,contextTypes } from 'react';
+import { PropTypes } from 'react';
 import Login from '../../components/Login';
 import Layout from '../../components/Layout';
 import s from './Login.css';

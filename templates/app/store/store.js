@@ -1,5 +1,6 @@
-import { action } from 'mobx';
 import _ from 'lodash';
+import { action} from 'mobx';
+
 
 class Store {
 
@@ -12,31 +13,30 @@ class Store {
     return this;
   }
 
-  inject(state = {}) {
-    this.initializeStores(state);
+  @action inject(mstate = {}) {
+    this.initializeStores(mstate);
     return this.$stores;
   }
 
   // alias of inject
-  init(state = {}) {
-    return this.inject(state);
+  init(mstate = {}) {
+    return this.inject(mstate);
   }
 
   // alias of inject
-  set(state = {}) {
-    return this.inject(state);
+  set(mstate = {}) {
+    return this.inject(mstate);
   }
 
   get() {
     return this.$stores;
   }
 
-  @action
-  initializeStores(state) {
+ @action initializeStores(mstate) {
     Object.keys(this.$imports)
       .forEach((key) => {
         const StoreClass = this.$imports[key];
-        const $state = state[key] || {};
+        const $state = mstate[key] || {};
         const $obj = new StoreClass($state);
         const $extend = $obj.___extend || null;
         Object.assign($obj, $state);
@@ -48,14 +48,13 @@ class Store {
       });
   }
 
-  @action
-  extendWithNestedClass(obj, state, extend = null) {
+ extendWithNestedClass(obj, mstate, extend = null) {
     if (_.isUndefined(extend) || _.isEmpty(extend)) return;
 
     Object.keys(extend)
       .forEach((subkey) => {
         const SubClass = extend[subkey];
-        const $substate = state[subkey] || {};
+        const $substate = mstate[subkey] || {};
         const $subobj = new SubClass($substate);
         const $subextend = $subobj.___extend || null;
 

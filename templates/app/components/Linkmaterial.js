@@ -1,7 +1,6 @@
-import React, { Component, PropTypes } from 'react';
+import { Component, PropTypes } from 'react';
 import history from '../core/history';
 import FlatButton from 'material-ui/FlatButton';
-var _ = require('lodash');
 
 function isLeftClickEvent(event) {
   return event.button === 0;
@@ -16,11 +15,14 @@ class Link extends Component { // eslint-disable-line react/prefer-stateless-fun
 constructor(props) {
         super(props);
 this.toward="/";
-_.map(window.__routes__,(val,key)=> {
-if (val.component=="./routes/"+this.props.to){
-this.toward=val.path;return;
+this.tmp=window.__routes__.find(x=>(x.component?x.component=== "./routes/"+this.props.to:null));
+if (this.tmp&&this.tmp.path){
+this.toward=this.tmp.path;
+}else{
+console.log('link fail:')
+console.log("./routes/"+this.props.to)
 }
-});
+
     }
   static propTypes = {
     to: PropTypes.oneOfType([PropTypes.string, PropTypes.object]).isRequired,
@@ -42,7 +44,6 @@ this.toward=val.path;return;
     }
   };
   handleClick = (event) => {
-
     if (this.props.onClick) {
       this.props.onClick(event);
     }
@@ -71,7 +72,6 @@ this.toward=val.path;return;
   delete myprops.marginTop;
   delete myprops.marginBottom;
   delete myprops.padding;
-    const {to, ...props } = this.props; // eslint-disable-line no-use-before-define
 const toward=this.toward;
     return <FlatButton href={history.createHref(toward)} {...myprops} onClick={this.handleClick} style={this.Mystyle()}/>
   }

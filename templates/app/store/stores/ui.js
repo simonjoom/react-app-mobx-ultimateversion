@@ -1,4 +1,4 @@
-import { observable, autorun, action} from 'mobx';
+import { observable, autorun} from 'mobx';
 import { extend, toggle } from '~/temp/core/decorators';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 
@@ -34,7 +34,6 @@ export default class UIStore {
   };
 
   init() {
-  console.log("uiinit");
     // shift the layout on "su" breakpoint when appnav is open
     autorun(() => this.breakpoints.su && this.appNav.isOpen
       ? this.shiftLayout(true)

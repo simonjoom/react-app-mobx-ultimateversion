@@ -40,10 +40,10 @@ const UserSubMenu = () => {
     return (
         <ul className={ul}>
             <li>
-                <Link to="/Profile" key="1" hoverColor="#c2c22F" onClick={handleProfile} icon={<i className="mb3 fa fa-user" />}>Profile</Link>
+                <Link to="Profile" key="1" hoverColor="#c2c22F" onClick={handleProfile} icon={<i className="mb3 fa fa-user" />}>Profile</Link>
             </li>
             <li>
-                <Link to="/Settings" key="2" hoverColor="#c2c22F"
+                <Link to="Settings" key="2" hoverColor="#c2c22F"
                       icon={<i className="mb3 fa fa-sliders" />}>Settings</Link>
             </li>
             <li>

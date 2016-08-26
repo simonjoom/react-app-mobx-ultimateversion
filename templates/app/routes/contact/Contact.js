@@ -1,16 +1,16 @@
+import Layout from '../../components/Layout';
 import s from './Contact.css';
 import { PropTypes } from 'react';
 const title = 'Contact Us';
 
-function Contact(props, context) {
+const Contact=(props, context)=>{
+
   context.setTitle(title);
   return (
-    <div className={s.root}>
-      <div className={s.container}>
+    <Layout className={s.content}>
         <h1>{title}</h1>
-        <p>...</p>
-      </div>
-    </div>
+        <p>Email: simon@skiscool.com</p>
+    </Layout>
   );
 }
 

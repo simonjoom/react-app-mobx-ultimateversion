@@ -1,13 +1,4 @@
-/**
- * React App SDK (https://github.com/kriasoft/react-app)
- *
- * Copyright © 2015-present Kriasoft, LLC. All rights reserved.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE.txt file in the root directory of this source tree.
- */
 
-import React from 'react';
 
 function decodeParam(val) {
   if (!(typeof val === 'string' || val.length === 0)) {
@@ -73,11 +64,11 @@ function resolve(routes, context) {
             return fetch(url, { method }).then(resp => resp.json());
           }),
         ]).then(([Component, ...data]) => {
+
           const props = keys.reduce((result, key, i) => ({ ...result, [key]: data[i] }), {});
           return <Component route={route} error={context.error} {...props} />;
         });
       }
-
       return route.load().then(Component => <Component route={route} error={context.error} />);
     }
   }

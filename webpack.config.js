@@ -1,3 +1,4 @@
+/* eslint-disable global-require */
 require('dotenv').config();
 const path = require('path');
 const webpack = require('webpack');
@@ -37,7 +38,7 @@ const exposevar = {
 const configvar={
     '__resourceQuery': '"?path=http://localhost:3001/__webpack_hmr"',
       'process.env.NODE_ENV': debug ? '"development"' : '"production"',
-      __DEV__: debug,
+      'process.env.__DEV__': debug,
     }
 // Webpack configuration (main.js => public/dist/main.{hash}.js)
 // http://webpack.github.io/docs/configuration.html
@@ -81,7 +82,10 @@ const config = {
     cached: verbose,
     cachedAssets: verbose,
   },
-
+eslint: {
+        failOnWarning: false,
+        failOnError: true
+    },
   // The list of plugins for Webpack compiler
   plugins: [
    new webpack.ProvidePlugin({
@@ -103,6 +107,13 @@ const config = {
 
   // Options affecting the normal modules
   module: {
+  preLoaders: [
+      {
+        test: /\.jsx?$/,
+        exclude: /node_modules/,
+        loaders: ['eslint']
+      }
+    ],
     loaders: [
       {
         test: /\.jsx?$/,

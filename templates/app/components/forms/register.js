@@ -4,7 +4,8 @@ import dispatch from '~/temp/core/dispatch';
 
 class RegisterForm extends Form {
  loginauth2 = (e) => {
-window.location.reload(true);
+ e.preventDefault();window.location.reload(true);
+return true;
     }
 
     handleOnSubmit = (e) => {
