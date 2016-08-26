@@ -39,7 +39,6 @@ Generic-conf work for url like
 
 IN react-app run:
 
-
 sudo cp -f ./temp/domain-conf-nginx/generic_conf/nginx.conf /usr/local/etc/nginx/nginx.conf
 
 sudo cp -f ./temp/domain-conf-nginx/generic_conf/hosts /etc/hosts
@@ -62,6 +61,8 @@ I added ukrainien flag in material-ui-country-flags
 
 unzip ./temp/material-ui-country-flags.zip to ./temp/node_modules/
 
+Little mod to support Object.entries in mobx-react-matchmedia
+unzip ./temp/mobx-react-matchmedia.zip to ./temp/node_modules/
 
 
 3 Run APP:
