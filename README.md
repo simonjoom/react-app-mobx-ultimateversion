@@ -8,6 +8,10 @@ forked react-app  with fontawesome + mobx + material-ui + https://github.com/kri
 
 NEW! Multi-language support with flags languages selection
 
+Recent Added: eslint + jsx-control-statements lint support for better tracking bug code
+
+Promise bluebird by default with help of babel-plugin-transform-promise-to-bluebird
+
 
 1 - install nginx for mac-os
 
