@@ -11,6 +11,8 @@ function isModifiedEvent(event) {
 }
 const padding_def="5";
 const margin_def="0";
+
+
 class Link extends Component { // eslint-disable-line react/prefer-stateless-function
 constructor(props) {
         super(props);
@@ -22,7 +24,6 @@ this.toward=this.tmp.path;
 console.log('link fail:')
 console.log("./routes/"+this.props.to)
 }
-
     }
   static propTypes = {
     to: PropTypes.oneOfType([PropTypes.string, PropTypes.object]).isRequired,
@@ -43,9 +44,14 @@ console.log("./routes/"+this.props.to)
         width: ((this.props.width)?this.props.width:"auto")
     }
   };
-  handleClick = (event) => {
-    if (this.props.onClick) {
-      this.props.onClick(event);
+
+  render() {
+  let myprops=Object.assign({}, this.props);
+myprops.to=this.toward;
+let _self=this;
+function handleClick (event) {
+    if (_self.props.onClick) {
+      _self.props.onClick(event);
     }
 
     if (isModifiedEvent(event) || !isLeftClickEvent(event)) {
@@ -55,25 +61,21 @@ console.log("./routes/"+this.props.to)
     if (event.defaultPrevented === true) {
       return;
     }
-
     event.preventDefault();
-      if (this.toward) {
-        history.push(this.toward);
+      if (this.to) {
+        history.push(this.to);
       } else {
         history.push({
           pathname: event.currentTarget.pathname,
           search: event.currentTarget.search,
         });
       }
-  };
-
-  render() {
-  let myprops=Object.assign({}, this.props);
+  }
   delete myprops.marginTop;
   delete myprops.marginBottom;
   delete myprops.padding;
 const toward=this.toward;
-    return <FlatButton href={history.createHref(toward)} {...myprops} onClick={this.handleClick} style={this.Mystyle()}/>
+    return <FlatButton href={history.createHref(toward)} {...myprops} onClick={handleClick} style={this.Mystyle()}/>
   }
 
 }

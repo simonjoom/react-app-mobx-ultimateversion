@@ -28,7 +28,8 @@ return './routes/Skiscool';
 }
 
 const Sel_Flag = ({FL,ky,component}={FL,ky,component}) => {
-let path;
+
+  let path;
 if (FL=='FR'){
 path=findroute_thendebug(component,window.__routesfr__,'fr')
 return <IconButton href={"http://"+process.env['SITEFR']+history.createHref(path)} key={ky}><Icon_Flag_FR /></IconButton>;
@@ -53,15 +54,15 @@ let data=window.location.hostname;
 let other= ['FR','UK','PT','RU'];
 
  if (data==process.env['SITEFR']){
- other= ['FR','US','UK','PT','RU']
+ other= ['US','UK','PT','RU']
  }else if (data==process.env['SITEUK']){
- other= ['UK','US','FR','PT','RU'];
+ other= ['US','FR','PT','RU'];
  }else if (data==process.env['SITERU']){
- other= ['RU','US','UK','PT','FR'];
+ other= ['US','UK','PT','FR'];
  }else if (data==process.env['SITEPT']){
- other= ['PT','US','UK','FR','RU'];
+ other= ['US','UK','FR','RU'];
  }else {
- other= ['US','PT','UK','FR','RU'];
+ other= ['PT','UK','FR','RU'];
  }
 
  //findcomponent

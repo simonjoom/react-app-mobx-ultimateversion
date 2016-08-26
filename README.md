@@ -8,9 +8,15 @@ forked react-app  with fontawesome + mobx + material-ui + https://github.com/kri
 
 NEW! Multi-language support with flags languages selection
 
-Recent Added: eslint + jsx-control-statements lint support for better tracking bug code
+ -> Recent Added: 
 
-Promise bluebird by default with help of babel-plugin-transform-promise-to-bluebird
+        Updated new mobx version 
+        
+        eslint + jsx-control-statements lint support for better tracking bug code    
+           
+        Promise bluebird by default with help of babel-plugin-transform-promise-to-bluebird
+        
+        Link and Linkmaterial check route for current language and displaying in console for route problem
 
 
 1 - install nginx for mac-os
