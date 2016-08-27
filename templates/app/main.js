@@ -2,7 +2,7 @@ import ReactDOM from 'react-dom';
 import router from './core/router';
 import history from './core/history';
 import App from './components/App';
-import FastClick from 'fastclick';
+//import FastClick from 'fastclick';
 import {readState, saveState} from 'history/lib/DOMStateStorage';
 import {AppContainer} from 'react-hot-loader'
 import {Provider} from 'mobx-react';
@@ -106,10 +106,6 @@ const store = $store.set(initialState);
 window.__STORE=store;
 
 
-
-
-// Loaded with utils/routes-loader.js
-
 function restoreScrollPosition(state) {
     if (state && state.scrollY !== undefined) {
         window.scrollTo(state.scrollX, state.scrollY);
@@ -117,6 +113,7 @@ function restoreScrollPosition(state) {
         window.scrollTo(0, 0);
     }
 }
+
 
 let renderComplete = (s) => {
         restoreScrollPosition(s);
@@ -129,9 +126,8 @@ let renderComplete = (s) => {
     };
 
 
-
 function renderComponent(component) {
-let setinjectTapEventPlugin=true;
+
  if (process.env['__DEV__']) {
      console.log('React rendering. Stat:');
       if (window.location.search.includes('debugRender')) {
@@ -139,9 +135,7 @@ let setinjectTapEventPlugin=true;
              whyDidYouUpdate(React)
       }
   }
-    if (setinjectTapEventPlugin) {
-        store.ui.myinjectTapEventPlugin(); // material-ui fix
-        }
+
         const breakpoints=store.ui.breakpoints;
         ReactDOM.render(
         <Provider context={ context } appstate={ store }>
@@ -158,7 +152,7 @@ let setinjectTapEventPlugin=true;
 
 
     // Make taps on links and buttons work fast on mobiles
-    FastClick.attach(document.body);
+  //  FastClick.attach(document.body);
 // Find and render a web page matching the current URL path,
 // if such page is not found then render an error page (see routes.json, core/router.js)
 function render(location) {
@@ -174,7 +168,8 @@ function render(location) {
 if(/auth.*/.test(location.pathname)) {
 // renderComponent(<login/>);
  }else{
- checkhostnamechange(oldhost);
+ console.log(oldhost);
+ //checkhostnamechange(oldhost);
  console.log(currentLocation)
  console.log(location.pathname)
  if (location.pathname !== currentLocation.pathname){
@@ -184,14 +179,17 @@ if(/auth.*/.test(location.pathname)) {
     .then(renderComponent)
     .catch(error => {console.log(error);router.resolve(routes, { ...location, error }).then(renderComponent)});
     }
-}
+ }
   // currentLocation = location.pathname;
 }
 
 function createApp(history) {
-
 currentLocation = history.getCurrentLocation();
-currentLocation.pathname='init';
+ currentLocation.pathname='init';
+   let setinjectTapEventPlugin=true;
+    if (setinjectTapEventPlugin) {
+        store.ui.myinjectTapEventPlugin(); // material-ui fix
+        }
 const removeHistoryListener = history.listen(render);
 history.replace(history.getCurrentLocation());
 
@@ -257,7 +255,3 @@ if (module.hot) {
     render(history.getCurrentLocation());
   });
 }
-
-
-
-

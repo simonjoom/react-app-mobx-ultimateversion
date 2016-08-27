@@ -2,13 +2,7 @@ import { Component, PropTypes } from 'react';
 import history from '../core/history';
 import FlatButton from 'material-ui/FlatButton';
 
-function isLeftClickEvent(event) {
-  return event.button === 0;
-}
 
-function isModifiedEvent(event) {
-  return !!(event.metaKey || event.altKey || event.ctrlKey || event.shiftKey);
-}
 const padding_def="5";
 const margin_def="0";
 
@@ -16,6 +10,7 @@ const margin_def="0";
 class Link extends Component { // eslint-disable-line react/prefer-stateless-function
 constructor(props) {
         super(props);
+        if (this.props.to){
 this.toward="/";
 this.tmp=window.__routes__.find(x=>(x.component?x.component=== "./routes/"+this.props.to:null));
 if (this.tmp&&this.tmp.path){
@@ -24,9 +19,10 @@ this.toward=this.tmp.path;
 console.log('link fail:')
 console.log("./routes/"+this.props.to)
 }
+}
     }
   static propTypes = {
-    to: PropTypes.oneOfType([PropTypes.string, PropTypes.object]).isRequired,
+    to: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
     onClick: PropTypes.func,
     marginTop: PropTypes.string,
     marginBottom: PropTypes.string,
@@ -44,38 +40,43 @@ console.log("./routes/"+this.props.to)
         width: ((this.props.width)?this.props.width:"auto")
     }
   };
-
-  render() {
-  let myprops=Object.assign({}, this.props);
-myprops.to=this.toward;
-let _self=this;
-function handleClick (event) {
-    if (_self.props.onClick) {
-      _self.props.onClick(event);
+handleClick = (event) => {
+    if (this.props.onClick) {
+      this.props.onClick(event);
     }
-
-    if (isModifiedEvent(event) || !isLeftClickEvent(event)) {
+  };
+handleTouchTap = (event) => {
+    if (event.button && event.button !== 0) {
+      return;
+    }
+    if (event.metaKey || event.altKey || event.ctrlKey || event.shiftKey) {
       return;
     }
 
     if (event.defaultPrevented === true) {
       return;
     }
-    event.preventDefault();
-      if (this.to) {
-        history.push(this.to);
-      } else {
-        history.push({
-          pathname: event.currentTarget.pathname,
-          search: event.currentTarget.search,
-        });
-      }
-  }
+      if (this.toward) {
+       history.push(this.toward);
+    } else {
+      history.push({
+        pathname: event.currentTarget.pathname,
+        search: event.currentTarget.search,
+      });
+    }
+  };
+  render() {
+  let myprops=Object.assign({}, this.props);
+let toward;
   delete myprops.marginTop;
   delete myprops.marginBottom;
   delete myprops.padding;
-const toward=this.toward;
-    return <FlatButton href={history.createHref(toward)} {...myprops} onClick={handleClick} style={this.Mystyle()}/>
+  delete myprops.onClick;
+  if (this.toward)
+  toward=this.toward;
+else
+toward="";
+    return <FlatButton href={history.createHref(toward)} {...myprops} onClick={this.handleClick} onTouchTap={this.handleTouchTap} style={this.Mystyle()}/>
   }
 
 }

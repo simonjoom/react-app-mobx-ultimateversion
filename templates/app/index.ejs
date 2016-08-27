@@ -24,7 +24,8 @@ $(document).ready(function(){
     $(".detailsb").popover({ trigger: "hover" });
 		$(".detailsbu").popover({trigger: 'manual',"animation": true,"html": true});
 						var sddul=$(".detailsbu").closest("div");
-						sddul.delegate("a.detailsbu", "click", function(e) {
+
+						sddul.delegate("a.detailsbu", "click mousedown", function(e) {
 						if(!$(this).hasClass("active")){
 							sddul.find(".active").removeClass("active").popover("hide");
 							$(this).addClass("active");
