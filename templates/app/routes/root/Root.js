@@ -4,6 +4,8 @@ import Root from '../../components/Root';
 import Layout from '../../components/Layout';
 var _ = require('lodash');
 const title = 'Root';
+import cx from 'classnames';
+import Divider from 'material-ui/Divider';
 import s from './Root.css';
 
 @observer(['appstate'])
@@ -39,9 +41,23 @@ return _.map(_.toPlainObject(appstate),function(val,key) {
 
        })
        }
+
+  const bp = appstate.ui.breakpoints;
      return (
  <Layout className={s.content}>
-         <h1>{title}</h1>
+       <div className="center">
+            <h1 className={cx(s.title, {
+              [s.xsTitle]: bp.xs,
+              [s.suTitle]: bp.su,
+            })} >Root STACK</h1>
+            <h2 className={cx(s.subTitle, {
+              [s.xsSubTitle]: bp.xs,
+              [s.suSubTitle]: bp.su,
+            })}
+            >Universal App featuring: React + Feathers + MobX
+            </h2>
+       </div>
+       <Divider />
         <Root appstate={appstate}/>
 
      <ul>{cbf(appstate)}</ul>

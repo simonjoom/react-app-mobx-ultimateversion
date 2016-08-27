@@ -10,21 +10,13 @@ import dispatch from '~/temp/core/dispatch';
 import Snackbar from 'material-ui/Snackbar';
 import Paper from 'material-ui/Paper';
 import Toggle from 'material-ui/Toggle';
-import AppBar from '../AppBar';
-import AppNav from '../AppNav';
+import AppBar from './AppBar';
+import AppNav from './AppNav';
 import AuthModal from '../AuthModal';
 
 //important to load all framework css and disable eslint for that
 // eslint-disable-next-line no-unused-vars
 import s from './App.css';
-
-
-// global styles
-//import '../styles/_.global.css';
-
-// module styles
-import styles from '../../styles/app.layout.css';
-
 
 const handleThemeToggle = () => {
     dispatch('ui.theme.toggleTheme');
@@ -68,7 +60,6 @@ class App extends Component {
     }
 
     render() {
-    console.log(this.props.context)
         const {ui, auth} = this.props.appstate;
         const isDev = true;
         console.log(typeof window === 'object' ? 'client-side' : 'server-side');
@@ -87,7 +78,7 @@ class App extends Component {
                 </If>
 
                 <Paper zDepth={1}
-                       className={cx({ [styles.su]: ui.layoutIsShifted },{'m0':breakpoints.xs,'m1':breakpoints.su,'m2':breakpoints.mu})}>
+                       className={cx({ [s.su]: ui.layoutIsShifted },{'m0':breakpoints.xs,'m1':breakpoints.su,'m2':breakpoints.mu})}>
                     <Toggle
                         label="Toggle Theme"
                         defaultToggled={ui.theme.toggleThemestate}
@@ -97,14 +88,14 @@ class App extends Component {
                             layoutIsShifted={ui.layoutIsShifted}
                             authCheck={auth.check}
                             user={auth.user} />
-                    <div className={styles.content}>
+                    <div className={s.content}>
                         {this.props.children}
                     </div>
                 </Paper>
 
 
                 <Paper zDepth={1}
-                       className={cx({ [styles.su]: ui.layoutIsShifted },{'m0':breakpoints.xs,'m1':breakpoints.su,'m2':breakpoints.mu})}>
+                       className={cx({ [s.su]: ui.layoutIsShifted },{'m0':breakpoints.xs,'m1':breakpoints.su,'m2':breakpoints.mu})}>
                     <Feedback />
 
                 </Paper>

@@ -6,7 +6,7 @@
 export default {
 palette: {
     primary1Color: '#5BC0BE',
-    textColor: '#f0f0f0',
+    //textColor: '#f0f0f0',
   },
  /* textField: {
     errorColor: '#F25F5C',

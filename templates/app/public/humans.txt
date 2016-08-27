@@ -11,6 +11,5 @@
 
 # TECHNOLOGY COLOPHON
 
-    JavaScript, HTML5, CSS3
-    React, Redux, history
-    Babel, Webpack, React App SDK
+    CSS3, HTML5, JavaScript
+    React, Flux, SuperAgent

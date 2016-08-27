@@ -139,7 +139,7 @@ eslint: {
   ]
 },
     {
-        test: /^((?!\App).)*\.css/,
+        test: /^((?!\App\.css).)*\.css/,
         loaders: [
             'style-loader',
       `css-loader?${JSON.stringify({

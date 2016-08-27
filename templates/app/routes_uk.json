@@ -2,6 +2,7 @@
   {
     "path": "/",
     "component": "./routes/Skiscool",
+    "lang":"uk",
     "chunk": "main"
   },
   {

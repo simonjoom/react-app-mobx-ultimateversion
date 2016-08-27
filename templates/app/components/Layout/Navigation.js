@@ -4,7 +4,7 @@ function Navigation() {
   return (
     <nav>
       <Link to="Skiscool">
-        About
+        About Skiscool
       </Link>
       <Link to="GetStarted">
         Get Started

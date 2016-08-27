@@ -1,6 +1,6 @@
 import Layout from '../../components/Layout';
 import s from './GetStarted.css';
-import { title, html } from './GetStarted.md';
+const mdo= require('./GetStarted_'+window.__lang__+'.md');
 
 class AboutPage extends React.Component {
  static contextTypes = {
@@ -8,6 +8,9 @@ setTitle: React.PropTypes.func.isRequired
 }
 
   render() {
+  let title=mdo.title;
+  let html=mdo.html;
+  console.log(this.props)
   this.context.setTitle(title)
     return (
       <Layout className={s.content}>

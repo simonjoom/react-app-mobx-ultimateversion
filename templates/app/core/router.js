@@ -69,6 +69,9 @@ function resolve(routes, context) {
           return <Component route={route} error={context.error} {...props} />;
         });
       }
+      if (route.lang)
+      return route.load().then(Component => <Component route={route} lang={route.lang} error={context.error} />);
+      else
       return route.load().then(Component => <Component route={route} error={context.error} />);
     }
   }

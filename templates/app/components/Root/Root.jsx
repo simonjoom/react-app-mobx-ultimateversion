@@ -1,26 +1,8 @@
 import s from './Root.css';
-import cx from 'classnames';
-import Divider from 'material-ui/Divider';
 
 const Root = ({appstate}) => {
-  const bp = appstate.ui.breakpoints;
- // console.log(context);
+  console.log(appstate);
   return (
-      <div>
-      <div className="center">
-            <h1 className={cx(s.title, {
-              [s.xsTitle]: bp.xs,
-              [s.suTitle]: bp.su,
-            })}
-            >RFX STACK</h1>
-            <h2 className={cx(s.subTitle, {
-              [s.xsSubTitle]: bp.xs,
-              [s.suSubTitle]: bp.su,
-            })}
-            >Universal App featuring: React + Feathers + MobX
-            </h2>
-       </div>
-       <Divider />
         <div className={s.features}>
           <div className="center">
             <div className="md-flex mx4">
@@ -68,16 +50,9 @@ const Root = ({appstate}) => {
             </div>
           </div>
         </div>
-
-      </div>
   );
 }
 
 Root.propTypes = {appstate: React.PropTypes.object.isRequired};
-/*Root.contextTypes = {
-  setTitle: React.PropTypes.func.isRequired,
-  setMeta: React.PropTypes.func,
- muiTheme: React.PropTypes.object.isRequired
-  }*/
 
 export default Root;

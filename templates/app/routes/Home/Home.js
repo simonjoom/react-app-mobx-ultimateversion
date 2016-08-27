@@ -1,5 +1,4 @@
-
-import React, { PropTypes } from 'react';
+import { PropTypes } from 'react';
 import Layout from '../../components/Layout';
 import Link from '../../components/Link';
 import s from './Home.css';
