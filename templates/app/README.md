@@ -1,70 +1,177 @@
-# React App Starter Kit
+This thread call react-app-ssr; i did a version fully working with server side rendering, 
+But we decided to start from single page application instead, will be easier to maintain!
+So see the first "react-app"
 
-This project was created with **[React App SDK](https://github.com/kriasoft/react-app)** — CLI
-tools and templates for authoring React/Redux applications with just a single dev dependency and
-zero configuration.
+# react-app for developpement use
 
+forked react-app  with fontawesome + mobx + material-ui + https://github.com/kriasoft/react-app
 
-### Directory Layout
+NEW! Multi-language support with flags languages selection
 
-```shell
-.
-├── /actions/                   # Redux actions
-├── /components/                # Shared or generic UI components
-│   ├── /Button/                # Button component
-│   ├── /Layout/                # Website layout component
-│   ├── /Link  /                # Link component to be used insted of <a>
-│   └── /...                    # etc.
-├── /core/                      # Core framework
-│   ├── /history.js             # Handles client-side navigation
-│   ├── /router.js              # Handles routing and data fetching
-│   └── /store.js               # Application state manager (Redux)
-├── /node_modules/              # 3rd-party libraries and utilities
-├── /routes/                    # React components for application routes
-│   ├── /Error/                 # Error page
-│   ├── /Home/                  # Home page
-│   ├── /GetStarted/            # Getting Started page
-│   └── /...                    # etc.
-├── /public/                    # Static files such as favicon.ico etc.
-│   ├── /dist/                  # The folder for compiled output
-│   ├── favicon.ico             # Application icon to be displayed in bookmarks
-│   ├── robots.txt              # Instructions for search engine crawlers
-│   └── /...                    # etc.
-├── /test/                      # Unit and integration tests
-├── /utils/                     # Utility and helper classes
-│── index.ejs                   # EJS template for index.html page
-│── main.js                     # React application entry point
-│── package.json                # The list of project dependencies and NPM scripts
-└── routes.json                 # This list of application routes
-```
+ -> Recent Added: 
+
+        Updated new mobx version 
+        
+        eslint + jsx-control-statements lint support for better tracking bug code    
+           
+        Promise bluebird by default with help of babel-plugin-transform-promise-to-bluebird
+        
+        Link and Linkmaterial check route for current language and displaying in console for route problem
 
 
-### How to Run
+1 - install nginx for mac-os
 
-In order to compile the app and launch a development web server with "live reload" run:
-
-```sh
-$ npm start
-```
-
-The app should become available at [http://localhost:3000](http://localhost:3000)
-
-### Common Tasks
-
-- In order to modify the layout of your site, edit `components/Layout` React component
-- To add custom fonts, page metadata edit `index.ejs` file in the root of your project
-- To add a new page/screen add a new entry to the `routes.json` file with routing information, plus
-  add a React component inside the `routes` folder that will be responsible for rendering that route
-- Need to create small, reusable component (e.g. Button, Slider)? Put that it into the `components`
-  folder.
-- Style your components with either CSS or inline styles. This project is pre-configured with CSS
-  Modules as well as PostCSS with a nice set of useful plugins (no need to use Sass or LESS).
-- Use `core/history.js` file for navigation, learn more about it [here](https://github.com/ReactTraining/history/tree/master/docs)
-- Learn how to effectively use [Browsersync](https://browsersync.io/), it will help with
-  cross-device testing.
+see:
+https://coderwall.com/p/dgwwuq/installing-nginx-in-mac-os-x-maverick-with-homebrew
 
 
-### Support
+2 - Install app 
 
-Have any questions, issues or feature requests, please don't hesitate to get in touch on
-[Gitter](https://gitter.im/kriasoft/react-app) or [Twitter](https://twitter.com/ReactSDK).
+
+IN root folder of react-app
+
+a) npm install (install babel dependencies)
+
+b) npm run new (this install and deps of my application in ./temp)
+
+normally i checked all dependencies
+
+b) install my config with nginx for proxying all listening mysite.com:80 to localhost
+
+i installed 4 language: french, ukrainien, russian, english (you can modify it for your need)
+
+Generic-conf work for url like 
+
+* fr.mysite.com (for french)
+
+* www.mysite.eu (for english)
+
+
+IN react-app run:
+
+sudo cp -f ./temp/domain-conf-nginx/generic_conf/nginx.conf /usr/local/etc/nginx/nginx.conf
+
+sudo cp -f ./temp/domain-conf-nginx/generic_conf/hosts /etc/hosts
+
+sudo cp -f ./temp/domain-conf-nginx/generic_conf/.env ./temp/.env
+
+like that we link all my server to localhost 
+
+to check the port running it's in config file .env in ./temp
+
+
+
+IMPORTANT before to run:
+
+delete the feathers-authentication installed in ./temp/node_modules/ and replace by mine (i did some little hack to make the new work with my config)
+
+unzip ./temp/feathers-authentication.zip to ./temp/node_modules/
+
+I added ukrainien flag in material-ui-country-flags 
+
+unzip ./temp/material-ui-country-flags.zip to ./temp/node_modules/
+
+Little mod to support Object.entries in mobx-react-matchmedia
+unzip ./temp/mobx-react-matchmedia.zip to ./temp/node_modules/
+
+
+3 Run APP:
+
+First run nginx simply:
+
+sudo nginx (in super user because we listen 80)
+
+
+* Run server for feathers (watch mode with debug mode authentication)
+
+from ./temp
+
+run:
+
+DEBUG=feathers-authentication:* node bin/server.js  
+
+
+* Finally Run Application in other console: 
+
+from root (parent of temp folder)
+
+npm start
+
+
+
+You re done ! (no need install after new the scalfolding react-app will do for you).
+
+see webpack.config.js for configuration
+
+
+* add dotenv to control easily application port with a file .env
+
+* cssnano just to optimize css output 
+
+* fontawesome
+
+* copy-webpack-plugin to push asset from a directory (else assets didn't found from memory)
+
+If you have some dependances problem to run it please say me 
+on skype simonzkyp or simon@skiscool.com
+
+
+
+
+# react-app/ssr
+Old not work with last configuration
+
+forked react-app for ssr
+see webpackssr.config.js for configuration
+
+Add fonctionnalities
+
+deploy react-app-ssr application: (this work is temporary stopped but should work)
+npm run newssr
+npm run startssr
+
+
+Comment developping:
+
+You can add others template
+
+Just need to set a environnement variable with the name of the template (for me ssr)
+The name of template folder have to begin by 'app-' 
+
+Name relation:
+ex folder /templates/app-mytemplate
+
+ in script "newssr": "template=mytemplate  node ./app/bin/react-app new --test-sdk", in package.json
+
+ webpack.config.js become webpackmytemplate.config.js
+
+
+I added 
+-> 1 webpackconfig for ssr
+-> select template in scripts
+
+I removed index.html (it's generated by server.js)
+
+SEO:
+In routes i correctly send a 404 response from server to the client for google
+
+I kept browser-sync and hot-middleware, but i use a proxy , i understood that the proxy is important for ssr
+
+New npm:
+
+* webpack-middleware was important to replace over webpack-dev-middleware who is not done for ssr
+
+* add dotenv to control easily application port with a file .env
+
+* cssnano just to optimize css output
+
+* simple-universal-style to push style in server -> important
+
+* isomorphic-fetch for routes (code of core/router nothing change)
+
+* did change in core/history for the server
+
+* copy-webpack-plugin to push asset from a directory (else assets didn't found from memory)
+
+
+
