@@ -6,6 +6,9 @@ So see the first "react-app"
 
 forked react-app  with fontawesome + mobx + material-ui + https://github.com/kriasoft/react-app
 
+Recent change, add frontside effect with bootstrap + jquery CDN  
+Link and Linkmaterial support Safari now
+
 NEW! Multi-language support with flags languages selection
 
  -> Recent Added: 
