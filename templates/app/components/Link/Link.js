@@ -55,7 +55,7 @@ console.log("./routes/"+this.props.to)
 
   render() {
   let get_comp="0";
-  const path = history.getCurrentLocation().pathname;
+  const path = decodeURI(history.getCurrentLocation().pathname);
 const pathfind=window.__routes__.find(x =>x.path=== path);
 if (pathfind&&pathfind.path){
 get_comp=pathfind.component;

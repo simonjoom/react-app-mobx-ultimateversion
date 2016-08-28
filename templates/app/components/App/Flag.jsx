@@ -17,6 +17,7 @@ return '/';
 }
 
 const findcomponent_thendebug= (path,routes) => {
+path = decodeURI(path);
 let tmp=routes.find(x=>(x.path?x.path=== path:null));
 if (tmp&&tmp.component){
 return tmp.component;
@@ -32,7 +33,7 @@ const Sel_Flag = ({FL,ky,component}={FL,ky,component}) => {
   let path;
 if (FL=='FR'){
 path=findroute_thendebug(component,window.__routesfr__,'fr')
-return <IconButton href={"http://"+process.env['SITEFR']+history.createHref(path)} key={ky} alt="French (FR)" title="French (FR)"><Icon_Flag_FR /></IconButton>;
+return <IconButton href={"http://"+process.env['SITEFR']+history.createHref(path)} key={ky} alt="French (FR)" title="French (FR)" ><Icon_Flag_FR /></IconButton>;
 }else if (FL=='RU'){
 path=findroute_thendebug(component,window.__routesru__,'ru')
 return <IconButton href={"http://"+process.env['SITERU']+history.createHref(path)} key={ky} alt="Russe (RU)" title="Russe (RU)"><Icon_Flag_RU /></IconButton>;
