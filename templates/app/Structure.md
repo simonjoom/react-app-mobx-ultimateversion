@@ -63,7 +63,13 @@ create a folder in
 ### Style defined:
     ~/temp/styles/_.material.js     override material-ui styles
     
-    
+### Pictures: 
+>To add picture add it in folder "assets"  
+the path to use is '/dist/mypictureaddedinasset.jpg'  
+You need to reload 'npm start' if yu added when app started  
+Webpack put all in '/dist/' folder in memory
+
+
 # Directory Layout
 
 ```shell
@@ -99,6 +105,7 @@ create a folder in
 │   ├── robots.txt              # Instructions for search engine crawlers
 │   └── /...                    # etc.
 ├── /test/                      # Unit and integration tests
+├── /assets/                    # Assets pictures...etc
 ├── /utils/                     # Utility and helper classes
 │── index.ejs                   # EJS template for index.html page
 │── main.js                     # React application entry point
