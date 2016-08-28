@@ -1,11 +1,70 @@
 # React App Starter Kit
 
-This project was created with **[React App SDK](https://github.com/kriasoft/react-app)** — CLI
-tools and templates for authoring React/Mobx applications with just a single dev dependency and
+This project was created with **[React App SDK](https://github.com/kriasoft/react-app)**  
+— CLI tools and templates for authoring React/Mobx applications with just a single dev dependency and
 zero configuration.
 
 
-### Directory Layout
+## Create components rules: 
+### Create first rules for routes langue correspondance
+in routes.json  
+in routes_fr.json  
+in routes_pt.json  
+
+ex: in routes_fr.json  
+>       {
+        "path": "/my_routefr",
+        "component": "./routes/Mycomp"
+        },
+
+### Create component entry point for routes in:
+    see /routes/Skiscool for formating
+    
+>       /routes/Mycomp/index.js : export default from "./Mycomp";
+        /routes/Mycomp/Mycomp.js
+        /routes/Mycomp/Mycomp.css
+
+import Layout from '../../components/Layout';  
+import Mycomp from '../../components/Mycomp'; //see at bottom  
+in Mycomp.js in this format:  
+>       <Layout className={s.content}>
+           <div className="center">
+                <h1 className={cx(s.title, {
+                  [s.xsTitle]: bp.xs,
+                  [s.suTitle]: bp.su,
+                })} >Mycomp Title</h1>
+                <h2 className={cx(s.subTitle, {
+                  [s.xsSubTitle]: bp.xs,
+                  [s.suSubTitle]: bp.su,
+                })}
+                > It's my awesome component Mycomp rendered
+                </h2>
+           </div>
+           <Divider />
+           <Mycomp appstate={appstate} lang={lang}/> #pass state and lang to component
+           </Layout>
+
+### Create stateless component
+Mycomp is stateless component (preference) because with mobx no need to use state   
+For "Mycomp" name:  
+create a folder in   
+>         /components  
+          ├── /Mycomp/                     Static files such as favicon.ico etc.
+          │   ├── package.json             The folder entry point 
+            {
+             "name": "Mycomp",
+             "version": "0.0.0",
+            "private": true,
+            "main": "./Mycomp.jsx"
+             }
+          │   ├── Mycomp.jsx              Component .jsx 
+          │   ├── Mycomp.css              style for Mycomp
+ 
+### Style defined:
+    ~/temp/styles/_.material.js     override material-ui styles
+    
+    
+# Directory Layout
 
 ```shell
 .
@@ -46,29 +105,6 @@ zero configuration.
 │── package.json                # The list of project dependencies and NPM scripts
 └── routes.json                 # This list of application routes
 ```
-
-
-
-### Create components rules:
-Mycomp is stateless component (preference) because with mobx no need to use state 
-For "Mycomp" name:
-create a folder in 
-/components
-├── /Mycomp/                    # Static files such as favicon.ico etc.
-│   ├── package.json            # The folder entry point 
-        {
-        "name": "Mycomp",
-        "version": "0.0.0",
-        "private": true,
-        "main": "./Mycomp.jsx"
-         }
-│   ├── Mycomp.jsx             # Component .jsx 
-│   ├── Mycomp.css             # style for Mycomp
- 
-### Style defined:
-    ~/temp/styles/_.material.js     override material-ui styles
-    
-    
 
 
 ### How to Run
