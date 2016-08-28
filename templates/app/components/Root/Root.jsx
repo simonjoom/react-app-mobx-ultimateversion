@@ -1,7 +1,7 @@
 import s from './Root.css';
 
-const Root = ({appstate}) => {
-  console.log(appstate);
+const Root = ({bp}) => {
+  console.log(bp);
   return (
         <div className={s.features}>
           <div className="center">
@@ -53,6 +53,6 @@ const Root = ({appstate}) => {
   );
 }
 
-Root.propTypes = {appstate: React.PropTypes.object.isRequired};
+Root.propTypes = {bp: React.PropTypes.object.isRequired};
 
 export default Root;

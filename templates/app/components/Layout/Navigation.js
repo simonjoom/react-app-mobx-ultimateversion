@@ -4,10 +4,10 @@ function Navigation() {
   return (
     <nav>
       <Link to="Skiscool">
-        About Skiscool
+        Concept Skiscool
       </Link>
-      <Link to="GetStarted">
-        Get Started
+      <Link to="About">
+        About Skiscool
       </Link>
       <Link to="Root">
         Root

@@ -7,7 +7,7 @@ import Link from '../Linkmaterial';
 function Navigation({className}) {
     return (
         <div className={cx(s.root)} role="navigation">
-            <Link className={cx(s.link)} to="GetStarted" hoverColor="#8AA62F" icon={<i className="mb3 fa fa-diamond" />}>About</Link>
+            <Link className={cx(s.link)} to="About" hoverColor="#8AA62F" icon={<i className="mb3 fa fa-diamond" />}>About Skiscool</Link>
             <Link className={cx(s.link,className)} to="Contact">Contact</Link>
             <Link className={cx(s.link,className)} to="Root">Root</Link>
             <Link className={cx(s.link,className)} to="Profile">profile</Link>

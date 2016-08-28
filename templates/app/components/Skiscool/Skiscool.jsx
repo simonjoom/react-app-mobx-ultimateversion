@@ -2,11 +2,9 @@ import s from './Skiscool.css';
 import Link from '../Linkmaterial';
 var constants=require('./myconst_of_lang')
 
-const Skiscool = ({appstate,lang}) => {
+const Skiscool = ({bp,lang}) => {
 let t_1,it_1,it_1_c,t_2,it_2,it_2_c;
 let t_3,it_3,it_3_c,t_4,it_4,it_4_c,t_5,it_5,it_5_c;
-
-  const bp = appstate.ui.breakpoints;
   t_1=constants.title_1[lang];
   it_1=constants.item_1[lang];
   it_1_c=constants.item_1_c[lang];
@@ -55,7 +53,6 @@ console.log(bp)
   );
 }
 
-Skiscool.propTypes = {appstate: React.PropTypes.object.isRequired,
-                      lang: React.PropTypes.string.isRequired};
+Skiscool.propTypes = {bp: React.PropTypes.object,lang: React.PropTypes.string.isRequired};
 
 export default Skiscool;

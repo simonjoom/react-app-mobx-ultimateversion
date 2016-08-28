@@ -4,6 +4,7 @@ This project was created with **[React App SDK](https://github.com/kriasoft/reac
 — CLI tools and templates for authoring React/Mobx applications with just a single dev dependency and
 zero configuration.
 
+New All components are in debugging mode with current state tree 
 
 ## Create components rules: 
 ### Create first rules for routes langue correspondance
@@ -18,30 +19,29 @@ ex: in routes_fr.json
         },
 
 ### Create component entry point for routes in:
-    see /routes/Skiscool for formating
+
+>* See and take exemple of:   
+    here: -/routes/Skiscool for React component formating  
+    or -/routes/Contact  for Stateless format
     
->       /routes/Mycomp/index.js : export default from "./Mycomp";
-        /routes/Mycomp/Mycomp.js
+>* Create component rule:  
+        /routes/Mycomp/index.js : export default from "./Mycomp";  
+        /routes/Mycomp/Mycomp.js  
         /routes/Mycomp/Mycomp.css
 
-import Layout from '../../components/Layout';  
-import Mycomp from '../../components/Mycomp'; //see at bottom  
-in Mycomp.js in this format:  
->       <Layout className={s.content}>
-           <div className="center">
-                <h1 className={cx(s.title, {
-                  [s.xsTitle]: bp.xs,
-                  [s.suTitle]: bp.su,
-                })} >Mycomp Title</h1>
-                <h2 className={cx(s.subTitle, {
-                  [s.xsSubTitle]: bp.xs,
-                  [s.suSubTitle]: bp.su,
-                })}
-                > It's my awesome component Mycomp rendered
-                </h2>
-           </div>
-           <Divider />
-           <Mycomp appstate={appstate} lang={lang}/> #pass state and lang to component
+> Observer is defined in routes entry point not in components (we pass value through props)  
+> /routes/Mycomp/Mycomp.js:                  
+                
+                import Layout from '../../components/Layout';  
+                import Mycomp from '../../components/Mycomp'; //see at bottom   
+                 ...  
+                @observer(['appstate'])  
+                class Mycomp extends React.Component {  
+                
+ Mycomp.js render in this format:    
+
+>       <Layout className={s.content} bp={bp} comp={"Mycomp"} title={"Mycomp title"} subtitle={"It's my awesome component Mycomp rendered subtitle"}>
+           <Mycomp bp={bp} lang={lang} otherstateprop={appstate.otherstateprop}/> #pass breakpoint-state and lang to component and other props
            </Layout>
 
 ### Create stateless component

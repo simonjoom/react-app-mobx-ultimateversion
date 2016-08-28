@@ -2,6 +2,7 @@ import { PropTypes } from 'react';
 import Header from './Header';
 import s from './Layout.css';
 import Divider from 'material-ui/Divider';
+import Debug from './Debug';
 
 function Layout(props) {
   let myprops=Object.assign({}, props);
@@ -17,6 +18,7 @@ function Layout(props) {
       <main className={s.content}>
         <div {...myprops} className={`${s.content}${props.className ? ` ${props.className}` : ''}`} />
       </main>
+      <Debug />
     </div>
   );
 }

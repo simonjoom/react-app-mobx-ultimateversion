@@ -102,7 +102,7 @@ $(document).ready(managetips);
   const bp = appstate.ui.breakpoints;
     return (
       <Layout className={s.content} bp={bp} comp={"Skiscool"} title={"Skiscool Concept"} subtitle={"SkiScool find your intructors"}>
-        <Skiscool appstate={appstate} lang={lang}/>
+        <Skiscool bp={bp} lang={lang}/>
 
 
         <h2>Recent Articles</h2>
