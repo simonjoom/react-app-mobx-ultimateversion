@@ -30,3 +30,29 @@
   }
 
 }
+.subTitle {
+  color: #5BC0BE;
+  font-weight: normal;
+  font-weight: 200;
+  letter-spacing: 8px;
+}
+
+.xsTitle {
+ /* margin: 100px auto 15px auto;*/
+  font-size: 40px;
+}
+
+.xsSubTitle {
+ /* margin: 0 auto 50px auto;*/
+  font-size: 15px;
+}
+
+.suTitle {
+ /* margin: 250px auto 15px auto;*/
+  font-size: 60px;
+}
+
+.suSubTitle {
+ /* margin: 0 auto 250px auto;*/
+  font-size: 25px;
+}

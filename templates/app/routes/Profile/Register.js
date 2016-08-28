@@ -1,4 +1,4 @@
-import {Component} from 'react';
+import {Component,PropTypes} from 'react';
 import s from './Register.css';
 import Layout from '../../components/Layout';
 import Profile from '../../components/Profile';
@@ -9,10 +9,11 @@ const title = 'Profile';
 @observer(['appstate'])
 class Register extends Component {
   static propTypes = {
-        appstate: React.PropTypes.object.isRequired
+        appstate: PropTypes.object.isRequired,
+    lang: PropTypes.string.isRequired
         }
 static contextTypes = {
-setTitle: React.PropTypes.func.isRequired
+setTitle: PropTypes.func.isRequired
 }
  goBack = event => {
     event.preventDefault();
@@ -20,11 +21,13 @@ setTitle: React.PropTypes.func.isRequired
   };
 
   render() {
+  const {auth,ui} = this.props.appstate;
+      const lang = this.props.lang;
+      console.log(lang)
   this.context.setTitle(title)
-  const {auth} = this.props.appstate;
+  const bp = ui.breakpoints;
     return (
- <Layout className={s.content}>
-   <h1>{title}</h1>
+ <Layout className={s.content} bp={bp} comp={"Login"} title={"SkiScool Login"} subtitle={"SkiScool Login"}>
   <Profile user={auth.user}/>
     </Layout>
   )

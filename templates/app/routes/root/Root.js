@@ -4,8 +4,6 @@ import Root from '../../components/Root';
 import Layout from '../../components/Layout';
 var _ = require('lodash');
 const title = 'Root';
-import cx from 'classnames';
-import Divider from 'material-ui/Divider';
 import s from './Root.css';
 
 @observer(['appstate'])
@@ -14,9 +12,9 @@ class Rootpage extends Component {
         appstate: PropTypes.object.isRequired
     };
   static contextTypes = {
-  setTitle: React.PropTypes.func.isRequired,
-  setMeta: React.PropTypes.func,
- muiTheme: React.PropTypes.object.isRequired
+  setTitle: PropTypes.func.isRequired,
+  setMeta: PropTypes.func,
+ muiTheme: PropTypes.object.isRequired
   }
     constructor(props) {
         super(props);
@@ -25,6 +23,7 @@ class Rootpage extends Component {
     }
     render() {
       const appstate = this.props.appstate;
+  const bp = appstate.ui.breakpoints;
       this.context.setTitle(title);
 let k=1;
 function cbf(appstate){
@@ -41,23 +40,8 @@ return _.map(_.toPlainObject(appstate),function(val,key) {
 
        })
        }
-
-  const bp = appstate.ui.breakpoints;
      return (
- <Layout className={s.content}>
-       <div className="center">
-            <h1 className={cx(s.title, {
-              [s.xsTitle]: bp.xs,
-              [s.suTitle]: bp.su,
-            })} >Root STACK</h1>
-            <h2 className={cx(s.subTitle, {
-              [s.xsSubTitle]: bp.xs,
-              [s.suSubTitle]: bp.su,
-            })}
-            >Universal App featuring: React + Feathers + MobX
-            </h2>
-       </div>
-       <Divider />
+ <Layout className={s.content} bp={bp} comp={"Root"} title={"Root STACK"} subtitle={"Universal App featuring: React + Feathers + MobX"}>
         <Root appstate={appstate}/>
 
      <ul>{cbf(appstate)}</ul>

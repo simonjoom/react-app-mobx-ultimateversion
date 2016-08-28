@@ -2,8 +2,6 @@ import { PropTypes } from 'react';
 import Layout from '../../components/Layout';
 import Skiscool from '../../components/Skiscool';
 import s from './Skiscool.css';
-import cx from 'classnames';
-import Divider from 'material-ui/Divider';
 import { observer } from "mobx-react";
 const title = 'SkiScool';
 
@@ -103,20 +101,7 @@ $(document).ready(managetips);
   this.context.setTitle(title)
   const bp = appstate.ui.breakpoints;
     return (
-      <Layout className={s.content}>
-       <div className="center">
-            <h1 className={cx(s.title, {
-              [s.xsTitle]: bp.xs,
-              [s.suTitle]: bp.su,
-            })} >Skiscool Concept</h1>
-            <h2 className={cx(s.subTitle, {
-              [s.xsSubTitle]: bp.xs,
-              [s.suSubTitle]: bp.su,
-            })}
-            > SkiScool find your intructors
-            </h2>
-       </div>
-       <Divider />
+      <Layout className={s.content} bp={bp} comp={"Skiscool"} title={"Skiscool Concept"} subtitle={"SkiScool find your intructors"}>
         <Skiscool appstate={appstate} lang={lang}/>
 
 

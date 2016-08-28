@@ -35,8 +35,8 @@
     "chunk": "main"
   },
   {
-    "path": "/Articles",
-    "component": "./routes/GetStarted",
+    "path": "/About_Skiscool",
+    "component": "./routes/About",
     "lang":"fr"
   },
   {

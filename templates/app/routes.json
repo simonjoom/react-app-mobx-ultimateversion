@@ -35,8 +35,9 @@
     "chunk": "main"
   },
   {
-    "path": "/Skiscool",
-    "component": "./routes/GetStarted"
+    "path": "/About_Skiscool",
+    "component": "./routes/About",
+    "lang":"en"
   },
   {
     "path": "/tasks/:status(pending|completed)?",
