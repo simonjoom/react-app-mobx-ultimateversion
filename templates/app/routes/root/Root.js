@@ -2,7 +2,6 @@ import { Component ,PropTypes} from 'react';
 import { observer } from "mobx-react";
 import Root from '../../components/Root';
 import Layout from '../../components/Layout';
-var _ = require('lodash');
 const title = 'Root';
 import s from './Root.css';
 
@@ -25,26 +24,10 @@ class Rootpage extends Component {
       const appstate = this.props.appstate;
   const bp = appstate.ui.breakpoints;
       this.context.setTitle(title);
-let k=1;
-function cbf(appstate){
-return _.map(_.toPlainObject(appstate),function(val,key) {
-       return (<li key={key}>
-       {
-       <If condition={_.isObject(val)&&(k++)}>
-       <ul key={k}>{key}{(cbf(val))}</ul>
-       <Else />
-        {key+':'+val}
-       </If>
-       }
-       </li>)
 
-       })
-       }
      return (
  <Layout className={s.content} bp={bp} comp={"Root"} title={"Root STACK"} subtitle={"Universal App featuring: React + Feathers + MobX"}>
-        <Root appstate={appstate}/>
-
-     <ul>{cbf(appstate)}</ul>
+        <Root bp={bp}/>
  </Layout>
      )
     }
