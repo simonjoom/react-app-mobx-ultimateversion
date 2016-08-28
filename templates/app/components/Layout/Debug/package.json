@@ -1,0 +1,6 @@
+{
+  "name": "Debug",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./Debug.jsx"
+}
