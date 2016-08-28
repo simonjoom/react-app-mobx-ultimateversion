@@ -5,7 +5,7 @@ This project was created with **[React App SDK](https://github.com/kriasoft/reac
 zero configuration.
 
 
-### Directory Layout
+## Directory Layout
 
 ```shell
 .
@@ -48,31 +48,31 @@ zero configuration.
 ```
 
 
-### Create components rules:
-Create first rules for routes 
+## Create components rules:
+### Create first rules for routes 
 in routes.json
 in routes_fr.json
 in routes_pt.json
 
 ex: in routes_fr.json
-{
-    "path": "/my_routefr",
-    "component": "./routes/Mycomp"
-  },
+>       {
+        "path": "/my_routefr",
+        "component": "./routes/Mycomp"
+        },
 
 
-Create component entry point for routes in:
+### Create component entry point for routes in:
     see /routes/Skiscool for formating
     
-/routes/Mycomp/index.js : export default from "./Mycomp";
-/routes/Mycomp/Mycomp.js
-/routes/Mycomp/Mycomp.css
+>       /routes/Mycomp/index.js : export default from "./Mycomp";
+        /routes/Mycomp/Mycomp.js
+        /routes/Mycomp/Mycomp.css
 
 
 import Layout from '../../components/Layout';
 import Mycomp from '../../components/Mycomp'; //see at bottom 
 in Mycomp.js in this format:
-    <Layout className={s.content}>
+>       <Layout className={s.content}>
            <div className="center">
                 <h1 className={cx(s.title, {
                   [s.xsTitle]: bp.xs,
@@ -87,23 +87,23 @@ in Mycomp.js in this format:
            </div>
            <Divider />
            <Mycomp appstate={appstate} lang={lang}/>
- </Layout>
+           </Layout>
 
-
+### Create stateless component
 Mycomp is stateless component (preference) because with mobx no need to use state 
 For "Mycomp" name:
 create a folder in 
 /components
-├── /Mycomp/                    # Static files such as favicon.ico etc.
-│   ├── package.json            # The folder entry point 
-        {
-        "name": "Mycomp",
-        "version": "0.0.0",
-        "private": true,
-        "main": "./Mycomp.jsx"
-         }
-│   ├── Mycomp.jsx             # Component .jsx 
-│   ├── Mycomp.css             # style for Mycomp
+>       ├── /Mycomp/                     Static files such as favicon.ico etc.
+        │   ├── package.json             The folder entry point 
+            {
+             "name": "Mycomp",
+             "version": "0.0.0",
+            "private": true,
+            "main": "./Mycomp.jsx"
+             }
+        │   ├── Mycomp.jsx              Component .jsx 
+        │   ├── Mycomp.css              style for Mycomp
  
 ### Style defined:
     ~/temp/styles/_.material.js     override material-ui styles
