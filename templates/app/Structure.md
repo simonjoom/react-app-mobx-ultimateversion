@@ -84,6 +84,18 @@ the path to use is '/dist/mypictureaddedinasset.jpg'
 You need to reload 'npm start' if yu added when app started  
 Webpack put all in '/dist/' folder in memory
 
+### Form:
+Our Form use the fastest validator from https://github.com/epoberezkin/ajv
+
+!! Maybe we have to recheck the code because mobx-ajv-form changed from last time  
+https://github.com/foxhound87/mobx-ajv-form/commit/72090d9127a7232666f4a8917565c00d607f7738#diff-dc89fdcc242c31d756fdf63cc2b6a434R15
+
+I use MobX and automatic validation with AJV json-schema rules.  
+See in Details [mobx-ajv-form](https://tonicdev.com/npm/mobx-ajv-form)   
+
+And https://github.com/foxhound87/mobx-ajv-form/blob/master/DOCUMENTATION.md#custom-validation-keywords-extend-ajv  
+
+
 
 # Directory Layout
 
