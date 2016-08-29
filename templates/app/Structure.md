@@ -4,7 +4,8 @@ This project was created with **[React App SDK](https://github.com/kriasoft/reac
 — CLI tools and templates for authoring React/Mobx applications with just a single dev dependency and
 zero configuration.
 
-New All components are in debugging mode with current state tree 
+## Debugging: 
+New All components are in debugging mode with current state tree displayed at the footer page
 
 ## Create components rules: 
 ### Create first rules for routes langue correspondance
@@ -29,7 +30,7 @@ ex: in routes_fr.json
         /routes/Mycomp/Mycomp.js  
         /routes/Mycomp/Mycomp.css
 
-> Observer is defined in routes entry point not in components (we pass value through props)  
+> better to link appstate with mobx (observer) only in routes entry point not in components (and we pass value through props)  
 > /routes/Mycomp/Mycomp.js:                  
                 
                 import Layout from '../../components/Layout';  
