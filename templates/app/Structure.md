@@ -7,6 +7,20 @@ zero configuration.
 ## Debugging: 
 New All components are in debugging mode with current state tree displayed at the footer page
 
+
+### READ and LEARN react-app router:
+[app/routes_fr.json#L12-L14](https://github.com/simonjoom/react-app-ssr/blob/master/templates/app/routes_fr.json#L12-L14)  
+->> This functionnality is very interesting to use  
+
+[core/router.js#L59-L71](https://github.com/simonjoom/react-app-ssr/blob/master/templates/app/core/router.js#L59-L71)  
+THe router fetch the get and store the result in prop Article before to render the component (Promise)  
+
+[Skiscool/Skiscool.js#L109-L111](https://github.com/simonjoom/react-app-ssr/blob/master/templates/app/routes/Skiscool/Skiscool.js#L109-L111)   
+
+We can use it to get some stuff from feathers-database to display in frontend;
+
+
+
 ## Create components rules: 
 ### Create first rules for routes langue correspondance
 in routes.json  
@@ -65,7 +79,7 @@ create a folder in
     ~/temp/styles/_.material.js     override material-ui styles
     
 ### Pictures: 
->To add picture add it in folder "assets"  
+>To add picture just add it in folder "assets"  
 the path to use is '/dist/mypictureaddedinasset.jpg'  
 You need to reload 'npm start' if yu added when app started  
 Webpack put all in '/dist/' folder in memory
@@ -78,20 +92,32 @@ Webpack put all in '/dist/' folder in memory
 ├── /bin/                       # Folder to run server api (tools)
 ├── /components/                # Shared or generic UI components 
 │   ├── /App/                   # Entry Point components major nodes defined here with framework basecss+bootstrap
-│   ├── /Navigation/            # Main menu component
-│   ├── /Layout/                # Website layout component used in router
+│   ├── /Navigation/            # Main menu component at the really tio
+│   ├── /Header/                # Sidebar component (i could to name it sidebar instead maybe...
+│   ├── /Layout/                # Website layout or template component with header/body/ and footer it's used in each router component.. 
+                                #so you can add here some stuff for each pages  
+                                
+    ├──  Linkmaterial.js             # used for each link to a page of the website using material-ui effect !! important
+    
+    
 │   ├── /Link/                  # Link component to be used insted of <a>
 │   ├── /forms/                 # We use mobx-ajv-form for form checking
 │   ├── /Profile/               # Profile component when user logged (info email status...)
+│   ├── /Skiscool/              # Skiscool component maybe futur home page
 │   └── /...                    # etc.
+
+
 ├── /core/                      # Core framework
 │   ├── /history.js             # Handles client-side navigation
 │   ├── /router.js              # Handles routing and data fetching
 │   └── /dispatch.js            # Used by component to trigger mobx action from store
 │   └── /decorators/            # Used by store , extend extend class in store, toggle assign a boolean state to a variable in store (to toggle material-ui theme)
+
+
 ├── /node_modules/              # 3rd-party libraries and utilities
 ├── /styles/                    # All styles for application
-├── /store/                     # Store
+
+├── /store/                     # Store MOBX / define here all observer and action directly in store.
 │   ├── /stores.js              # Load store stores/ui stores/auth stores/post
 │   ├── /ui                     # Load store ui 
 
@@ -106,9 +132,11 @@ Webpack put all in '/dist/' folder in memory
 │   ├── robots.txt              # Instructions for search engine crawlers
 │   └── /...                    # etc.
 ├── /test/                      # Unit and integration tests
-├── /assets/                    # Assets pictures...etc
+├── /assets/                    # Assets pictures...etc Webpack will copy from this folder to public/dist in memory
 ├── /utils/                     # Utility and helper classes
+
 │── index.ejs                   # EJS template for index.html page
+
 │── main.js                     # React application entry point
 │── package.json                # The list of project dependencies and NPM scripts
 └── routes.json                 # This list of application routes
@@ -116,14 +144,14 @@ Webpack put all in '/dist/' folder in memory
 
 
 ### How to Run
-
+After running server_API + nginx  
 In order to compile the app and launch a development web server with "live reload" run:
 
 ```sh
 $ npm start
 ```
 
-The app should become available at [http://localhost:3000](http://localhost:3000)
+The app should become available at [http://fr.skiscool.com](http://fr.skiscool.com)
 
 ### Common Tasks
 
