@@ -20,7 +20,7 @@ function AppBar({ authCheck, user, accountMenuIsOpen, layoutIsShifted }) {
   return (
     <div
       className={cx(styles.bar, appBar,
-        { [styles.leftShifted]: layoutIsShifted, 'left-0': !layoutIsShifted })
+        { [styles.leftShifted]: layoutIsShifted, 'left-0': !layoutIsShifted },"flex flex-auto")
       }
     >
       <div className={cx('left', 'lg-hide')}>

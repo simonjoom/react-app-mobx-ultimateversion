@@ -1,2 +1,2 @@
 /* eslint-disable import/no-named-as-default */
-export default from './Root';
+export default from './MySite';

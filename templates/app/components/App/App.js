@@ -72,7 +72,7 @@ class App extends Component {
 
         <Paper
           zDepth={1}
-          className={cx({ [s.su]: ui.layoutIsShifted }, { m0: xs, m1: su, m2: mu })}
+          className={cx({ [s.su]: ui.layoutIsShifted }, { m0: xs, m1: su, m2: mu },"flex","flex-column")}
         >
           <Toggle
             label="Toggle Theme"

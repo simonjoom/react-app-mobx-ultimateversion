@@ -64,7 +64,6 @@ const SelFlag = ({ FL, component }) => {
     title = 'English (UK)';
     flagComponent = <Icon_Flag_US />;
   }
-
   const iconURL = `http://${process.env[`SITE${FL}`]}${history.createHref(path)}`;
   return (
     <IconButton href={iconURL} alt={alt} title={title}>
@@ -84,13 +83,13 @@ const Flag = () => {
   let other = ['FR', 'UK', 'PT', 'RU'];
 
   if (data === process.env.SITEFR) {
-    other = ['US', 'UK', 'PT', 'RU'];
+    other = ['EN', 'UK', 'PT', 'RU'];
   } else if (data === process.env.SITEUK) {
-    other = ['US', 'FR', 'PT', 'RU'];
+    other = ['EN', 'FR', 'PT', 'RU'];
   } else if (data === process.env.SITERU) {
-    other = ['US', 'UK', 'PT', 'FR'];
+    other = ['EN', 'UK', 'PT', 'FR'];
   } else if (data === process.env.SITEPT) {
-    other = ['US', 'UK', 'FR', 'RU'];
+    other = ['EN', 'UK', 'FR', 'RU'];
   } else {
     other = ['PT', 'UK', 'FR', 'RU'];
   }

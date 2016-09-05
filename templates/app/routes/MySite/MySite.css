@@ -1,0 +1,36 @@
+@media screen and (max-width: 1024px) {
+  .content {
+    padding: 0 16px;
+  }
+}
+.title {
+  color: #6FFFE9;
+  font-weight: 100;
+  letter-spacing: 15px;
+}
+
+.subTitle {
+  color: #5BC0BE;
+  font-weight: normal;
+  font-weight: 200;
+}
+
+.xsTitle {
+  margin: 50px auto 15px auto;
+  font-size: 80px;
+}
+
+.xsSubTitle {
+  margin: 0 auto 50px auto;
+  font-size: 15px;
+}
+
+.suTitle {
+  margin: 80px auto 15px auto;
+  font-size: 130px;
+}
+
+.suSubTitle {
+  margin: 0 auto 30px auto;
+  font-size: 25px;
+}
