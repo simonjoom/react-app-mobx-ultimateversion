@@ -1,5 +1,5 @@
 import React from 'react';
-import {connect, dispatch} from '~/src/utils/state';
+import { connect, dispatch } from '~/src/utils/state';
 import cx from 'classnames';
 import _ from 'lodash';
 
@@ -14,65 +14,65 @@ const styles = _.cloneDeep(modalBaseStyle);
 const errorMessage = cx('red', 'm1');
 
 _.assign(styles.content, {
-    maxWidth: '450px',
-    maxHeight: '300px',
+  maxWidth: '450px',
+  maxHeight: '300px',
 });
 
 // events
 const handleCloseModal = () =>
-    dispatch('ui.postCreateModal.open', false);
+  dispatch('ui.postCreateModal.open', false);
 
-const PostCreateModal = ({open, form}) => (
-    <Modal
-        isOpen={open}
-        onRequestClose={handleCloseModal}
-        style={styles}
-    >
-        <div className="m3">
-            <h3>Create Post</h3>
-            <form>
-                <div className="pb3">
-                    <TextField
-                        hintText="Title"
-                        floatingLabelText="Title"
-                        name="title"
-                        value={form.fields.title.value}
-                        errorText={form.fields.title.errorMessage}
-                        onChange={form.syncValue}
-                    />
-                    <Toggle
-                        className="pt3"
-                        labelPosition="right"
-                        label="Completed"
-                        name="completed"
-                        defaultToggled={form.fields.completed.value}
-                        onToggle={form.syncValue}
-                    />
-                </div>
-                <div className="center">
-                    <button
-                        type="submit"
-                        disabled={!form.isValid}
-                        className="btn btn-primary"
-                        onClick={form.handleOnSubmit}
-                    >Save
-                    </button>
-                </div>
-                <div
-                    className={cx(errorMessage, {
-              hide: !form.isValid && form.genericErrorMessage,
-            })}
-                >
-                    {form.genericErrorMessage}
-                </div>
-            </form>
+const PostCreateModal = ({ open, form }) => (
+  <Modal
+    isOpen={open}
+    onRequestClose={handleCloseModal}
+    style={styles}
+  >
+    <div className="m3">
+      <h3>Create Post</h3>
+      <form>
+        <div className="pb3">
+          <TextField
+            hintText="Title"
+            floatingLabelText="Title"
+            name="title"
+            value={form.fields.title.value}
+            errorText={form.fields.title.errorMessage}
+            onChange={form.syncValue}
+          />
+          <Toggle
+            className="pt3"
+            labelPosition="right"
+            label="Completed"
+            name="completed"
+            defaultToggled={form.fields.completed.value}
+            onToggle={form.syncValue}
+          />
         </div>
-    </Modal>
+        <div className="center">
+          <button
+            type="submit"
+            disabled={!form.isValid}
+            className="btn btn-primary"
+            onClick={form.handleOnSubmit}
+          >Save
+          </button>
+        </div>
+        <div
+          className={cx(errorMessage, {
+            hide: !form.isValid && form.genericErrorMessage,
+          })}
+        >
+          {form.genericErrorMessage}
+        </div>
+      </form>
+    </div>
+  </Modal>
 );
 
 PostCreateModal.propTypes = {
-    open: React.PropTypes.bool,
-    form: React.PropTypes.object,
+  open: React.PropTypes.bool,
+  form: React.PropTypes.object,
 };
 
 export default connect(PostCreateModal);

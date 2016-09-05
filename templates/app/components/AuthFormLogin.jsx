@@ -7,15 +7,15 @@ import Login from './Login';
 // components
 
 class AuthModal extends React.Component {
-    constructor(props) {
-        super(props);
-    }
+  constructor(props) {
+    super(props);
+  }
 
-    render() {
-        return (
-        <Login />
-        );
-    }
+  render() {
+    return (
+      <Login />
+    );
+  }
 }
 
 export default AuthModal;

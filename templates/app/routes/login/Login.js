@@ -1,40 +1,47 @@
-import { PropTypes,Component } from 'react';
+import { PropTypes, Component } from 'react';
+import { observer } from 'mobx-react';
 import Login from '../../components/Login';
 import Layout from '../../components/Layout';
 import s from './Login.css';
-import { observer } from "mobx-react";
-const title = 'Log In';
 
 @observer(['appstate'])
 class LoginPage extends Component {
-    static propTypes = {
+  static propTypes = {
     appstate: PropTypes.object.isRequired,
-    lang: PropTypes.string.isRequired
-    };
+    lang: PropTypes.string,
+    title: PropTypes.string,
+    description: PropTypes.string,
+  };
   static contextTypes = {
-  setTitle: PropTypes.func.isRequired,
-  setMeta: PropTypes.func,
- muiTheme: PropTypes.object.isRequired
-  }
+    setTitle: PropTypes.func.isRequired,
+    setMeta: PropTypes.func,
+    muiTheme: PropTypes.object.isRequired,
+  };
   goBack = event => {
     event.preventDefault();
     history.goBack();
   };
 
   render() {
-      const appstate = this.props.appstate;
-      const lang = this.props.lang;
-      console.log(lang)
-  this.context.setTitle(title)
-  const bp = appstate.ui.breakpoints;
+// eslint-disable-next-line no-unused-vars
+    const { appstate, lang, description, title } = this.props;
+    this.context.setTitle(title);
+    this.context.setMeta('description', description);
+    const bp = appstate.ui.breakpoints;
     return (
- <Layout className={s.content} bp={bp} comp={"Login"} title={"SkiScool Login"} subtitle={"SkiScool Login"}>
-  <Login />
+      <Layout
+        className={s.content}
+        bp={bp}
+        comp={"Login"}
+        title={"SkiScool Login"}
+        subtitle={"SkiScool Login"}
+      >
+        <Login />
 
-<a href="/" onClick={this.goBack}>Go back</a>, or head over to the&nbsp;
-<a href="/">home page</a>
+        <a href="/" onClick={this.goBack}>Go back</a>, or head over to the&nbsp;
+        <a href="/">home page</a>
 
-</Layout>
+      </Layout>
     );
   }
 

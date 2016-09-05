@@ -3,11 +3,16 @@
     "path": "/",
     "component": "./routes/Skiscool",
     "lang":"pt",
+    "description":"Escola de esqui em Courchevel e Meribel",
+    "title":"Escola de esqui",
     "chunk": "main"
   },
   {
     "path": "/exemple_getdata_api",
     "component": "./routes/Home",
+    "lang":"pt",
+    "description":"Skiscool",
+    "title":"Skiscool",
     "chunk": "main",
     "data": {
       "articles": "GET https://gist.githubusercontent.com/koistya/a32919e847531320675764e7308b796a/raw/articles.json"
@@ -15,29 +20,46 @@
   },
   {
     "path": "/login_pt",
-    "component": "./routes/Login"
+    "component": "./routes/Login",
+    "lang":"pt",
+    "description":"Conecte-se conosco",
+    "title":"Conecte-se Skiscool"
   },
 {
     "path": "/contato",
-    "component": "./routes/Contact"
+    "component": "./routes/Contact",
+    "lang":"pt",
+    "description":"Contato com SkiScool",
+    "title":"Contato com Skiscool"
   },
 {
     "path": "/profile_pt",
-    "component": "./routes/Profile"
+    "component": "./routes/Profile",
+    "lang":"pt",
+    "description":"Perfil Usario",
+    "title":"Perfil Skiscool"
   },
   {
     "path": "/root_pt",
-    "component": "./routes/Root"
+    "component": "./routes/Root",
+    "lang":"pt",
+    "description":"Root",
+    "title":"Skiscool"
   },
   {
     "path": "/error",
     "component": "./routes/Error",
+    "lang":"pt",
+    "description":"Erro 404",
+    "title":"Erro 404",
     "chunk": "main"
   },
   {
     "path": "/About_Skiscool",
     "component": "./routes/About",
-    "lang":"pt"
+    "lang":"pt",
+    "description":"Sobre nós",
+    "title":"Sobre Skiscool"
   },
   {
     "path": "/tasks/:status(pending|completed)?",

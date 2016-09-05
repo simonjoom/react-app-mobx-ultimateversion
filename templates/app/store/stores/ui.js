@@ -69,12 +69,12 @@ export default class UIStore {
 
 
   myinjectTapEventPlugin() {
-    if (process.env.NODE_ENV === 'development') {
+    /*if (process.env.NODE_ENV === 'development') {
       return console.warn([
         'The react-tap-event-plugin is enabled only in production, ',
         'due to a issue with Hot-Reloadable MobX Stores.',
       ].join(''));
-    }
+    }*/
     // Material-UI components use react-tap-event-plugin to listen for touch events
     // This dependency is temporary and will go away once react v1.0
     return injectTapEventPlugin();

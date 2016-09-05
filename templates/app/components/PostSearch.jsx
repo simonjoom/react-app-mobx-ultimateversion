@@ -24,7 +24,7 @@ const PostSearch = ({ search }) => (
     <button
       onClick={resetSearch}
       className="btn rounded-right border navy bg-silver"
-    ><i className="fa fa-times" /></button>
+    ><i className="fa fa-times"/></button>
   </form>
 );
 

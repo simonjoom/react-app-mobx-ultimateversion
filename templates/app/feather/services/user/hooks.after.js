@@ -1,12 +1,13 @@
 import hooks from 'feathers-hooks';
 
 /**
-  Hook: after
-  Service: user
-*/
+ Hook: after
+ Service: user
+ */
 export default {
   all: [
-    hooks.remove('__v', 'password'),
+  hooks.remove('password'),
+  //  hooks.remove('__v', 'password'),
   ],
   find: [],
   get: [],

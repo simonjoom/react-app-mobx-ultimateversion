@@ -5,7 +5,7 @@
     "npm": ">=3.8"
   },
   "dependencies": {
-    "ajv": "^4.3.0",
+    "ajv": "^4.6.1",
     "animate.css": "^3.5.1",
     "basscss": "~8.0.1",
     "basscss-align": "~1.0.2",
@@ -49,10 +49,10 @@
     "less": "^2.7.1",
     "material-ui": "^0.15.3",
     "material-ui-country-flags": "^3.0.1",
-    "mobx": "^2.4.4",
-    "mobx-ajv-form": "^1.7.1",
+    "mobx": "^2.5.0",
+    "mobx-ajv-form": "^1.8.0",
     "mobx-react": "^3.5.5",
-    "mobx-react-devtools": "^4.2.4",
+    "mobx-react-devtools": "^4.2.5",
     "mobx-react-matchmedia": "^1.1.0",
     "mongoose": "^4.5.8",
     "normalize.css": "^4.2.0",

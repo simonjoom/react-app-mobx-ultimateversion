@@ -3,11 +3,11 @@ import mongoose from 'mongoose';
 
 const Schema = mongoose.Schema;
 
-const schema=new Schema({
-    uuid: { type: String, required: true, unique: true },
+const schema = new Schema({
+  uuid: { type: String, required: true, unique: true },
   email: { type: String, required: false, unique: true },
-    username: { type: String, required: false, unique: true },
-    password: { type: String, required: false },
+  username: { type: String, required: false, unique: true },
+  password: { type: String, required: false },
 
   facebookId: { type: String },
   facebook: { type: Schema.Types.Mixed },
@@ -52,9 +52,9 @@ const schema=new Schema({
     }
   },
 
-    createdAt: { type: Date, default: Date.now },
-    updatedAt: { type: Date, default: Date.now },
-  });
+  createdAt: { type: Date, default: Date.now },
+  updatedAt: { type: Date, default: Date.now },
+});
 
 
-export default mongoose.model('user',schema);
+export default mongoose.model('user', schema);

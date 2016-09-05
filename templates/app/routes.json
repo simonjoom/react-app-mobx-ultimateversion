@@ -3,11 +3,14 @@
     "path": "/",
     "component": "./routes/Skiscool",
     "lang":"en",
+    "description":"SKi school courchevel Meribel",
+    "title":"SKi school: Skiscool",
     "chunk": "main"
   },
   {
     "path": "/exemple_getdata_api",
     "component": "./routes/Home",
+        "lang":"en",
     "chunk": "main",
     "data": {
       "articles": "GET https://gist.githubusercontent.com/koistya/a32919e847531320675764e7308b796a/raw/articles.json"
@@ -15,32 +18,52 @@
   },
   {
     "path": "/login",
-    "component": "./routes/Login"
+    "component": "./routes/Login",
+    "description":"Login to ski school",
+    "title":"Skiscool Login",
+    "lang":"en"
   },
 {
     "path": "/contact",
-    "component": "./routes/Contact"
+    "component": "./routes/Contact",
+    "description":"Contact Skiscool",
+    "title":"Contact Skiscool",
+    "lang":"en"
   },
 {
     "path": "/profile",
-    "component": "./routes/Profile"
+    "component": "./routes/Profile",
+    "description":"Profile skiscooler",
+    "title":"Skiscool",
+    "lang":"en"
   },
   {
     "path": "/root",
-    "component": "./routes/Root"
+    "component": "./routes/Root",
+    "description":"Root Skiscool",
+    "title":"Skiscool",
+    "lang":"en"
   },
   {
     "path": "/error",
     "component": "./routes/Error",
-    "chunk": "main"
+    "description":"Error 404 Skiscool",
+    "title":"Skiscool",
+    "chunk": "main",
+    "lang":"en"
   },
   {
     "path": "/About_Skiscool",
     "component": "./routes/About",
+    "description":"About Skiscool, price rates",
+    "title":"SkiScool about",
     "lang":"en"
   },
   {
     "path": "/tasks/:status(pending|completed)?",
-    "component": "./routes/Home"
+    "component": "./routes/Home",
+    "description":"My description",
+    "title":"Skiscool",
+    "lang":"en"
   }
 ]

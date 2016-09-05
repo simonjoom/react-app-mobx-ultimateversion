@@ -1,21 +1,27 @@
-import { PropTypes } from 'react';
+import React, { PropTypes } from 'react';
 import Layout from '../../components/Layout';
 import Link from '../../components/Link';
 import s from './Home.css';
 
-const title = 'React App Starter Kit';
 
 class HomePage extends React.Component {
-
   static propTypes = {
     articles: PropTypes.array.isRequired,
+    appstate: PropTypes.object.isRequired,
+    lang: PropTypes.string,
+    title: PropTypes.string,
+    description: PropTypes.string,
   };
-
-  componentDidMount() {
-    document.title = title;
-  }
-
+  static contextTypes = {
+    setTitle: PropTypes.func.isRequired,
+    setMeta: PropTypes.func,
+    muiTheme: PropTypes.object.isRequired,
+  };
   render() {
+// eslint-disable-next-line no-unused-vars
+    const { appstate, lang, description, title } = this.props;
+    this.context.setTitle(title);
+    this.context.setMeta('description', description);
     return (
       <Layout className={s.content}>
         <h1>Welcome!</h1>

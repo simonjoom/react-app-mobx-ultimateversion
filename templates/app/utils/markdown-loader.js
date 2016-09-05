@@ -21,12 +21,16 @@ module.exports = function markdownLoader(source) {
       if (lang && hljs.getLanguage(lang)) {
         try {
           return hljs.highlight(lang, str).value;
-        } catch (err) { console.error(err.stack); } // eslint-disable-line no-console
+        } catch (err) {
+          console.error(err.stack);
+        } // eslint-disable-line no-console
       }
 
       try {
         return hljs.highlightAuto(str).value;
-      } catch (err) { console.error(err.stack); } // eslint-disable-line no-console
+      } catch (err) {
+        console.error(err.stack);
+      } // eslint-disable-line no-console
 
       return '';
     },

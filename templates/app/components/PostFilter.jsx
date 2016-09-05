@@ -20,7 +20,8 @@ const PostFilter = ({ filter }) => (
         'btn-outline': filter !== 'all',
         'btn-primary': filter === 'all',
       })}
-    >All</button>
+    >All
+    </button>
     <button
       type="button" value="todo"
       onClick={handleSelect}
@@ -28,7 +29,8 @@ const PostFilter = ({ filter }) => (
         'btn-outline': filter !== 'todo',
         'btn-primary': filter === 'todo',
       })}
-    >To Do</button>
+    >To Do
+    </button>
     <button
       type="button" value="done"
       onClick={handleSelect}
@@ -36,7 +38,8 @@ const PostFilter = ({ filter }) => (
         'btn-outline': filter !== 'done',
         'btn-primary': filter === 'done',
       })}
-    >Done</button>
+    >Done
+    </button>
   </div>
 );
 

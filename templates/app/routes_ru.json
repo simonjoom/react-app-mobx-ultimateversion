@@ -3,11 +3,16 @@
     "path": "/",
     "component": "./routes/Skiscool",
     "lang":"ru",
+    "description":"Лыжная школа в Куршевель и Мерибель",
+    "title":"Skiscool: Лыжная школа в Куршевель",
     "chunk": "main"
   },
   {
     "path": "/exemple_getdata_api",
     "component": "./routes/Home",
+    "lang":"ru",
+    "description":"Skiscool",
+    "title":"Skiscool",
     "chunk": "main",
     "data": {
       "articles": "GET https://gist.githubusercontent.com/koistya/a32919e847531320675764e7308b796a/raw/articles.json"
@@ -15,28 +20,45 @@
   },
   {
     "path": "/login_ru",
-    "component": "./routes/Login"
+    "component": "./routes/Login",
+    "description":"Авторизоваться Skiscool",
+    "title":"Войти Skiscool",
+    "lang":"ru"
   },
 {
     "path": "/контакт",
-    "component": "./routes/Contact"
+    "component": "./routes/Contact",
+    "description":"контакт Skiscool",
+    "title":"контакт Skiscool",
+    "lang":"ru"
   },
 {
     "path": "/profile",
-    "component": "./routes/Profile"
+    "description":"Профиль Skiscool",
+    "title":"Профиль Skiscool",
+    "component": "./routes/Profile",
+    "lang":"ru"
   },
   {
     "path": "/root_ru",
-    "component": "./routes/Root"
+    "component": "./routes/Root",
+    "description":"Root Skiscool",
+    "title":"Skiscool",
+    "lang":"ru"
   },
   {
     "path": "/error",
     "component": "./routes/Error",
-    "chunk": "main"
+    "description":"ошибка 404 Skiscool",
+    "title":"ошибка 404",
+    "chunk": "main",
+    "lang":"ru"
   },
   {
     "path": "/About_Skiscool",
     "component": "./routes/About",
+    "description":"О нас Skiscool",
+    "title":"О Skiscool",
     "lang":"ru"
   },
   {

@@ -1,32 +1,33 @@
-import { PropTypes } from 'react';
-import Header from './Header';
-import s from './Layout.css';
+import React, { PropTypes } from 'react';
 import Divider from 'material-ui/Divider';
+import Header from './Header';
+import styles from './Layout.css';
 import Debug from './Debug';
 
-function Layout(props) {
-  let myprops=Object.assign({}, props);
-  delete myprops.comp;
-  delete myprops.subtitle;
-  delete myprops.title;
-  delete myprops.bp;
+const Layout = ({ comp, subtitle, title, bp, className, ...props }) => (
+  <div className={styles.root}>
+    <Header
+      title={title}
+      comp={comp}
+      subtitle={subtitle}
+      bp={bp}
+    />
+    <Divider />
+    <main className={styles.content}>
+      <div
+        {...props}
+        className={`${styles.content}${className ? ` ${className}` : ''}`}
+      />
+    </main>
+    <Debug />
+  </div>
+);
 
-  return (
-    <div className={s.root}>
-      <Header title={props.title} comp={props.comp} subtitle={props.subtitle} bp={props.bp}/>
-      <Divider />
-      <main className={s.content}>
-        <div {...myprops} className={`${s.content}${props.className ? ` ${props.className}` : ''}`} />
-      </main>
-      <Debug />
-    </div>
-  );
-}
-Layout.propTypes = {className: PropTypes.string,
-title: PropTypes.string.isRequired,
-subtitle: PropTypes.string.isRequired,
-comp: React.PropTypes.string.isRequired,
-bp: PropTypes.object.isRequired};
-
-
+Layout.propTypes = {
+  className: PropTypes.string,
+  title: PropTypes.string.isRequired,
+  subtitle: PropTypes.string.isRequired,
+  comp: React.PropTypes.string.isRequired,
+  bp: PropTypes.object.isRequired,
+};
 export default Layout;

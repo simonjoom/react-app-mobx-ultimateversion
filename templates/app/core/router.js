@@ -1,5 +1,3 @@
-
-
 function decodeParam(val) {
   if (!(typeof val === 'string' || val.length === 0)) {
     return val;
@@ -39,10 +37,19 @@ function matchURI(route, path) {
 // Find the route matching the specified location (context), fetch the required data,
 // instantiate and return a React component
 function resolve(routes, context) {
-let path=decodeURI(context.pathname);
+  const path = decodeURI(context.pathname);
   for (const route of routes) {
     const params = matchURI(route, context.error ? '/error' : path);
-
+    const myprops = {};
+    if (route.lang) {
+      myprops.lang = route.lang;
+    }
+    if (route.description) {
+      myprops.description = route.description;
+    }
+    if (route.title) {
+      myprops.title = route.title;
+    }
     if (params) {
       // Check if the route has any data requirements, for example:
       //
@@ -64,16 +71,23 @@ let path=decodeURI(context.pathname);
             // TODO: Replace query parameters with actual values coming from `params`
             return fetch(url, { method }).then(resp => resp.json());
           }),
-        ]).then(([Component, ...data]) => {
-
-          const props = keys.reduce((result, key, i) => ({ ...result, [key]: data[i] }), {});
-          return <Component route={route} error={context.error} {...props} />;
-        });
+        ]).then(
+          ([Component, ...data]) => {
+            const props = keys.reduce((result, key, i) => ({ ...result, [key]: data[i] }), {});
+            return (<Component
+              route={route}
+              error={context.error}
+              {...props}
+              {...myprops}
+            />);
+          }
+          );
       }
-      if (route.lang)
-      return route.load().then(Component => <Component route={route} lang={route.lang} error={context.error} />);
-      else
-      return route.load().then(Component => <Component route={route} error={context.error} />);
+      return route.load().then(Component => <Component
+        route={route}
+        {...myprops}
+        error={context.error}
+      />);
     }
   }
 

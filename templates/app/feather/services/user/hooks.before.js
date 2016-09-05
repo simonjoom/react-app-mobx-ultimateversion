@@ -1,18 +1,16 @@
 import { hooks as auth } from 'feathers-authentication';
 import { setUUID } from '../../hooks/setUUID';
 /**
-  Hook: before
-  Service: user
-*/
+ Hook: before
+ Service: user
+ */
 export default {
   all: [],
-  find: [
-  ],
-  get: [
-  ],
+  find: [],
+  get: [],
   create: [
-       setUUID(),
-      auth.hashPassword(),
+    setUUID(),
+    auth.hashPassword(),
   ],
   update: [
     auth.verifyToken(),

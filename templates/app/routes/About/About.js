@@ -1,29 +1,35 @@
 import { PropTypes } from 'react';
+import { observer } from 'mobx-react';
 import Layout from '../../components/Layout';
-import { observer } from "mobx-react";
 import s from './About.css';
-const mdo= require('./About_'+window.__lang__+'.md');
+
+const mdo = require(`./About_${window.__lang__}.md`);
 
 @observer(['appstate'])
 class AboutPage extends React.Component {
-    static propTypes = {
+  static propTypes = {
     appstate: PropTypes.object.isRequired,
-    lang: PropTypes.string.isRequired
-    };
+    lang: PropTypes.string,
+    title: PropTypes.string,
+    description: PropTypes.string,
+  };
   static contextTypes = {
-  setTitle: PropTypes.func.isRequired,
-  setMeta: PropTypes.func,
- muiTheme: PropTypes.object.isRequired
+    setTitle: PropTypes.func.isRequired,
+    setMeta: PropTypes.func,
+    muiTheme: PropTypes.object.isRequired,
   }
 
   render() {
-      const appstate = this.props.appstate;
-      const lang = this.props.lang;
-  this.context.setTitle(title)
-  const bp = appstate.ui.breakpoints;
-  const title=mdo.title;
-  const html=mdo.html;
-  console.log(lang)
+// eslint-disable-next-line no-unused-vars
+    const { appstate, lang, description } = this.props;
+
+    this.context.setMeta('description', description);
+
+    const bp = appstate.ui.breakpoints;
+    const title = mdo.title;
+    this.context.setTitle(title);
+    const html = mdo.html;
+    console.log(lang);
     return (
       <Layout className={s.content} bp={bp} comp={"About"} title={title} subtitle={title}>
         <div dangerouslySetInnerHTML={{ __html: html }} />

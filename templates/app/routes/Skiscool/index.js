@@ -1,1 +1,2 @@
-export default from "./Skiscool";
+/* eslint-disable import/no-named-as-default */
+export default from './Skiscool';

@@ -1,4 +1,3 @@
-
 const toRegExp = require('path-to-regexp');
 
 function escape(text) {
@@ -24,7 +23,7 @@ function escape(text) {
  *   }
  */
 module.exports = function routesLoader(source) {
- // this.cacheable();
+  // this.cacheable();
 
   const output = ['[\n'];
   const routes = JSON.parse(source);
@@ -50,6 +49,15 @@ module.exports = function routesLoader(source) {
     output.push(`    component: '${escape(route.component)}',\n`);
     if (route.data) {
       output.push(`    data: ${JSON.stringify(route.data)},\n`);
+    }
+    if (route.description) {
+      output.push(`    description: ${JSON.stringify(route.description)},\n`);
+    }
+    if (route.title) {
+      output.push(`    title: ${JSON.stringify(route.title)},\n`);
+    }
+    if (route.lang) {
+      output.push(`    lang: ${JSON.stringify(route.lang)},\n`);
     }
     output.push(`    load() {\n      return ${require(route.component)};\n    },\n`);
     output.push('  },\n');
