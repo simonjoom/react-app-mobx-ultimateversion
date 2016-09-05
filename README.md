@@ -1,6 +1,6 @@
 # Ultimate boilerplate react-app-mobx with mutilanguage/multidomain support
 
-This boilerplate is created in aim to help you to create multi-langue website.  
+This boilerplate created in order to help developper to create multi-language react website with material-ui support.  
 We did a version fully working with server side rendering,  
 But we decided to start from single page application instead, will be easier to maintain!  
 And we will use https://prerender.io/ to prerender and cache our we-site for google SEO
@@ -8,8 +8,8 @@ And we will use https://prerender.io/ to prerender and cache our we-site for goo
 [![Dependency Status](https://david-dm.org/simonjoom/react-app-mobx-ultimateversion.svg?style=flat-square)](https://david-dm.org/simonjoom/react-app-mobx-ultimateversion)
 [![devDependency Status](https://david-dm.org/simonjoom/react-app-mobx-ultimateversion/dev-status.svg?style=flat-square)](https://david-dm.org/simonjoom/react-app-mobx-ultimateversion#info=devDependencies)
 
-We can hire developper using our MOBX TECHNOLOGIE
--------------------------------------------------
+We can hire developper using MOBX-NGINX TECHNOLOGIE
+---------------------------------------------------
 
 ## About This boilerplate
 This is a starter boilerplate app   
@@ -18,6 +18,7 @@ We together using the following technologies:
 
 * Both client and server make calls to load data from separate API server
 * [React](https://github.com/facebook/react)
+* [ProxyPass with nginx](http://nginx.org/en/docs/http/ngx_http_proxy_module.html) Nginx manage javascript-cors and help us to develop under http://www.mysite.com (port 80)
 * [Express](http://expressjs.com)
 * [Babel](http://babeljs.io) for ES6 and ES7 magic
 * [Webpack](http://webpack.github.io) for bundling
