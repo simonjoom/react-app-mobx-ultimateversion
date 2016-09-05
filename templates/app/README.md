@@ -1,5 +1,6 @@
-# Ultimate boilerplate react-app-mobx
+# Ultimate boilerplate react-app-mobx with mutilanguage/multidomain support
 
+This boilerplate is created in aim to help you to create multi-langue website.  
 We did a version fully working with server side rendering,  
 But we decided to start from single page application instead, will be easier to maintain!  
 And we will use https://prerender.io/ to prerender and cache our we-site for google SEO
@@ -10,9 +11,9 @@ And we will use https://prerender.io/ to prerender and cache our we-site for goo
 We can hire developper using our MOBX TECHNOLOGIE
 -------------------------------------------------
 
-## About THis boilerplate
-This is a starter boilerplate app 
-We together using the following technologies:
+## About This boilerplate
+This is a starter boilerplate app   
+We together using the following technologies:   
 **fontawesome + mobx + material-ui + bootstrap** + https://github.com/kriasoft/react-app
 
 * Both client and server make calls to load data from separate API server
@@ -26,7 +27,7 @@ We together using the following technologies:
 * [mobx Dev Tools](https://github.com/mobxjs/mobx-react-devtools) for next generation DX (developer experience). 
 * [ESLint](http://eslint.org) to maintain a consistent code style 
 * [mobx-ajv-form](https://github.com/erikras/lru-memoize) best form validation AJV 
-* [style-loader](https://github.com/webpack/style-loader), [sass-loader](https://github.com/jtangelder/sass-loader) and [less-loader](https://github.com/webpack/less-loader) to allow import of stylesheets in plain css, sass and less,
+* [style-loader](https://github.com/webpack/style-loader), and [less-loader](https://github.com/webpack/less-loader) to allow import of stylesheets in plain css, sass and less,
 * [bootstrap v3](http://getbootstrap.com/) bootstrap + jquery CDN loaded async with https://www.npmjs.com/package/async-js
  
 
