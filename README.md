@@ -1,10 +1,41 @@
-This thread call react-app-ssr; i did a version fully working with server side rendering,  
+# Ultimate boilerplate react-app-mobx
+
+This thread call react-app-ssr; We did a version fully working with server side rendering,  
 But we decided to start from single page application instead, will be easier to maintain!  
-So see the first "react-app"  
+And we will use https://prerender.io/ to prerender and cache our we-site for google SEO
+
+We hire developper using our TECHNOLOGIE 
+----------------------------------------
+
+## About THis boilerplate
+
+This is a starter boilerplate app I've put together using the following technologies:
+**fontawesome + mobx + material-ui** + https://github.com/kriasoft/react-app
+
+* Both client and server make calls to load data from separate API server
+* [React](https://github.com/facebook/react)
+* [Express](http://expressjs.com)
+* [Babel](http://babeljs.io) for ES6 and ES7 magic
+* [Webpack](http://webpack.github.io) for bundling
+* [Webpack Dev Middleware](http://webpack.github.io/docs/webpack-dev-middleware.html)
+* [Webpack Hot Middleware](https://github.com/glenjamin/webpack-hot-middleware)
+* [mobx](https://mobxjs.github.io/mobx/best/devtools.html) Better than redux in my opinion to maintain code  
+* [mobx Dev Tools](https://github.com/mobxjs/mobx-react-devtools) for next generation DX (developer experience). 
+* [ESLint](http://eslint.org) to maintain a consistent code style
+* [redux-form](https://github.com/erikras/redux-form) to manage form state in Redux
+* [lru-memoize](https://github.com/erikras/lru-memoize) form validation AJV
+* [style-loader](https://github.com/webpack/style-loader), [sass-loader](https://github.com/jtangelder/sass-loader) and [less-loader](https://github.com/webpack/less-loader) to allow import of stylesheets in plain css, sass and less,
+* [bootstrap v3](http://getbootstrap.com/) bootstrap + jquery CDN loaded async with https://www.npmjs.com/package/async-js
+
+I cobbled this together from a wide variety of similar "starter" repositories.  
+As I post this in June 2016, all of these libraries are right at the bleeding edge of web development.   
+They may fall out of fashion as quickly as they have come into it, but I personally believe that this stack is the future of web development and will survive for several years.
+
+I'm building my new projects with this, and I recommend that you do, too.
+
 
 # react-app for developpement use
-
-forked react-app  with **fontawesome + mobx + material-ui** + https://github.com/kriasoft/react-app
+ 
 
 Recent change, added frontside effect (to use bootstrap popover+modal...)
 
@@ -18,7 +49,9 @@ see code head section in index.ejs
 
  -> Recent Added: 
 
-        Updated new mobx version 
+        Updated new mobx + ajv-form version 
+            "mobx": "^2.5.0",
+            "mobx-ajv-form": "^1.8.0",
         
         eslint + jsx-control-statements lint support for better tracking bug code    
            
@@ -38,28 +71,28 @@ https://coderwall.com/p/dgwwuq/installing-nginx-in-mac-os-x-maverick-with-homebr
 
 IN root folder of react-app
 
-a) npm install (install babel dependencies)
+a) npm install (install babel dependencies)  
 
-b) npm run new (this install and deps of MY application in ./temp)
-
+b) npm run new (this install and deps of MY application in ./temp)     
 normally i checked all dependencies
 
-b) install my config with nginx for proxying all listening skiscool.com:80 to localhost
+b) install my config with nginx for proxying all listening mysite.com:80 to localhost
 
 i installed 4 language: french, ukrainien, russian, english (you can modify it for your need)
 
-Generic-conf work for url like 
+change respectivly in generic 'mysite' to your domain   
+Generic-conf work for url as  
 
-* fr.skiscool.com (for french)
-* ru.skiscool.com (for russian)
-* www.skiscool.eu (for english)
+* fr.mysite.com (for french)
+* ru.mysite.com (for russian)
+* www.mysite.eu (for english)
 
 
 IN react-app run:
 
-sudo cp -f ./temp/domain-conf-nginx/skiscool_conf/nginx.conf /usr/local/etc/nginx/nginx.conf  
-sudo cp -f ./temp/domain-conf-nginx/skiscool_conf/hosts /etc/hosts  
-sudo cp -f ./temp/domain-conf-nginx/skiscool_conf/.env ./temp/.env  
+sudo cp -f ./temp/domain-conf-nginx/generic_conf/nginx.conf /usr/local/etc/nginx/nginx.conf  
+sudo cp -f ./temp/domain-conf-nginx/generic__conf/hosts /etc/hosts  
+sudo cp -f ./temp/domain-conf-nginx/generic__conf/.env ./temp/.env  
 
 like that we link all my server to localhost 
 
@@ -75,8 +108,16 @@ and replace by mine (i did some little hack to make the new work with my config)
 >* I added ukrainien flag in material-ui-country-flags  
 > Do unzip ./temp/material-ui-country-flags.zip to ./temp/node_modules/  
 
->* Little mod to support Object.entries in mobx-react-matchmedia:  
+>* Little mod to support Object.entries in mobx-react-matchmedia and update mobx v2.5:  
 > Do unzip ./temp/mobx-react-matchmedia.zip to ./temp/node_modules/
+
+>* Manual things be sure to remove:
+     
+        ./temp/node_module/mobx-ajv-form/node_module/mobx
+        ./temp/node_module/mobx-ajv-form/node_module/ajv 
+        
+     node_module folders are created improperly by  mobx-ajv-form  due to the new mobx version
+
 
 
 ### Run APP:
@@ -117,9 +158,9 @@ on skype simonzkyp or simon@skiscool.com
 
 
 
+For server-side rendering see code of:   
+Important no more maintained so it's not work but the code and implementation are still readable...   
 
-
-->NIco do not read this (old ssr features)
 # react-app/ssr
 Old not work with last configuration
 
@@ -157,6 +198,8 @@ I removed index.html (it's generated by server.js)
 I kept browser-sync and hot-middleware, but i use a proxy
 
 New npm:
+
+* [webpack-isomorphic-tools](https://github.com/halt-hammerzeit/webpack-isomorphic-tools) to allow require() work for statics both on client and server
 
 * webpack-middleware was important to replace over webpack-dev-middleware who is not done for ssr
 
