@@ -1,16 +1,16 @@
 # Ultimate boilerplate react-app-mobx
 
-This thread call react-app-ssr; We did a version fully working with server side rendering,  
+We did a version fully working with server side rendering,  
 But we decided to start from single page application instead, will be easier to maintain!  
 And we will use https://prerender.io/ to prerender and cache our we-site for google SEO
-
-We hire developper using our TECHNOLOGIE 
-----------------------------------------
+ 
+We can hire developper using our MOBX TECHNOLOGIE
+-------------------------------------------------
 
 ## About THis boilerplate
-
-This is a starter boilerplate app I've put together using the following technologies:
-**fontawesome + mobx + material-ui** + https://github.com/kriasoft/react-app
+This is a starter boilerplate app 
+We together using the following technologies:
+**fontawesome + mobx + material-ui + bootstrap** + https://github.com/kriasoft/react-app
 
 * Both client and server make calls to load data from separate API server
 * [React](https://github.com/facebook/react)
@@ -21,11 +21,11 @@ This is a starter boilerplate app I've put together using the following technolo
 * [Webpack Hot Middleware](https://github.com/glenjamin/webpack-hot-middleware)
 * [mobx](https://mobxjs.github.io/mobx/best/devtools.html) Better than redux in my opinion to maintain code  
 * [mobx Dev Tools](https://github.com/mobxjs/mobx-react-devtools) for next generation DX (developer experience). 
-* [ESLint](http://eslint.org) to maintain a consistent code style
-* [redux-form](https://github.com/erikras/redux-form) to manage form state in Redux
-* [lru-memoize](https://github.com/erikras/lru-memoize) form validation AJV
+* [ESLint](http://eslint.org) to maintain a consistent code style 
+* [mobx-ajv-form](https://github.com/erikras/lru-memoize) best form validation AJV 
 * [style-loader](https://github.com/webpack/style-loader), [sass-loader](https://github.com/jtangelder/sass-loader) and [less-loader](https://github.com/webpack/less-loader) to allow import of stylesheets in plain css, sass and less,
 * [bootstrap v3](http://getbootstrap.com/) bootstrap + jquery CDN loaded async with https://www.npmjs.com/package/async-js
+ 
 
 I cobbled this together from a wide variety of similar "starter" repositories.  
 As I post this in June 2016, all of these libraries are right at the bleeding edge of web development.   
@@ -39,9 +39,8 @@ I'm building my new projects with this, and I recommend that you do, too.
 
 Recent change, added frontside effect (to use bootstrap popover+modal...)
 
->bootstrap + jquery CDN loaded async with https://www.npmjs.com/package/async-js  
 see code head section in index.ejs  
-**The global var window.\_q** used to check when loading is done  
+**The global var window.\_q** used to check when bootstrap+jquery loading is done  
 
 > Link and Linkmaterial support Safari now  
 > Router support russian url character (url_decode)  
@@ -57,7 +56,8 @@ see code head section in index.ejs
            
         Promise bluebird by default with help of babel-plugin-transform-promise-to-bluebird
         
-        Link and Linkmaterial check route for current language and displaying in console for route problem
+        Link and Linkmaterial check route for current language and displaying in console for route problem 
+        Linkmaterial support auth bouton now 
 
 
 1 - install nginx for mac-os
