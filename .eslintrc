@@ -4,11 +4,12 @@
   "extends": [
     "eslint:recommended", "plugin:react/recommended"
   ],
-  // Enable ES6 support. If you want to use custom Babel
+  // Enable ES7 support. If you want to use custom Babel
   // features, you will need to enable a custom parser
   // as described in a section below.
+  "parser": "babel-eslint",
   "parserOptions": {
-    "ecmaVersion": 6,
+    ecmaVersion: 7,
     "ecmaFeatures": {
     "experimentalObjectRestSpread": true
   },
@@ -22,19 +23,34 @@
   "plugins": [
     "react"
   ],
-  "globals": {
-        "React": true
+   "globals": {
+   "React": true,
+   "jQuery": true,
+   "If": true,"Else": true,
+   "For": true
     },
     "ecmaFeatures": {
-        "jsx": true
+        'jsx': true,
+        'modules':true
     },
   "rules": {
-    // Disable `no-console` rule
+    "no-underscore-dangle": 0,
+    "no-param-reassign": 0,
+    "func-names": 0,
+    "new-cap": 0,
+    "import/no-unresolved": 0,
+    "import/no-named-as-default": 0,
+    "react/prefer-stateless-function": 0,
+    "import/no-extraneous-dependencies": 0,
     "no-console": 0,
-"no-underscore-dangle": 0,
-"vars-on-top": 0,
-    // Default to single quotes and raise an error if something
-    // else is used
-    "quotes": 0
+    "react/jsx-filename-extension": [
+      1,
+      {
+        "extensions": [
+          ".js",
+          ".jsx"
+        ]
+      }
+    ]
   }
 }

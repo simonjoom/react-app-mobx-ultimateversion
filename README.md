@@ -77,8 +77,27 @@ IN root folder of react-app
 
 a) npm install (install babel dependencies)  
 
-b) npm run new (this install and deps of MY application in ./temp)     
-normally i checked all dependencies
+b) npm run new (this install and deps of MY application in ./temp)      
+normally i checked all dependencies 
+### IMPORTANT before to run:
+
+>* delete the feathers-authentication installed in ./temp/node_modules/  
+and replace by mine (i did some little hack to make the new work with my config)  
+> Do unzip ./temp/feathers-authentication.zip to ./temp/node_modules/  
+
+>* I added ukrainien flag in material-ui-country-flags  
+> Do unzip ./temp/material-ui-country-flags.zip to ./temp/node_modules/  
+
+>* Little mod to support Object.entries in mobx-react-matchmedia and update mobx v2.5:  
+> Do unzip ./temp/mobx-react-matchmedia.zip to ./temp/node_modules/
+
+>* Manual things be sure to remove:
+     
+        ./temp/node_module/mobx-ajv-form/node_module/mobx   
+        ./temp/node_module/mobx-ajv-form/node_module/ajv 
+        
+     node_module folders are created improperly by  mobx-ajv-form  due to the new mobx version
+
 
 b) install my config with nginx for proxying all listening mysite.com:80 to localhost
 
@@ -103,33 +122,13 @@ like that we link all my server to localhost
 to check the port running it's in config file .env in ./temp
 
 
-### IMPORTANT before to run:
-
->* delete the feathers-authentication installed in ./temp/node_modules/  
-and replace by mine (i did some little hack to make the new work with my config)  
-> Do unzip ./temp/feathers-authentication.zip to ./temp/node_modules/  
-
->* I added ukrainien flag in material-ui-country-flags  
-> Do unzip ./temp/material-ui-country-flags.zip to ./temp/node_modules/  
-
->* Little mod to support Object.entries in mobx-react-matchmedia and update mobx v2.5:  
-> Do unzip ./temp/mobx-react-matchmedia.zip to ./temp/node_modules/
-
->* Manual things be sure to remove:
-     
-        ./temp/node_module/mobx-ajv-form/node_module/mobx
-        ./temp/node_module/mobx-ajv-form/node_module/ajv 
-        
-     node_module folders are created improperly by  mobx-ajv-form  due to the new mobx version
-
-
-
 ### Run APP:
 
 First run nginx simply:  
 sudo nginx (in super user because we listen 80)  
 
-* Run server for feathers (watch mode with debug mode authentication)  
+* IMPORTANT FIRST 
+Run server for feathers (watch mode with debug mode authentication)  
 from ./temp  
 run:  
 DEBUG=feathers-authentication:* node bin/server.js  
