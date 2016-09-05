@@ -3,7 +3,10 @@
 We did a version fully working with server side rendering,  
 But we decided to start from single page application instead, will be easier to maintain!  
 And we will use https://prerender.io/ to prerender and cache our we-site for google SEO
- 
+
+[![Dependency Status](https://david-dm.org/simonjoom/react-app-mobx-ultimateversion.svg?style=flat-square)](https://david-dm.org/simonjoom/react-app-mobx-ultimateversion)
+[![devDependency Status](https://david-dm.org/simonjoom/react-app-mobx-ultimateversion/dev-status.svg?style=flat-square)](https://david-dm.org/simonjoom/react-app-mobx-ultimateversion#info=devDependencies)
+
 We can hire developper using our MOBX TECHNOLOGIE
 -------------------------------------------------
 
