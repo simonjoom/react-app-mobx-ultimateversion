@@ -100,15 +100,15 @@ and replace by mine (i did some little hack to make the new work with my config)
 
 
 b) install my config with nginx for proxying all listening mysite.com:80 to localhost  
-Our config manage cors, it's friendly Cross-domain 
-We installed 4 language: french, ukrainien, russian, english (you can modify it for your need)  
+Our config manage cors, it's friendly Cross-domain  
+We installed 4 language: french, ukrainien, russian, english (you can modify it for your need)   
 
 Change respectivly in generic 'mysite' to your domain   
-Generic-conf work for url as  
+Generic-conf work for url as   
 
-* fr.mysite.com (for french)
-* ru.mysite.com (for russian)
-* www.mysite.eu (for english)
+* fr.mysite.com (for french)  
+* ru.mysite.com (for russian)  
+* www.mysite.eu (for english)  
 
 
 IN react-app run:
@@ -117,7 +117,7 @@ sudo cp -f ./temp/domain-conf-nginx/generic_conf/nginx.conf /usr/local/etc/nginx
 sudo cp -f ./temp/domain-conf-nginx/generic__conf/hosts /etc/hosts  
 sudo cp -f ./temp/domain-conf-nginx/generic__conf/.env ./temp/.env  
 
-like that we link all my server to localhost 
+So We link all my server to localhost  
 
 to check the port running it's in config file .env in ./temp
 
