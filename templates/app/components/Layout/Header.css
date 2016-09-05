@@ -10,12 +10,12 @@
 
 .title {
   display: block;
-  padding: 2em 0 1.75em;
+  padding: 1em 0 1em;
   color: #fff;
   text-align: center;
   text-decoration: none;
   font-weight: 100;
-  font-size: 48px;
+  font-size: 28px;
   font-family: Roboto, sans-serif;
 }
 
@@ -39,20 +39,20 @@
 
 .xsTitle {
  /* margin: 100px auto 15px auto;*/
-  font-size: 40px;
+  font-size: 30px;
 }
 
 .xsSubTitle {
  /* margin: 0 auto 50px auto;*/
-  font-size: 15px;
+  font-size: 12px;
 }
 
 .suTitle {
  /* margin: 250px auto 15px auto;*/
-  font-size: 60px;
+  font-size: 40px;
 }
 
 .suSubTitle {
  /* margin: 0 auto 250px auto;*/
-  font-size: 25px;
+  font-size: 15px;
 }

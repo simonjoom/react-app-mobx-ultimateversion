@@ -1,18 +1,18 @@
 [
   {
     "path": "/",
-    "component": "./routes/Skiscool",
+    "component": "./routes/MySite",
     "lang":"ru",
-    "description":"Лыжная школа в Куршевель и Мерибель",
-    "title":"Skiscool: Лыжная школа в Куршевель",
+    "description":"Мерибель",
+    "title":"MySite",
     "chunk": "main"
   },
   {
     "path": "/exemple_getdata_api",
     "component": "./routes/Home",
     "lang":"ru",
-    "description":"Skiscool",
-    "title":"Skiscool",
+    "description":"MySite",
+    "title":"MySite",
     "chunk": "main",
     "data": {
       "articles": "GET https://gist.githubusercontent.com/koistya/a32919e847531320675764e7308b796a/raw/articles.json"
@@ -21,44 +21,44 @@
   {
     "path": "/login_ru",
     "component": "./routes/Login",
-    "description":"Авторизоваться Skiscool",
-    "title":"Войти Skiscool",
+    "description":"Авторизоваться MySite",
+    "title":"Войти MySite",
     "lang":"ru"
   },
 {
     "path": "/контакт",
     "component": "./routes/Contact",
-    "description":"контакт Skiscool",
-    "title":"контакт Skiscool",
+    "description":"контакт MySite",
+    "title":"контакт MySite",
     "lang":"ru"
   },
 {
     "path": "/profile",
-    "description":"Профиль Skiscool",
-    "title":"Профиль Skiscool",
+    "description":"Профиль MySite",
+    "title":"Профиль MySite",
     "component": "./routes/Profile",
     "lang":"ru"
   },
   {
     "path": "/root_ru",
     "component": "./routes/Root",
-    "description":"Root Skiscool",
-    "title":"Skiscool",
+    "description":"Root MySite",
+    "title":"MySite",
     "lang":"ru"
   },
   {
     "path": "/error",
     "component": "./routes/Error",
-    "description":"ошибка 404 Skiscool",
+    "description":"ошибка 404 MySite",
     "title":"ошибка 404",
     "chunk": "main",
     "lang":"ru"
   },
   {
-    "path": "/About_Skiscool",
+    "path": "/About_MySite",
     "component": "./routes/About",
-    "description":"О нас Skiscool",
-    "title":"О Skiscool",
+    "description":"О нас MySite",
+    "title":"О MySite",
     "lang":"ru"
   },
   {

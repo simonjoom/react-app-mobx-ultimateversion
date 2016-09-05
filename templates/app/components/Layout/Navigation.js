@@ -3,11 +3,11 @@ import Link from '../Link';
 
 const Navigation = () => (
   <nav>
-    <Link to="Skiscool">
-      Concept Skiscool
+    <Link to="MySite">
+      Concept MySite
     </Link>
     <Link to="About">
-      About Skiscool
+      About MySite
     </Link>
     <Link to="Root">
       Root

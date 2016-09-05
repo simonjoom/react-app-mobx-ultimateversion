@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
 import Divider from 'material-ui/Divider';
+import Paper from 'material-ui/Paper';
 import Header from './Header';
 import styles from './Layout.css';
 import Debug from './Debug';
@@ -14,7 +15,7 @@ const Layout = ({ comp, subtitle, title, bp, className, ...props }) => (
     />
     <Divider />
     <main className={styles.content}>
-      <div
+      <Paper
         {...props}
         className={`${styles.content}${className ? ` ${className}` : ''}`}
       />

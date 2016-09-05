@@ -1,10 +1,10 @@
 [
   {
     "path": "/",
-    "component": "./routes/Skiscool",
+    "component": "./routes/MySite",
     "lang":"en",
-    "description":"SKi school courchevel Meribel",
-    "title":"SKi school: Skiscool",
+    "description":"description",
+    "title":"Title: MySite",
     "chunk": "main"
   },
   {
@@ -19,51 +19,51 @@
   {
     "path": "/login",
     "component": "./routes/Login",
-    "description":"Login to ski school",
-    "title":"Skiscool Login",
+    "description":"Login MySite",
+    "title":"MySite Login",
     "lang":"en"
   },
 {
     "path": "/contact",
     "component": "./routes/Contact",
-    "description":"Contact Skiscool",
-    "title":"Contact Skiscool",
+    "description":"Contact MySite",
+    "title":"Contact MySite",
     "lang":"en"
   },
 {
     "path": "/profile",
     "component": "./routes/Profile",
-    "description":"Profile skiscooler",
-    "title":"Skiscool",
+    "description":"Profile MySite",
+    "title":"MySite",
     "lang":"en"
   },
   {
     "path": "/root",
     "component": "./routes/Root",
-    "description":"Root Skiscool",
-    "title":"Skiscool",
+    "description":"Root MySite",
+    "title":"MySite",
     "lang":"en"
   },
   {
     "path": "/error",
     "component": "./routes/Error",
-    "description":"Error 404 Skiscool",
-    "title":"Skiscool",
+    "description":"Error 404 MySite",
+    "title":"MySite",
     "chunk": "main",
     "lang":"en"
   },
   {
-    "path": "/About_Skiscool",
+    "path": "/About_MySite",
     "component": "./routes/About",
-    "description":"About Skiscool, price rates",
-    "title":"SkiScool about",
+    "description":"About MySite, price rates",
+    "title":"MySite about",
     "lang":"en"
   },
   {
     "path": "/tasks/:status(pending|completed)?",
     "component": "./routes/Home",
     "description":"My description",
-    "title":"Skiscool",
+    "title":"MySite",
     "lang":"en"
   }
 ]

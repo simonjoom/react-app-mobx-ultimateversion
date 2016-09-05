@@ -1,9 +1,9 @@
 [
   {
     "path": "/",
-    "component": "./routes/Skiscool",
-    "description":"Лижна школа в Куршевель і Мерібель",
-    "title":"Skiscool",
+    "component": "./routes/MySite",
+    "description":"Лижна",
+    "title":"MySite",
     "lang":"uk",
     "chunk": "main"
   },
@@ -11,8 +11,8 @@
     "path": "/exemple_getdata_api",
     "component": "./routes/Home",
     "lang":"uk",
-    "description":"Skiscool",
-    "title":"Skiscool",
+    "description":"MySite",
+    "title":"MySite",
     "chunk": "main",
     "data": {
       "articles": "GET https://gist.githubusercontent.com/koistya/a32919e847531320675764e7308b796a/raw/articles.json"
@@ -21,44 +21,44 @@
   {
     "path": "/login_uk",
     "component": "./routes/Login",
-    "description":"Ввійти Skiscool",
-    "title":"Skiscool",
+    "description":"Ввійти MySite",
+    "title":"MySite",
     "lang":"uk"
   },
 {
     "path": "/contact_uk",
     "component": "./routes/Contact",
-    "description":"Contact skiscool",
-    "title":"зв яз Skiscool",
+    "description":"Contact MySite",
+    "title":"зв яз MySite",
     "lang":"uk"
   },
 {
     "path": "/profile_uk",
     "component": "./routes/Profile",
-    "description":"профіль SkiScool",
-    "title":"профіль Skiscool",
+    "description":"профіль MySite",
+    "title":"профіль MySite",
     "lang":"uk"
   },
   {
     "path": "/root_uk",
     "component": "./routes/Root",
     "description":"My description",
-    "title":"Skiscool",
+    "title":"MySite",
     "lang":"uk"
   },
   {
     "path": "/error",
     "component": "./routes/Error",
     "description":"Error",
-    "title":"Skiscool",
+    "title":"MySite",
     "chunk": "main",
     "lang":"uk"
   },
   {
-    "path": "/About_Skiscool",
+    "path": "/About_MySite",
     "component": "./routes/About",
     "description":"Про нас ",
-    "title":"Про Skiscool",
+    "title":"Про MySite",
     "lang":"uk"
   },
   {

@@ -17,7 +17,7 @@ const Navigation = ({ className }) => (
         className="mb3 fa fa-diamond"
       />}
     >
-      About Skiscool
+      About MySite
     </Link>
     <Link
       className={cx(styles.link, className)}

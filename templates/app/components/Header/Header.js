@@ -4,9 +4,9 @@ import Link from '../Link';
 
 const Header = () => (
   <div className={s.container}>
-    <Link className={s.brand} to="Skiscool">
+    <Link className={s.brand} to="MySite">
       <img src="/icons/logo.png" width="38" height="38" alt="React" />
-      <span className={s.brandTxt}>SkiScool</span>
+      <span className={s.brandTxt}>MySite</span>
     </Link>
     <div className={s.banner}>
       <h1 className={s.bannerTitle}>{window.dico.skischool}</h1>

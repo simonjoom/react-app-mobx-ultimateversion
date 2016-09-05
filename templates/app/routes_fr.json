@@ -1,18 +1,18 @@
 [
   {
     "path": "/",
-    "component": "./routes/Skiscool",
+    "component": "./routes/MySite",
     "lang":"fr",
-    "description":"Skiscool: Ecole de ski à Courchevel et Meribel",
-    "title":"Skiscool",
+    "description":"My description",
+    "title":"MySite",
     "chunk": "main"
   },
   {
     "path": "/exemple_getdata_api",
     "component": "./routes/Home",
     "lang":"fr",
-    "description":"Skiscool: Ecole de ski à Courchevel et Meribel",
-    "title":"Skiscool",
+    "description":"MySite ",
+    "title":"MySite",
     "chunk": "main",
     "data": {
       "articles": "GET https://gist.githubusercontent.com/koistya/a32919e847531320675764e7308b796a/raw/articles.json"
@@ -21,28 +21,28 @@
   {
     "path": "/Se_connecter",
     "component": "./routes/Login",
-    "description":"Se connecter avec Skiscool",
+    "description":"Se connecter avec MySite",
     "title":"Login",
     "lang":"fr"
   },
 {
     "path": "/contact_fr",
     "component": "./routes/Contact",
-    "description":"Contact Skiscool",
+    "description":"Contact MySite",
     "title":"Contact",
     "lang":"fr"
   },
 {
     "path": "/profile",
     "component": "./routes/Profile",
-    "description":"Profile Skiscool",
+    "description":"Profile MySite",
     "title":"Profile",
     "lang":"fr"
   },
   {
     "path": "/root_fr",
     "component": "./routes/Root",
-        "description":"Root Skiscool",
+        "description":"Root MySite",
     "title":"Profile",
     "lang":"fr"
   },
@@ -50,21 +50,21 @@
     "path": "/error",
     "component": "./routes/Error",
     "chunk": "main",
-        "description":"Error 404 Skiscool",
+        "description":"Error 404 MySite",
     "title":"Error",
     "lang":"fr"
   },
   {
-    "path": "/About_Skiscool",
+    "path": "/About_MySite",
     "component": "./routes/About",
-     "description":"About Skiscool",
+     "description":"About MySite",
     "title":"About",
     "lang":"fr"
   },
   {
     "path": "/tasks/:status(pending|completed)?",
     "component": "./routes/Home",
-     "description":"task Skiscool",
+     "description":"task MySite",
     "title":"task",
     "lang":"fr"
   }
