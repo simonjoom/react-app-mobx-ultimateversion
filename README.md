@@ -1,9 +1,8 @@
 # Ultimate boilerplate react-app-mobx with mutilanguage/multidomain support
 
 This boilerplate created in order to help developper to create multi-language react website with material-ui support.  
-We did a version fully working with server side rendering,  
-But we decided to start from single page application instead, will be easier to maintain!  
-And we will use https://prerender.io/ to prerender and cache our we-site for google SEO
+We did a version fully working with server side rendering but not maintained anymore, because we decided to start from single page application instead, will be easier to maintain!  
+We use https://prerender.io/ to prerender and cache our we-site for google SEO
 
 [![Dependency Status](https://david-dm.org/simonjoom/react-app-mobx-ultimateversion.svg?style=flat-square)](https://david-dm.org/simonjoom/react-app-mobx-ultimateversion)
 [![devDependency Status](https://david-dm.org/simonjoom/react-app-mobx-ultimateversion/dev-status.svg?style=flat-square)](https://david-dm.org/simonjoom/react-app-mobx-ultimateversion#info=devDependencies)
@@ -100,11 +99,11 @@ and replace by mine (i did some little hack to make the new work with my config)
      node_module folders are created improperly by  mobx-ajv-form  due to the new mobx version
 
 
-b) install my config with nginx for proxying all listening mysite.com:80 to localhost
+b) install my config with nginx for proxying all listening mysite.com:80 to localhost  
+Our config manage cors, it's friendly Cross-domain 
+We installed 4 language: french, ukrainien, russian, english (you can modify it for your need)  
 
-i installed 4 language: french, ukrainien, russian, english (you can modify it for your need)
-
-change respectivly in generic 'mysite' to your domain   
+Change respectivly in generic 'mysite' to your domain   
 Generic-conf work for url as  
 
 * fr.mysite.com (for french)
