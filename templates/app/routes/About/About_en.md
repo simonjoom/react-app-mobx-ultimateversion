@@ -2,7 +2,7 @@
 title: Articles ski
 ---
 
-## SkiSCool
+## WebSite Article 
 
 
 

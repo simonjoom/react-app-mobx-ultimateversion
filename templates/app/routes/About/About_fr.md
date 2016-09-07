@@ -2,8 +2,8 @@
 title: Articles de ski
 ---
 
-## SkiSCool
-Bonjour
+## Website
+Bonjour to your website multilangue
 
 
 

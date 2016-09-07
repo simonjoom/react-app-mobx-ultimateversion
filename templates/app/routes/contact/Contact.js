@@ -5,7 +5,7 @@ import s from './Contact.css';
 
 const ContactPage = (props, context) => {
 // eslint-disable-next-line no-unused-vars
-  const { appstate, lang, description, title } = props;
+  const { appstate, lang, description, title,html } = props;
   if (description) {
     context.setMeta('description', description);
   }
