@@ -1,5 +1,6 @@
 /* eslint-disable global-require */
 require('dotenv').config();
+require('babel-runtime/core-js/promise').default = require('bluebird');
 const path = require('path');
 const webpack = require('webpack');
 const extend = require('extend')
@@ -46,20 +47,21 @@ const config = {
 
   // The base directory for resolving the entry option
   context: process.cwd(),
-
+  entry: {
+    main: ['font-awesome-webpack!' + path.resolve(process.cwd(),'./font-awesome.config.js'),'./main.js']
+  },
   // The entry point for the bundle
-  entry: [
-    /* The main entry point of your JavaScript application */
+ /* entry: [
       "font-awesome-webpack!" + path.resolve(process.cwd(),'./font-awesome.config.js'),
-    './main.js',
-  ],
+    './main',
+  ],*/
 
   // Options affecting the output of the compilation
   output: {
     path: path.resolve(process.cwd(), './public/dist'),
     publicPath: '/dist/',
     filename: debug ? '[name].js?[hash]' : '[name].[hash].js',
-    chunkFilename: debug ? '[id].js?[chunkhash]' : '[id].[chunkhash].js',
+    chunkFilename: debug ? '[name].js?[chunkhash]' : '[name].[chunkhash].js',
     sourcePrefix: '  ',
   },
 
@@ -107,13 +109,6 @@ eslint: {
 
   // Options affecting the normal modules
   module: {
-  preLoaders: [
-      {
-        test: /\.jsx?$/,
-        exclude: /node_modules/,
-        loaders: ['eslint']
-      }
-    ],
     loaders: [
       {
         test: /\.jsx?$/,
@@ -280,8 +275,10 @@ eslint: {
 
 };
 
+   // new webpack.optimize.CommonsChunkPlugin('bundle' null, false)
 // Optimize the bundle in release (production) mode
-
+config.plugins.push(new webpack.optimize.CommonsChunkPlugin('main',null, false));
+config.plugins.push(new webpack.IgnorePlugin(/regenerator|nodent|js\-beautify/, /ajv/));
 if (!debug) {
   config.plugins.push(new webpack.optimize.DedupePlugin());
   config.plugins.push(new webpack.optimize.UglifyJsPlugin({
@@ -302,7 +299,7 @@ if (!debug) {
 // Hot Module Replacement (HMR) + React Hot Reload
 if (hmr) {
   babelConfig.plugins.unshift('react-hot-loader/babel');
-  config.entry.unshift('react-hot-loader/patch', 'webpack-hot-middleware/client');
+  config.entry.main.unshift('react-hot-loader/patch', 'webpack-hot-middleware/client');
   config.plugins.push(new webpack.HotModuleReplacementPlugin());
   config.plugins.push(new webpack.NoErrorsPlugin());
 }

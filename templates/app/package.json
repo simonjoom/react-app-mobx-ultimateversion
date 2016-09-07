@@ -80,7 +80,6 @@
       "stage-0"
     ],
     "plugins": [
-      "transform-promise-to-bluebird",
       "transform-decorators-legacy",
       "transform-runtime",
       "babel-root-import",

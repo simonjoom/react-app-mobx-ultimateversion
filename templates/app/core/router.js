@@ -37,6 +37,7 @@ function matchURI(route, path) {
 // Find the route matching the specified location (context), fetch the required data,
 // instantiate and return a React component
 function resolve(routes, context) {
+
   const path = decodeURI(context.pathname);
   for (const route of routes) {
     const params = matchURI(route, context.error ? '/error' : path);
@@ -83,15 +84,21 @@ function resolve(routes, context) {
           }
           );
       }
-      return route.load().then(Component => <Component
-        route={route}
-        {...myprops}
-        error={context.error}
-      />);
+       return Promise.all([
+          route.load(),
+          route.loadmd(route.lang,route.mdfile),
+           ]).then(
+          ([Component, data]) => {
+          console.log(data);
+            return (<Component
+              route={route}
+              error={context.error}
+              {...data}
+              {...myprops}
+            />);
+            })
     }
-  }
-
-  const error = new Error('Page not found');
+}  const error = new Error('Page not found');
   error.status = 404;
   return Promise.reject(error);
 }

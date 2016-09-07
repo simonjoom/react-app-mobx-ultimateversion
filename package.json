@@ -110,7 +110,6 @@
     "react-app": "^1.1.2"
   },
   "devDependencies": {
-    "babel-plugin-transform-promise-to-bluebird": "^1.1.0",
     "eslint-loader": "^1.5.0",
     "history": "^3.0.0",
     "react": "^15.3.1",
