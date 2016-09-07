@@ -4,8 +4,7 @@
     "component": "./routes/MySite",
     "lang":"ru",
     "description":"Мерибель",
-    "title":"MySite",
-    "chunk": "main"
+    "title":"MySite"
   },
   {
     "path": "/exemple_getdata_api",
@@ -13,7 +12,6 @@
     "lang":"ru",
     "description":"MySite",
     "title":"MySite",
-    "chunk": "main",
     "data": {
       "articles": "GET https://gist.githubusercontent.com/koistya/a32919e847531320675764e7308b796a/raw/articles.json"
     }
@@ -51,7 +49,6 @@
     "component": "./routes/Error",
     "description":"ошибка 404 MySite",
     "title":"ошибка 404",
-    "chunk": "main",
     "lang":"ru"
   },
   {

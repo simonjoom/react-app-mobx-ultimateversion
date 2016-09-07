@@ -4,8 +4,7 @@
     "component": "./routes/MySite",
     "lang":"pt",
     "description":"description",
-    "title":"MySite",
-    "chunk": "main"
+    "title":"MySite"
   },
   {
     "path": "/exemple_getdata_api",
@@ -13,7 +12,6 @@
     "lang":"pt",
     "description":"MySite",
     "title":"MySite",
-    "chunk": "main",
     "data": {
       "articles": "GET https://gist.githubusercontent.com/koistya/a32919e847531320675764e7308b796a/raw/articles.json"
     }
@@ -51,8 +49,7 @@
     "component": "./routes/Error",
     "lang":"pt",
     "description":"Erro 404",
-    "title":"Erro 404",
-    "chunk": "main"
+    "title":"Erro 404"
   },
   {
     "path": "/About_MySite",

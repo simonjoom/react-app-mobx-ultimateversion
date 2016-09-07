@@ -4,14 +4,13 @@
     "component": "./routes/MySite",
     "lang":"en",
     "description":"description",
-    "title":"Title: MySite",
-    "chunk": "main"
+    "title":"Title: MySite"
   },
   {
     "path": "/exemple_getdata_api",
     "component": "./routes/Home",
         "lang":"en",
-    "chunk": "main",
+    ,
     "data": {
       "articles": "GET https://gist.githubusercontent.com/koistya/a32919e847531320675764e7308b796a/raw/articles.json"
     }
@@ -49,7 +48,6 @@
     "component": "./routes/Error",
     "description":"Error 404 MySite",
     "title":"MySite",
-    "chunk": "main",
     "lang":"en"
   },
   {

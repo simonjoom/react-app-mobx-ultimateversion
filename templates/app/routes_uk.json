@@ -4,8 +4,7 @@
     "component": "./routes/MySite",
     "description":"Лижна",
     "title":"MySite",
-    "lang":"uk",
-    "chunk": "main"
+    "lang":"uk"
   },
   {
     "path": "/exemple_getdata_api",
@@ -13,7 +12,6 @@
     "lang":"uk",
     "description":"MySite",
     "title":"MySite",
-    "chunk": "main",
     "data": {
       "articles": "GET https://gist.githubusercontent.com/koistya/a32919e847531320675764e7308b796a/raw/articles.json"
     }
@@ -51,7 +49,6 @@
     "component": "./routes/Error",
     "description":"Error",
     "title":"MySite",
-    "chunk": "main",
     "lang":"uk"
   },
   {
