@@ -2,7 +2,13 @@
 
 This boilerplate created in order to help developper to create multi-language react website with material-ui support.  
 We did a version fully working with server side rendering but not maintained anymore, because we decided to start from single page application instead, will be easier to maintain!  
-We use https://prerender.io/ to prerender and cache our we-site for google SEO
+We use https://prerender.io/ to prerender and cache our we-site for google SEO   
+
+**NEW Hot!!! USE WEBPACK chunk**   
+           
+           The boilerplate use code-splitting of webpack depending language and routes of users
+           Done: Refactoring of routes naming convention never one style is named like his own .js
+
 
 [![Dependency Status](https://david-dm.org/simonjoom/react-app-mobx-ultimateversion.svg?style=flat-square)](https://david-dm.org/simonjoom/react-app-mobx-ultimateversion)
 [![devDependency Status](https://david-dm.org/simonjoom/react-app-mobx-ultimateversion/dev-status.svg?style=flat-square)](https://david-dm.org/simonjoom/react-app-mobx-ultimateversion#info=devDependencies)
@@ -21,6 +27,7 @@ We together using the following technologies:
 * [Express](http://expressjs.com)
 * [Babel](http://babeljs.io) for ES6 and ES7 magic
 * [Webpack](http://webpack.github.io) for bundling
+* [Webpack code splitting](https://webpack.github.io/docs/code-splitting.html) Code splitted depending language and routes with require.ensure  
 * [Webpack Dev Middleware](http://webpack.github.io/docs/webpack-dev-middleware.html)
 * [Webpack Hot Middleware](https://github.com/glenjamin/webpack-hot-middleware)
 * [mobx](https://mobxjs.github.io/mobx/best/devtools.html) Better than redux in my opinion to maintain code  
