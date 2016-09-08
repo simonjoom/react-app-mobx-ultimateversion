@@ -16,9 +16,10 @@ import history from './core/history';
 import App from './components/App';
 // import FastClick from 'fastclick';
 import $store from './store/stores'; // initialize stores
+import dicoarray_func from './get-dico_chunk';
 
-window.__routesen__ = require('./routes.json');
-window.__routesfr__ = require('./routes_fr.json');
+ window.__routesen__ = require('./routes.json');
+ window.__routesfr__ = require('./routes_fr.json');
 window.__routesru__ = require('./routes_ru.json');
 window.__routesuk__ = require('./routes_uk.json');
 window.__routespt__ = require('./routes_pt.json');
@@ -46,25 +47,19 @@ function checkhostnamechange(oh) {
     if (data === process.env.SITEFR) {
       routes = window.__routesfr__;
       window.__lang__ = 'fr';
-      window.dico = require('./dico_fr').default();
     } else if (data === process.env.SITEPT) {
       routes = window.__routespt__;
       window.__lang__ = 'pt';
-      window.dico = require('./dico_pt').default();
     } else if (data === process.env.SITERU) {
       routes = window.__routesru__;
       window.__lang__ = 'ru';
-      window.dico = require('./dico_ru').default();
     } else if (data === process.env.SITEUK) {
       routes = window.__routesuk__;
       window.__lang__ = 'uk';
-      window.dico = require('./dico_ru').default();
     } else {
       routes = window.__routesen__;
       window.__lang__ = 'en';
-      window.dico = require('./dico_en').default();
     }
-    console.log(routes);
     window.__routes__ = routes;
   }
 }
@@ -172,11 +167,16 @@ function render(location) {
     if (location.pathname !== currentLocation.pathname) {
       console.log('render');
       currentLocation = location;
+
+      dicoarray_func[window.__lang__]().then(([dico,dico1]) => {
+     global.dico=Object.assign({}, dico, dico1);
       router.resolve(window.__routes__, location)
         .then(renderComponent)
         .catch(error => {
           console.log(error);
           router.resolve(routes, { ...location, error }).then(renderComponent);
+        });
+
         });
     }
   }

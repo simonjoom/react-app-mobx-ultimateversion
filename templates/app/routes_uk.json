@@ -21,6 +21,7 @@
     "component": "./routes/Login",
     "description":"Ввійти MySite",
     "title":"MySite",
+    "chunk":"login",
     "lang":"uk"
   },
 {
@@ -28,6 +29,7 @@
     "component": "./routes/Contact",
     "description":"Contact MySite",
     "title":"зв яз MySite",
+    "chunk":"contact",
     "lang":"uk"
   },
 {
@@ -35,6 +37,7 @@
     "component": "./routes/Profile",
     "description":"профіль MySite",
     "title":"профіль MySite",
+    "chunk":"login",
     "lang":"uk"
   },
   {
@@ -42,6 +45,7 @@
     "component": "./routes/Root",
     "description":"My description",
     "title":"MySite",
+    "chunk":"root",
     "lang":"uk"
   },
   {
@@ -49,6 +53,7 @@
     "component": "./routes/Error",
     "description":"Error",
     "title":"MySite",
+    "chunk":"error",
     "lang":"uk"
   },
   {
@@ -56,6 +61,7 @@
     "component": "./routes/About",
     "description":"Про нас ",
     "title":"Про MySite",
+    "chunk":"about",
     "lang":"uk"
   },
   {

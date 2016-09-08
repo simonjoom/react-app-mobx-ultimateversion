@@ -1,53 +1,32 @@
 import s from './MySite.css';
 import Link from '../Linkmaterial';
 
-const constants = require('./myconsT_of_lang');
+const dic = window.dico;
 
 const MySite = ({ bp, lang }) => {
-  const T_1 = constants.title_1[lang];
-  const IT_1 = constants.item_1[lang];
-  const IT_1_C = constants.item_1_c[lang];
+console.log(lang)
+  const T_1 = dic.title_1;
+  const IT_1 = dic.item_1;
+  const IT_1_C = dic.item_1_c;
 
-  const T_2 = constants.title_2[lang];
-  const IT_2 = constants.item_2[lang];
-  const IT_2_C = constants.item_2_c[lang];
+  const T_2 = dic.title_2;
+  const IT_2 = dic.item_2;
+  const IT_2_C = dic.item_2_c;
 
-  const T_3 = constants.title_3[lang];
-  const IT_3 = constants.item_3[lang];
-  const IT_3_C = constants.item_3_c[lang];
+  const T_3 = dic.title_3;
+  const IT_3 = dic.item_3;
+  const IT_3_C = dic.item_3_c;
 
-  const T_4 = constants.title_4[lang];
-  const IT_4 = constants.item_4[lang];
-  const IT_4_C = constants.item_4_c[lang];
+  const T_4 = dic.title_4;
+  const IT_4 = dic.item_4;
+  const IT_4_C = dic.item_4_c;
 
-  const T_5 = constants.title_5[lang];
-  const IT_5 = constants.item_5[lang];
-  const IT_5_C = constants.item_5_c[lang];
+  const T_5 = dic.title_5;
+  const IT_5 = dic.item_5;
+  const IT_5_C = dic.item_5_c;
 
   console.log(bp);
   return (
-  <div>
-  <p>
-          This website is built with <a href="https://github.com/kriasoft/react-app">React App
-          SDK</a> — CLI tools and templates for authoring React/Redux apps with just a single dev
-          dependency and zero configuration. It is powered by popular front-end dev tools such
-          as <a href="http://babeljs.io/">Babel</a>
-          , <a href="https://webpack.github.io/">Webpack</a>
-          , <a href="http://postcss.org/">PostCSS</a>
-          , <a href="https://github.com/css-modules/css-modules">CSS Modules</a>
-          , <a href="https://browsersync.io/">Browsersync</a>
-          , <a href="https://webpack.github.io/docs/hot-module-replacement.html">HMR</a>
-          , <a href="http://gaearon.github.io/react-hot-loader/">React Hot Loader</a>
-          ; featuring component-based development approach, progressive enhancement,
-          code splitting and async chunk loading, declarative routes, navigation, application
-          state management and more.
-        </p>
-        <p>
-          To learn more visit project's <a href="https://github.com/kriasoft/react-app">homepage</a>
-          , <Link to="GetStarted">getting started</Link> guide,
-          join <a href="https://gitter.im/kriasoft/react-app">#react-app</a> chat room on Gitter to
-          stay up to date.
-        </p>
     <div className={s.features}>
       <div className="clearfix border">
         <div className="left p2 mr1 border">Image</div>
@@ -141,11 +120,10 @@ const MySite = ({ bp, lang }) => {
         </div>
       </div>
     </div>
-
-    </div>
   );
 };
 
 MySite.propTypes = { bp: React.PropTypes.object, lang: React.PropTypes.string.isRequired };
 
 export default MySite;
+

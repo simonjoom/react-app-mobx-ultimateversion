@@ -1,7 +1,7 @@
 import { PropTypes } from 'react';
 import { observer } from 'mobx-react';
 import Layout from '../../components/Layout';
-import s from './About.css';
+import s from './style.css';
 
 
 @observer(['appstate'])

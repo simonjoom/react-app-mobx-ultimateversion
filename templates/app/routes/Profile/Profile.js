@@ -1,11 +1,11 @@
 import { Component, PropTypes } from 'react';
 import { observer } from 'mobx-react';
-import s from './Register.css';
+import s from './style.css';
 import Layout from '../../components/Layout';
 import Profile from '../../components/Profile';
 
 @observer(['appstate'])
-class Register extends Component {
+class ProfilePage extends Component {
   static propTypes = {
     appstate: PropTypes.object.isRequired,
     lang: PropTypes.string,
@@ -48,4 +48,4 @@ class Register extends Component {
 // Register.PropTypes = { appstate: React.PropTypes.object.isRequired, };
 // Register.contextTypes = { setTitle: PropTypes.func.isRequired, };
 
-export default Register;
+export default ProfilePage;

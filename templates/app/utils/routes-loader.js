@@ -30,14 +30,19 @@ function escape(text) {
 module.exports = function routesLoader(source) {
   this.cacheable();
  const callback = this.async();
-console.log(callback);
 
-      const Myrequiremd = (module,name) => `new Promise(function (resolve, reject) {
+      const Myrequiremd = (module,name,def) => `new Promise(function (resolve, reject) {
         try {
-          require.ensure(['${escape(module)}'], function (require) {
+          require.ensure(['${escape(module)}'], ()=> {
+          if ('${escape(def)}'=='default'){
+            resolve(require('${escape(module)}').default);
+            }
+            else{
             resolve(require('${escape(module)}'));
+            }
           },'${escape(name)}')
         } catch (err) {
+        console.log(err)
           reject(err);
         }
       })`;
@@ -45,41 +50,28 @@ console.log(callback);
   let outputP=[];
   const routes = JSON.parse(source);
 
-           // callback(null, `module.exports = test`);
-           // return;
 routes.forEach(function (route, i) {
- // for (const route of routes) {
-  //let mdfile_r=route.mdfile;
-  let mdfile_r=false;
+  let mdfile_r=false;let entrypoint=false;
     const keys = [];
     const pattern = toRegExp(route.path, keys);
- 		const Myrequire = route.chunk && route.chunk !== 'main' ?
-      module => `new Promise(function (resolve, reject) {
-        try {
-          require.ensure(['${escape(module)}'], function (require) {
-            resolve(require('${escape(module)}').default);
-          }${typeof route.chunk === 'string' ? `, '${escape(route.chunk)}'` : ''});
-        } catch (err) {
-          reject(err);
-        }
-      })`:
-      module => `Promise.resolve(require('${escape(module)}').default)`;
-
+ 		const Myrequire = module => `Promise.resolve(require('${escape(module)}').default)`;
 
         if (!mdfile_r)
-            mdfile_r = route.component.replace('./routes/', '');
-        mdfile_r = mdfile_r + '_' + route.lang + '.md';
+				mdfile_r = route.component.replace('./routes/', '');
+
+        let mdfile = mdfile_r + '_' + route.lang + '.md';
+
+if (route.entrypoint)
+mdfile_r=route.entrypoint;
 
         let appRoot = process.cwd(),
             path = route.component.replace('./', '/');
 
-        console.info(appRoot + path + '/' + mdfile_r);
-        let myout = promisifiedopen(appRoot + path + '/' + mdfile_r, 'r').then(function(fullfill) {
-            console.log(fullfill + ' filled')
-           return Promise.resolve(`${Myrequiremd(route.component+'/'+mdfile_r,route.lang)}`);
+        let myout = promisifiedopen(appRoot + path + '/' + mdfile, 'r').then(function(fullfill) {
+            console.log(mdfile + ' filled')
+           return Promise.resolve(`${Myrequiremd(route.component+'/'+mdfile,route.lang,'')}`);
         }, function(reject) {
-            console.log(mdfile_r + ' rejeted');
-            return Promise.resolve(`Promise.resolve({html:'file ${escape(mdfile_r)} not found'})`);
+            return Promise.resolve(`Promise.resolve({html:'file ${escape(mdfile)} not found'})`);
             // output.push(` return {html:'file ${escape(mdfile_r)} not found'}; \n`)
         }).then(function(res) {
             let out = [];
@@ -101,7 +93,10 @@ routes.forEach(function (route, i) {
             if (route.lang) {
                 out.push(`    lang: ${JSON.stringify(route.lang)},\n`);
             }
-            out.push(`    load() {\n      return ${Myrequire(route.component)};\n    },\n`);
+             if(route.chunk)
+            out.push(`    load() {\n      return ${Myrequiremd(route.component+'/'+mdfile_r,route.chunk,'default')};\n    },\n`);
+            else
+            out.push(`    load() {\n      return ${Myrequire(route.component+'/'+mdfile_r)};\n    },\n`);
 
             out.push(`    loadmd(lang,mdfile) { \n`);
             out.push(` 		return ${res}  \n`);

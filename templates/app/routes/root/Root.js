@@ -2,7 +2,7 @@ import { Component, PropTypes } from 'react';
 import { observer } from 'mobx-react';
 import Root from '../../components/Root';
 import Layout from '../../components/Layout';
-import s from './Root.css';
+import s from './style.css';
 
 @observer(['appstate'])
 class Rootpage extends Component {

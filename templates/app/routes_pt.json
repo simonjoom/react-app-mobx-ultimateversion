@@ -20,6 +20,7 @@
     "path": "/login_pt",
     "component": "./routes/Login",
     "lang":"pt",
+    "chunk":"login",
     "description":"Conecte-se conosco",
     "title":"Conecte-se MySite"
   },
@@ -27,6 +28,7 @@
     "path": "/contato",
     "component": "./routes/Contact",
     "lang":"pt",
+    "chunk":"contact",
     "description":"Contato com MySite",
     "title":"Contato com MySite"
   },
@@ -34,6 +36,7 @@
     "path": "/profile_pt",
     "component": "./routes/Profile",
     "lang":"pt",
+    "chunk":"login",
     "description":"Perfil Usario",
     "title":"Perfil MySite"
   },
@@ -41,6 +44,7 @@
     "path": "/root_pt",
     "component": "./routes/Root",
     "lang":"pt",
+    "chunk":"root",
     "description":"Root",
     "title":"MySite"
   },
@@ -48,6 +52,7 @@
     "path": "/error",
     "component": "./routes/Error",
     "lang":"pt",
+    "chunk":"error",
     "description":"Erro 404",
     "title":"Erro 404"
   },
@@ -55,6 +60,7 @@
     "path": "/About_MySite",
     "component": "./routes/About",
     "lang":"pt",
+    "chunk":"about",
     "description":"Sobre nós",
     "title":"Sobre MySite"
   },

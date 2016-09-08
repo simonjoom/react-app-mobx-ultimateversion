@@ -19,6 +19,7 @@
     "path": "/login",
     "component": "./routes/Login",
     "description":"Login MySite",
+    "chunk":"login",
     "title":"MySite Login",
     "lang":"en"
   },
@@ -27,6 +28,7 @@
     "component": "./routes/Contact",
     "description":"Contact MySite",
     "title":"Contact MySite",
+    "chunk":"contact",
     "lang":"en"
   },
 {
@@ -34,6 +36,7 @@
     "component": "./routes/Profile",
     "description":"Profile MySite",
     "title":"MySite",
+    "chunk":"contact",
     "lang":"en"
   },
   {
@@ -41,6 +44,7 @@
     "component": "./routes/Root",
     "description":"Root MySite",
     "title":"MySite",
+    "chunk":"root",
     "lang":"en"
   },
   {
@@ -48,6 +52,7 @@
     "component": "./routes/Error",
     "description":"Error 404 MySite",
     "title":"MySite",
+    "chunk":"error",
     "lang":"en"
   },
   {
@@ -55,6 +60,7 @@
     "component": "./routes/About",
     "description":"About MySite, price rates",
     "title":"MySite about",
+    "chunk":"about",
     "lang":"en"
   },
   {

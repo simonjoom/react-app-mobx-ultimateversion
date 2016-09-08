@@ -2,7 +2,7 @@ import { PropTypes, Component } from 'react';
 import { observer } from 'mobx-react';
 import Login from '../../components/Login';
 import Layout from '../../components/Layout';
-import s from './Login.css';
+import s from './style.css';
 
 @observer(['appstate'])
 class LoginPage extends Component {

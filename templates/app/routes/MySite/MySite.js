@@ -2,7 +2,7 @@ import { PropTypes, Component } from 'react';
 import { observer } from 'mobx-react';
 import Layout from '../../components/Layout';
 import Skiscool from '../../components/MySite';
-import styles from './MySite.css';
+import styles from './style.css';
 
 const ShowArticles = (articles) => (
   <ul>

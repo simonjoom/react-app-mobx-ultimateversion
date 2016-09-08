@@ -2,7 +2,7 @@ import history from '../../core/history';
 import Layout from '../../components/Layout';
 import '../../components/Layout/Layout.css';
 import Link from '../../components/Link';
-import s from './Error.css';
+import s from './style.css';
 
 class ErrorPage extends React.Component {
   static propTypes = {

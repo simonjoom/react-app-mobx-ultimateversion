@@ -21,6 +21,7 @@
     "component": "./routes/Login",
     "description":"Авторизоваться MySite",
     "title":"Войти MySite",
+    "chunk":"login",
     "lang":"ru"
   },
 {
@@ -28,12 +29,14 @@
     "component": "./routes/Contact",
     "description":"контакт MySite",
     "title":"контакт MySite",
+    "chunk":"contact",
     "lang":"ru"
   },
 {
     "path": "/profile",
     "description":"Профиль MySite",
     "title":"Профиль MySite",
+    "chunk":"login",
     "component": "./routes/Profile",
     "lang":"ru"
   },
@@ -41,6 +44,7 @@
     "path": "/root_ru",
     "component": "./routes/Root",
     "description":"Root MySite",
+    "chunk":"root",
     "title":"MySite",
     "lang":"ru"
   },
@@ -49,6 +53,7 @@
     "component": "./routes/Error",
     "description":"ошибка 404 MySite",
     "title":"ошибка 404",
+    "chunk":"error",
     "lang":"ru"
   },
   {
@@ -56,6 +61,7 @@
     "component": "./routes/About",
     "description":"О нас MySite",
     "title":"О MySite",
+    "chunk":"about",
     "lang":"ru"
   },
   {

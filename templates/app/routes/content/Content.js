@@ -1,5 +1,5 @@
 import { Component, PropTypes } from 'react';
-import s from './Content.css';
+import s from './style.css';
 
 class Content extends Component {
 

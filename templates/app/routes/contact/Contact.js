@@ -1,7 +1,7 @@
 import { PropTypes } from 'react';
 import { observer } from 'mobx-react';
 import Layout from '../../components/Layout';
-import s from './Contact.css';
+import s from './style.css';
 
 const ContactPage = (props, context) => {
 // eslint-disable-next-line no-unused-vars
@@ -21,7 +21,7 @@ const ContactPage = (props, context) => {
       title={"SkiScool Contact"}
       subtitle={"Email Contact"}
     >
-      <p>Email: simon@skiscool.com</p>
+    <div dangerouslySetInnerHTML={{ __html: html }} />
     </Layout>
   );
 };
