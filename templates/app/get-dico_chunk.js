@@ -6,8 +6,8 @@ const getdicofr = () => {
             }, "dico-fr");
         }),
         new Promise(resolve => {
-            require.ensure(['./Mysite-dico-fr.js'], () => {
-                resolve(require('./Mysite-dico-fr.js'));
+            require.ensure(['./Skiscool-dico-fr.js'], () => {
+                resolve(require('./Skiscool-dico-fr.js'));
             }, "dico-fr");
         })
     ]);
@@ -19,8 +19,8 @@ const getdicopt = () => {
             }, "dico-pt");
         }),
         new Promise(resolve => {
-            require.ensure(['./Mysite-dico-pt.js'], () => {
-                resolve(require('./Mysite-dico-pt.js'));
+            require.ensure(['./Skiscool-dico-pt.js'], () => {
+                resolve(require('./Skiscool-dico-pt.js'));
             }, "dico-pt");
         })
     ]);
@@ -32,8 +32,8 @@ const getdicoen = () => {
             }, "dico-en");
         }),
         new Promise(resolve => {
-            require.ensure(['./Mysite-dico-en.js'], () => {
-                resolve(require('./Mysite-dico-en.js'));
+            require.ensure(['./Skiscool-dico-en.js'], () => {
+                resolve(require('./Skiscool-dico-en.js'));
             }, "dico-en");
         })
     ]);
@@ -45,8 +45,8 @@ const getdicoru = () => {
             }, "dico-ru");
         }),
         new Promise(resolve => {
-            require.ensure(['./Mysite-dico-ru.js'], () => {
-                resolve(require('./Mysite-dico-ru.js'));
+            require.ensure(['./Skiscool-dico-ru.js'], () => {
+                resolve(require('./Skiscool-dico-ru.js'));
             }, "dico-ru");
         })
     ]);
@@ -54,6 +54,7 @@ const getdicoru = () => {
 const dicoarray_func={
 fr:getdicofr,
 ru:getdicoru,
+uk:getdicoru,
 pt:getdicopt,
 en:getdicoen,
 }
