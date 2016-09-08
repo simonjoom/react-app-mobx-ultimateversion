@@ -277,7 +277,7 @@ eslint: {
 
    // new webpack.optimize.CommonsChunkPlugin('bundle' null, false)
 // Optimize the bundle in release (production) mode
-config.plugins.push(new webpack.optimize.CommonsChunkPlugin('main',null, false));
+config.plugins.push(new webpack.optimize.CommonsChunkPlugin('main'));
 config.plugins.push(new webpack.IgnorePlugin(/regenerator|nodent|js\-beautify/, /ajv/));
 if (!debug) {
   config.plugins.push(new webpack.optimize.DedupePlugin());
