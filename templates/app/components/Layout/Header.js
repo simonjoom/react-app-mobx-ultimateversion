@@ -2,10 +2,13 @@ import React, { PropTypes } from 'react';
 import cx from 'classnames';
 import Navigation from './Navigation';
 import Link from '../Link';
-import styles from './Header.css';
+import styles from './stylehead.css';
+import { observer } from 'mobx-react';
 
-const Header = ({ title, subtitle, bp, comp }) => {
-  const h1ClassName = cx(styles.title, {
+const Header = ({ appstate, title, subtitle, comp }) => {
+const bp = appstate.ui.breakpoints;
+
+ const h1ClassName = cx(styles.title, {
     [styles.xsTitle]: bp.xs,
     [styles.suTitle]: bp.su,
   });
@@ -13,6 +16,7 @@ const Header = ({ title, subtitle, bp, comp }) => {
     [styles.xsSubTitle]: bp.xs,
     [styles.suSubTitle]: bp.su,
   });
+
   return (
     <header className={styles.header}>
       <div className={styles.container}>
@@ -27,9 +31,11 @@ const Header = ({ title, subtitle, bp, comp }) => {
 };
 
 Header.propTypes = {
+appstate:PropTypes.object.isRequired,
   title: PropTypes.string.isRequired,
   subtitle: PropTypes.string.isRequired,
-  comp: PropTypes.string.isRequired,
-  bp: PropTypes.object.isRequired,
+  comp: PropTypes.string.isRequired
 };
-export default Header;
+
+export default observer(['appstate'])(Header);
+//export default Header;

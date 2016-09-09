@@ -1,7 +1,6 @@
 import { Component, PropTypes } from 'react';
 import { observer } from 'mobx-react';
 import s from './style.css';
-import Layout from '../../components/Layout';
 import Profile from '../../components/Profile';
 
 @observer(['appstate'])
@@ -30,17 +29,8 @@ class ProfilePage extends Component {
     this.context.setMeta('description', description);
 
     const { auth, ui } = appstate;
-    const bp = ui.breakpoints;
     return (
-      <Layout
-        className={s.content}
-        bp={bp}
-        comp={"Login"}
-        title={"SkiScool Login"}
-        subtitle={"SkiScool Login"}
-      >
         <Profile user={auth.user} />
-      </Layout>
     );
   }
 }

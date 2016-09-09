@@ -3,7 +3,7 @@ import Divider from 'material-ui/Divider';
 import FlatButton from 'material-ui/FlatButton';
 import cx from 'classnames';
 import { observer } from 'mobx-react';
-import s from './Register.css';
+import s from './style.css';
 import Link from '../Linkmaterial';
 import form from '../forms/register';
 

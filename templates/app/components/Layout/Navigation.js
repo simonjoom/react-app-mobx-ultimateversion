@@ -3,14 +3,20 @@ import Link from '../Link';
 
 const Navigation = () => (
   <nav>
-    <Link to="MySite">
-      Concept MySite
+    <Link to="Skiscool">
+      Concept Skiscool
     </Link>
     <Link to="About">
-      About MySite
+      About Skiscool
     </Link>
-    <Link to="Root">
-      Root
+    <Link to="Map">
+      Map
+    </Link>
+    <Link to="Instructors">
+      Instructors
+    </Link>
+    <Link to="Contact">
+      Contact
     </Link>
   </nav>
 );

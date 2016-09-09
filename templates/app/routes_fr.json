@@ -4,6 +4,8 @@
     "component": "./routes/MySite",
     "lang":"fr",
     "description":"My description",
+    "h1":"h1 title",
+    "h2":"h2 subtitle",
     "title":"MySite"
   },
   {
@@ -12,6 +14,8 @@
     "lang":"fr",
     "description":"MySite ",
     "title":"MySite",
+    "h1":"h1 title",
+    "h2":"h2 subtitle",
     "data": {
       "articles": "GET https://gist.githubusercontent.com/koistya/a32919e847531320675764e7308b796a/raw/articles.json"
     }
@@ -22,6 +26,8 @@
     "description":"Se connecter avec MySite",
     "title":"Login",
     "chunk":"login",
+    "h1":"h1 title",
+    "h2":"h2 subtitle",
     "lang":"fr"
   },
 {
@@ -30,6 +36,8 @@
     "description":"Contact MySite",
     "title":"Contact",
     "chunk":"contact",
+    "h1":"h1 title",
+    "h2":"h2 subtitle",
     "lang":"fr"
   },
 {
@@ -38,6 +46,8 @@
     "description":"Profile MySite",
     "title":"Profile",
     "chunk":"login",
+    "h1":"h1 title",
+    "h2":"h2 subtitle",
     "lang":"fr"
   },
   {
@@ -54,6 +64,8 @@
         "description":"Error 404 MySite",
     "title":"Error",
     "chunk":"error",
+    "h1":"h1 title",
+    "h2":"h2 subtitle",
     "lang":"fr"
   },
   {
@@ -62,6 +74,8 @@
      "description":"About MySite",
     "title":"About",
     "chunk":"about",
+    "h1":"h1 title",
+    "h2":"h2 subtitle",
     "lang":"fr"
   },
   {
@@ -69,6 +83,8 @@
     "component": "./routes/Home",
      "description":"task MySite",
     "title":"task",
+    "h1":"h1 title",
+    "h2":"h2 subtitle",
     "lang":"fr"
   }
 ]

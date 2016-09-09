@@ -4,6 +4,8 @@
     "component": "./routes/MySite",
     "lang":"ru",
     "description":"Мерибель",
+    "h1":"h1 title",
+    "h2":"h2 subtitle",
     "title":"MySite"
   },
   {
@@ -12,6 +14,8 @@
     "lang":"ru",
     "description":"MySite",
     "title":"MySite",
+    "h1":"h1 title",
+    "h2":"h2 subtitle",
     "data": {
       "articles": "GET https://gist.githubusercontent.com/koistya/a32919e847531320675764e7308b796a/raw/articles.json"
     }
@@ -21,6 +25,8 @@
     "component": "./routes/Login",
     "description":"Авторизоваться MySite",
     "title":"Войти MySite",
+    "h1":"h1 title",
+    "h2":"h2 subtitle",
     "chunk":"login",
     "lang":"ru"
   },
@@ -30,6 +36,8 @@
     "description":"контакт MySite",
     "title":"контакт MySite",
     "chunk":"contact",
+    "h1":"h1 title",
+    "h2":"h2 subtitle",
     "lang":"ru"
   },
 {
@@ -38,6 +46,8 @@
     "title":"Профиль MySite",
     "chunk":"login",
     "component": "./routes/Profile",
+    "h1":"h1 title",
+    "h2":"h2 subtitle",
     "lang":"ru"
   },
   {
@@ -46,6 +56,8 @@
     "description":"Root MySite",
     "chunk":"root",
     "title":"MySite",
+    "h1":"h1 title",
+    "h2":"h2 subtitle",
     "lang":"ru"
   },
   {
@@ -54,6 +66,8 @@
     "description":"ошибка 404 MySite",
     "title":"ошибка 404",
     "chunk":"error",
+    "h1":"h1 title",
+    "h2":"h2 subtitle",
     "lang":"ru"
   },
   {
@@ -62,6 +76,8 @@
     "description":"О нас MySite",
     "title":"О MySite",
     "chunk":"about",
+    "h1":"h1 title",
+    "h2":"h2 subtitle",
     "lang":"ru"
   },
   {

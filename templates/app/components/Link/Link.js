@@ -11,19 +11,7 @@ class Link extends Component {
   constructor(props) {
     super(props);
     this.toward = '/';
-    this.comp_href = './routes/Home';
-
-    // find the component, if not found return in console the link with a problem
-    const route = window.__routes__.find(x =>
-      (x.component ? x.component === `./routes/${props.to}` : null)
-    );
-    if (route && route.path) {
-      this.toward = route.path;
-      this.comp_href = route.component;
-    } else {
-      console.log('link fail:');
-      console.log(`./routes/${props.to}`);
-    }
+    this.comp_href = './routes/Skiscool';
   }
 
   handleClick = (event) => {
@@ -53,6 +41,20 @@ class Link extends Component {
   };
 
   render() {
+      // find the component, if not found return in console the link with a problem
+   let self=this;
+    const route = window.__routes__.find(x =>
+      (x.component ? x.component === `./routes/${self.props.to}` : null));
+
+    if (route && route.path) {
+      this.toward = route.path;
+      this.comp_href = route.component;
+    } else {
+      console.log('link fail:');
+      console.log(`./routes/${self.props.to}`);
+    }
+
+
     let getComp = '0';
     const path = decodeURI(history.getCurrentLocation().pathname);
     const pathfind = window.__routes__.find(x => x.path === path);

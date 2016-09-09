@@ -1,4 +1,4 @@
-import s from './Root.css';
+import s from './style.css';
 
 const Root = ({ bp }) => {
   console.log(bp);

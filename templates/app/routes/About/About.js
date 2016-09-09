@@ -1,13 +1,8 @@
 import { PropTypes } from 'react';
-import { observer } from 'mobx-react';
-import Layout from '../../components/Layout';
-import s from './style.css';
+import styles from './style.css';
 
-
-@observer(['appstate'])
 class AboutPage extends React.Component {
   static propTypes = {
-    appstate: PropTypes.object.isRequired,
     lang: PropTypes.string,
     title: PropTypes.string,
     description: PropTypes.string,
@@ -20,17 +15,14 @@ class AboutPage extends React.Component {
 
   render() {
 // eslint-disable-next-line no-unused-vars
-    const { appstate, lang, description,html,title } = this.props;
+    const { lang, description,html,title,h1,h2} = this.props;
 
     this.context.setMeta('description', description);
 
-    const bp = appstate.ui.breakpoints;
     this.context.setTitle(title);
-    console.log(lang);
+
     return (
-      <Layout className={s.content} bp={bp} comp={"About"} title={title} subtitle={title}>
-        <div dangerouslySetInnerHTML={{ __html: html }} />
-      </Layout>
+        <div className={styles.content} dangerouslySetInnerHTML={{ __html: html }} />
     );
   }
 

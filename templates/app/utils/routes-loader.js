@@ -54,7 +54,8 @@ routes.forEach(function (route, i) {
   let mdfile_r=false;let entrypoint=false;
     const keys = [];
     const pattern = toRegExp(route.path, keys);
- 		const Myrequire = module => `Promise.resolve(require('${escape(module)}').default)`;
+ 		const Myrequiredef = module => `Promise.resolve(require('${escape(module)}').default)`;
+ 		const Myrequire = module => `Promise.resolve(require('${escape(module)}'))`;
 
         if (!mdfile_r)
 				mdfile_r = route.component.replace('./routes/', '');
@@ -69,9 +70,22 @@ mdfile_r=route.entrypoint;
 
         let myout = promisifiedopen(appRoot + path + '/' + mdfile, 'r').then(function(fullfill) {
             console.log(mdfile + ' filled')
+            if (process.env.NODE_ENV=="development")
+           return Promise.resolve(`${Myrequire(route.component+'/'+mdfile)}`);
+            else
            return Promise.resolve(`${Myrequiremd(route.component+'/'+mdfile,route.lang,'')}`);
         }, function(reject) {
-            return Promise.resolve(`Promise.resolve({html:'file ${escape(mdfile)} not found'})`);
+
+        return promisifiedopen(appRoot + path + '/' + mdfile_r + '_en.md', 'r').then(function(fullfill) {
+            console.log(mdfile + ' rejected so' + mdfile_r + '_en filled')
+            if (process.env.NODE_ENV=="development")
+           return Promise.resolve(`${Myrequire(route.component+'/'+ mdfile_r + '_en.md')}`);
+            else
+           return Promise.resolve(`${Myrequiremd(route.component+'/'+ mdfile_r + '_en.md',route.lang,'')}`);
+        }, function(reject) {
+        return Promise.resolve(`Promise.resolve({html:'file ${escape(mdfile_r)} not found'})`);
+        });
+
             // output.push(` return {html:'file ${escape(mdfile_r)} not found'}; \n`)
         }).then(function(res) {
             let out = [];
@@ -90,13 +104,24 @@ mdfile_r=route.entrypoint;
             if (route.title) {
                 out.push(`    title: ${JSON.stringify(route.title)},\n`);
             }
+            if (route.h1) {
+                out.push(`    h1: ${JSON.stringify(route.h1)},\n`);
+            }else{
+                out.push(`    h1: ${JSON.stringify(route.title)},\n`);
+            }
+            if (route.h1) {
+                out.push(`    h2: ${JSON.stringify(route.h2)},\n`);
+            }else{
+                out.push(`    h2: ${JSON.stringify('')},\n`);
+            }
+
             if (route.lang) {
                 out.push(`    lang: ${JSON.stringify(route.lang)},\n`);
             }
-             if(route.chunk)
-            out.push(`    load() {\n      return ${Myrequiremd(route.component+'/'+mdfile_r,route.chunk,'default')};\n    },\n`);
-            else
-            out.push(`    load() {\n      return ${Myrequire(route.component+'/'+mdfile_r)};\n    },\n`);
+             if(route.chunk&&(process.env.NODE_ENV!=="development"))
+           out.push(`    load() {\n      return ${Myrequiremd(route.component+'/'+mdfile_r,route.chunk,'default')};\n    },\n`);
+           else
+            out.push(`    load() {\n      return ${Myrequiredef(route.component+'/'+mdfile_r)};\n    },\n`);
 
             out.push(`    loadmd(lang,mdfile) { \n`);
             out.push(` 		return ${res}  \n`);

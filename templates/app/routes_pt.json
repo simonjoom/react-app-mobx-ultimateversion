@@ -4,6 +4,8 @@
     "component": "./routes/MySite",
     "lang":"pt",
     "description":"description",
+    "h1":"h1 title",
+    "h2":"h2 subtitle",
     "title":"MySite"
   },
   {
@@ -12,6 +14,8 @@
     "lang":"pt",
     "description":"MySite",
     "title":"MySite",
+    "h1":"h1 title",
+    "h2":"h2 subtitle",
     "data": {
       "articles": "GET https://gist.githubusercontent.com/koistya/a32919e847531320675764e7308b796a/raw/articles.json"
     }
@@ -22,6 +26,8 @@
     "lang":"pt",
     "chunk":"login",
     "description":"Conecte-se conosco",
+    "h1":"h1 title",
+    "h2":"h2 subtitle",
     "title":"Conecte-se MySite"
   },
 {
@@ -30,6 +36,8 @@
     "lang":"pt",
     "chunk":"contact",
     "description":"Contato com MySite",
+    "h1":"h1 title",
+    "h2":"h2 subtitle",
     "title":"Contato com MySite"
   },
 {
@@ -38,6 +46,8 @@
     "lang":"pt",
     "chunk":"login",
     "description":"Perfil Usario",
+    "h1":"h1 title",
+    "h2":"h2 subtitle",
     "title":"Perfil MySite"
   },
   {
@@ -46,6 +56,8 @@
     "lang":"pt",
     "chunk":"root",
     "description":"Root",
+    "h1":"h1 title",
+    "h2":"h2 subtitle",
     "title":"MySite"
   },
   {
@@ -54,6 +66,8 @@
     "lang":"pt",
     "chunk":"error",
     "description":"Erro 404",
+    "h1":"h1 title",
+    "h2":"h2 subtitle",
     "title":"Erro 404"
   },
   {
@@ -62,6 +76,8 @@
     "lang":"pt",
     "chunk":"about",
     "description":"Sobre nós",
+    "h1":"h1 title",
+    "h2":"h2 subtitle",
     "title":"Sobre MySite"
   },
   {

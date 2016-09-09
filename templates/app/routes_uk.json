@@ -4,6 +4,8 @@
     "component": "./routes/MySite",
     "description":"Лижна",
     "title":"MySite",
+    "h1":"h1 title",
+    "h2":"h2 subtitle",
     "lang":"uk"
   },
   {
@@ -12,6 +14,8 @@
     "lang":"uk",
     "description":"MySite",
     "title":"MySite",
+    "h1":"h1 title",
+    "h2":"h2 subtitle",
     "data": {
       "articles": "GET https://gist.githubusercontent.com/koistya/a32919e847531320675764e7308b796a/raw/articles.json"
     }
@@ -21,6 +25,8 @@
     "component": "./routes/Login",
     "description":"Ввійти MySite",
     "title":"MySite",
+    "h1":"h1 title",
+    "h2":"h2 subtitle",
     "chunk":"login",
     "lang":"uk"
   },
@@ -29,6 +35,8 @@
     "component": "./routes/Contact",
     "description":"Contact MySite",
     "title":"зв яз MySite",
+    "h1":"h1 title",
+    "h2":"h2 subtitle",
     "chunk":"contact",
     "lang":"uk"
   },
@@ -37,6 +45,8 @@
     "component": "./routes/Profile",
     "description":"профіль MySite",
     "title":"профіль MySite",
+    "h1":"h1 title",
+    "h2":"h2 subtitle",
     "chunk":"login",
     "lang":"uk"
   },
@@ -45,6 +55,8 @@
     "component": "./routes/Root",
     "description":"My description",
     "title":"MySite",
+    "h1":"h1 title",
+    "h2":"h2 subtitle",
     "chunk":"root",
     "lang":"uk"
   },
@@ -53,6 +65,8 @@
     "component": "./routes/Error",
     "description":"Error",
     "title":"MySite",
+    "h1":"h1 title",
+    "h2":"h2 subtitle",
     "chunk":"error",
     "lang":"uk"
   },
@@ -61,6 +75,8 @@
     "component": "./routes/About",
     "description":"Про нас ",
     "title":"Про MySite",
+    "h1":"h1 title",
+    "h2":"h2 subtitle",
     "chunk":"about",
     "lang":"uk"
   },

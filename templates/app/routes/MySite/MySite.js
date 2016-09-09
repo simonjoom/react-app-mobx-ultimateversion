@@ -1,6 +1,5 @@
 import { PropTypes, Component } from 'react';
 import { observer } from 'mobx-react';
-import Layout from '../../components/Layout';
 import Skiscool from '../../components/MySite';
 import styles from './style.css';
 
@@ -113,7 +112,6 @@ class HomePage extends Component {
   }
 
   render() {
-    console.log(this.props);
     // eslint-disable-next-line no-unused-vars
     const { appstate, lang, articles, description, title } = this.props;
     this.context.setTitle(title);
@@ -121,13 +119,7 @@ class HomePage extends Component {
 
     const bp = appstate.ui.breakpoints;
     return (
-      <Layout
-        className={styles.content}
-        bp={bp}
-        comp="Skiscool"
-        title="Skiscool Concept"
-        subtitle="SkiScool find your intructors"
-      >
+    <div>
         <Skiscool
           bp={bp}
           lang={lang}
@@ -136,7 +128,7 @@ class HomePage extends Component {
         <If condition={articles}>
           <ShowArticles articles={articles} />
         </If>
-      </Layout>
+      </div>
     );
   }
 }

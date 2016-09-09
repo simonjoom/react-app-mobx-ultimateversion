@@ -23,8 +23,7 @@ class HomePage extends React.Component {
     this.context.setTitle(title);
     this.context.setMeta('description', description);
     return (
-      <Layout className={s.content}>
-        <h1>Welcome!</h1>
+    <div>
         <p>
           This website is built with <a href="https://github.com/kriasoft/react-app">React App
           SDK</a> — CLI tools and templates for authoring React/Redux apps with just a single dev
@@ -52,7 +51,7 @@ class HomePage extends React.Component {
             <li key={i}><a href={article.url}>{article.title}</a> by {article.author}</li>
           )}
         </ul>
-      </Layout>
+        </div>
     );
   }
 

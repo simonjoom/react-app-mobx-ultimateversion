@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './Feedback.css';
+import styles from './style.css';
 
 const Feedback = () => (
   <div className={styles.root}>

@@ -1,13 +1,10 @@
 import history from '../../core/history';
-import Layout from '../../components/Layout';
-import '../../components/Layout/Layout.css';
 import Link from '../../components/Link';
 import s from './style.css';
 
 class ErrorPage extends React.Component {
   static propTypes = {
     error: React.PropTypes.object,
-    appstate: React.PropTypes.object.isRequired,
     lang: React.PropTypes.string,
     title: React.PropTypes.string,
     description: React.PropTypes.string,
@@ -29,10 +26,8 @@ class ErrorPage extends React.Component {
 
   render() {
     // eslint-disable-next-line no-unused-vars
-    const { appstate, lang, description, title } = this.props;
-    const bp = appstate.ui.breakpoints;
+    const { lang, description, title,h1,h2} = this.props;
     this.context.setTitle(title);
-    console.log(lang);
     this.context.setMeta('description', description);
     // if (this.props.error) console.error(this.props.error); // eslint-disable-line no-console
     if ((this.props.error) && (process.env.NODE_ENV !== 'production')) {
@@ -42,7 +37,7 @@ class ErrorPage extends React.Component {
       ['404', 'Page not found'] :
       ['Error', 'Oups, something went wrong'];
     return (
-      <Layout className={s.content} bp={bp} comp={"Login"} title={title} subtitle={code}>
+    <div>
         <h1 className={s.code}>{code}</h1>
         {code === '404' && <p className={s.text}>
           The page you're looking for does not exist or an another error occurred.
@@ -50,9 +45,9 @@ class ErrorPage extends React.Component {
         }
         <p className={s.text}>
           <a href="/" onClick={this.goBack}>Go back</a>, or head over to the&nbsp;
-          <Link to="Home">home page</Link> to choose a new direction.
+          <Link to="Home">home page</Link> Choose a new direction.
         </p>
-      </Layout>
+      </div>
     );
   }
 

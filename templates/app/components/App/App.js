@@ -13,6 +13,8 @@ import Footer from '../Footer';
 import AppBar from './AppBar';
 import AppNav from './AppNav';
 import AuthModal from '../AuthModal';
+import Debug from './Debug';
+
 
 // important to load all framework css and disable eslint for that
 // eslint-disable-next-line no-unused-vars
@@ -89,6 +91,9 @@ class App extends Component {
           <div className={s.content}>
             {this.props.children}
           </div>
+        <If condition={isDev}>
+          <Debug />
+        </If>
         </Paper>
         <Paper
           zDepth={1}

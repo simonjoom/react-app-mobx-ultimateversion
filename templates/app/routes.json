@@ -4,13 +4,16 @@
     "component": "./routes/MySite",
     "lang":"en",
     "description":"description",
+    "h1":"h1 title",
+    "h2":"h2 subtitle",
     "title":"Title: MySite"
   },
   {
     "path": "/exemple_getdata_api",
     "component": "./routes/Home",
         "lang":"en",
-    ,
+    "h1":"h1 title",
+    "h2":"h2 subtitle",
     "data": {
       "articles": "GET https://gist.githubusercontent.com/koistya/a32919e847531320675764e7308b796a/raw/articles.json"
     }
@@ -21,6 +24,8 @@
     "description":"Login MySite",
     "chunk":"login",
     "title":"MySite Login",
+    "h1":"h1 title",
+    "h2":"h2 subtitle",
     "lang":"en"
   },
 {
@@ -29,6 +34,8 @@
     "description":"Contact MySite",
     "title":"Contact MySite",
     "chunk":"contact",
+    "h1":"h1 title",
+    "h2":"h2 subtitle",
     "lang":"en"
   },
 {
@@ -36,6 +43,8 @@
     "component": "./routes/Profile",
     "description":"Profile MySite",
     "title":"MySite",
+    "h1":"h1 title",
+    "h2":"h2 subtitle",
     "chunk":"contact",
     "lang":"en"
   },
@@ -44,6 +53,8 @@
     "component": "./routes/Root",
     "description":"Root MySite",
     "title":"MySite",
+    "h1":"h1 title",
+    "h2":"h2 subtitle",
     "chunk":"root",
     "lang":"en"
   },
@@ -52,6 +63,8 @@
     "component": "./routes/Error",
     "description":"Error 404 MySite",
     "title":"MySite",
+    "h1":"h1 title",
+    "h2":"h2 subtitle",
     "chunk":"error",
     "lang":"en"
   },
@@ -60,6 +73,8 @@
     "component": "./routes/About",
     "description":"About MySite, price rates",
     "title":"MySite about",
+    "h1":"h1 title",
+    "h2":"h2 subtitle",
     "chunk":"about",
     "lang":"en"
   },
@@ -68,6 +83,8 @@
     "component": "./routes/Home",
     "description":"My description",
     "title":"MySite",
+    "h1":"h1 title",
+    "h2":"h2 subtitle",
     "lang":"en"
   }
 ]
