@@ -1,5 +1,5 @@
 {
-  "host": "fr.skiscool.com",
+  "host": "fr.mysite.com",
   "port": 3000,
   "mongodb": "mongodb://localhost:27017/feather",
   "public": "../public/",
