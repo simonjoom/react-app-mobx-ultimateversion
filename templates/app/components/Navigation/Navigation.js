@@ -46,11 +46,12 @@ const Navigation = ({appstate, className}) => {
       to="test"
     >Test 404</Link>
   </div>
-);
+    )
+};
 
 Navigation.propTypes = {
     appstate: PropTypes.object.isRequired,
   className: PropTypes.string,
 };
 
-export default Navigation;
+export default observer(['appstate'])(Navigation);
