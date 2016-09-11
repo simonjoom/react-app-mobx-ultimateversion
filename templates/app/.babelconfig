@@ -1,7 +1,6 @@
 {
   "presets": ["es2015", "react", "stage-0"],
   "plugins": [
-    "transform-promise-to-bluebird",
     "transform-runtime",
     "babel-root-import",
     "jsx-control-statements",
