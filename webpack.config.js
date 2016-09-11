@@ -18,29 +18,29 @@ const babelConfig = Object.assign({}, pkg.babel, {
 });
 
 const exposevar = {
-    'process': {
-        'env': {
-            'BROWSER': true,
-            'SITEFR': JSON.stringify(process.env['SITEFR']),
-            'SITERU': JSON.stringify(process.env['SITERU']),
-            'SITEUK': JSON.stringify(process.env['SITEUK']),
-            'SITEPT': JSON.stringify(process.env['SITEPT']),
-            'SITEEN': JSON.stringify(process.env['SITEEN']),
-            'WEB_HOST': JSON.stringify(process.env['WEB_HOST']),
-            'WEB_PORT': JSON.stringify(process.env['WEB_PORT']),
-            'API_HOST': JSON.stringify(process.env['API_HOST']),
-            'API_PORT': JSON.stringify(process.env['API_PORT']),
-            'IO_HOST': JSON.stringify(process.env['IO_HOST']),
-            'IO_PORT': JSON.stringify(process.env['IO_PORT'])
-        }
+  'process': {
+    'env': {
+      'BROWSER': true,
+      'SITEFR': JSON.stringify(process.env['SITEFR']),
+      'SITERU': JSON.stringify(process.env['SITERU']),
+      'SITEUK': JSON.stringify(process.env['SITEUK']),
+      'SITEPT': JSON.stringify(process.env['SITEPT']),
+      'SITEEN': JSON.stringify(process.env['SITEEN']),
+      'WEB_HOST': JSON.stringify(process.env['WEB_HOST']),
+      'WEB_PORT': JSON.stringify(process.env['WEB_PORT']),
+      'API_HOST': JSON.stringify(process.env['API_HOST']),
+      'API_PORT': JSON.stringify(process.env['API_PORT']),
+      'IO_HOST': JSON.stringify(process.env['IO_HOST']),
+      'IO_PORT': JSON.stringify(process.env['IO_PORT'])
     }
+  }
 }
 
-const configvar={
-    '__resourceQuery': '"?path=http://localhost:3001/__webpack_hmr"',
-      'process.env.NODE_ENV': debug ? '"development"' : '"production"',
-      'process.env.__DEV__': debug,
-    }
+const configvar = {
+  '__resourceQuery': '"?path=http://localhost:3001/__webpack_hmr"',
+  'process.env.NODE_ENV': debug ? '"development"' : '"production"',
+  'process.env.__DEV__': debug,
+}
 // Webpack configuration (main.js => public/dist/main.{hash}.js)
 // http://webpack.github.io/docs/configuration.html
 const config = {
@@ -48,13 +48,13 @@ const config = {
   // The base directory for resolving the entry option
   context: process.cwd(),
   entry: {
-    main: ['font-awesome-webpack!' + path.resolve(process.cwd(),'./font-awesome.config.js'),'./main.js']
+    main: ['babel-polyfill','font-awesome-webpack!' + path.resolve(process.cwd(), './font-awesome.config.js'), './main.js']
   },
   // The entry point for the bundle
- /* entry: [
-      "font-awesome-webpack!" + path.resolve(process.cwd(),'./font-awesome.config.js'),
-    './main',
-  ],*/
+  /* entry: [
+   "font-awesome-webpack!" + path.resolve(process.cwd(),'./font-awesome.config.js'),
+   './main',
+   ],*/
 
   // Options affecting the output of the compilation
   output: {
@@ -84,22 +84,37 @@ const config = {
     cached: verbose,
     cachedAssets: verbose,
   },
-eslint: {
-        failOnWarning: false,
-        failOnError: true
-    },
+  eslint: {
+    failOnWarning: false,
+    failOnError: true
+  },
   // The list of plugins for Webpack compiler
   plugins: [
-   new webpack.ProvidePlugin({
-            "React": "react"
-        }),
+    new webpack.ProvidePlugin({
+      "React": "react"
+    }),
     new webpack.DefinePlugin(extend(true, {}, configvar, exposevar)),
     new webpack.optimize.OccurrenceOrderPlugin(),
 
     // Emit a JSON file with assets paths
     // https://github.com/sporto/assets-webpack-plugin#options
 
-    new CopyWebpackPlugin([{from: 'assets', to:''}]),
+    new CopyWebpackPlugin([{
+      from: 'assets',
+      to: ''
+    }], {
+            ignore: [
+                // Doesn't copy any files with a txt extension
+                '*.txt',
+                'tiles*.png',
+                // Doesn't copy any file, even if they start with a dot
+                { glob: 'tiles/*', dot: true }
+            ],
+            // By default, we only copy modified files during
+            // a watch or webpack-dev-server build. Setting this
+            // to `true` copies all files.
+            copyUnmodified: true
+        }),
     new AssetsPlugin({
       path: path.resolve(process.cwd(), './public/dist'),
       filename: 'assets.json',
@@ -109,70 +124,66 @@ eslint: {
 
   // Options affecting the normal modules
   module: {
-    loaders: [
-      {
-        test: /\.jsx?$/,
-        exclude: /node_modules/,
-        /*include: [
-          path.resolve(process.cwd(), './store'),
-          path.resolve(process.cwd(), './shared'),
-          path.resolve(process.cwd(), './actions'),
-          path.resolve(process.cwd(), './components'),
-          path.resolve(process.cwd(), './core'),
-          path.resolve(process.cwd(), './pages'),
-          path.resolve(process.cwd(), './routes'),
-          path.resolve(process.cwd(), './main.js'),
-        ],*/
-        loader: `babel-loader?${JSON.stringify(babelConfig)}`,
-      },
-      {
-  test: /App\.css$/,  // only App will go through this loader. e.g. app.css
-  loaders: [
-    'style-loader',
-    'css?sourceMap&-minimize',
-    'postcss'
-  ]
-},
-    {
-        test: /^((?!\App\.css).)*\.css/,
-        loaders: [
-            'style-loader',
-      `css-loader?${JSON.stringify({
-            sourceMap: debug,
-            // CSS Modules https://github.com/css-modules/css-modules
-            modules: true,
-            localIdentName: debug ? '[name]_[local]_[hash:base64:3]' : '[hash:base64:4]',
-            // CSS Nano http://cssnano.co/options/
-            minimize: !debug,
-          })}`,
-            'postcss',
-        ],
-        // happy: { id: 'css' }
+    loaders: [{
+      test: /\.jsx?$/,
+      exclude: /node_modules/,
+      /*include: [
+       path.resolve(process.cwd(), './store'),
+       path.resolve(process.cwd(), './shared'),
+       path.resolve(process.cwd(), './actions'),
+       path.resolve(process.cwd(), './components'),
+       path.resolve(process.cwd(), './core'),
+       path.resolve(process.cwd(), './pages'),
+       path.resolve(process.cwd(), './routes'),
+       path.resolve(process.cwd(), './main.js'),
+       ],*/
+      loader: `babel-loader?${JSON.stringify(babelConfig)}`,
+    }, {
+      test: /App\.css$/, // only App will go through this loader. e.g. app.css
+      loaders: [
+        'style-loader',
+        'css?sourceMap&-minimize',
+        'postcss'
+      ]
+    }, {
+      test: /^((?!\App\.css).)*\.css/,
+      loaders: [
+        'style-loader',
+        `css-loader?${JSON.stringify({
+          sourceMap: debug,
+          // CSS Modules https://github.com/css-modules/css-modules
+          modules: true,
+          localIdentName: debug ? '[name]_[local]_[hash:base64:3]' : '[hash:base64:4]',
+          // CSS Nano http://cssnano.co/options/
+          minimize: !debug,
+        })}`,
+        'postcss',
+      ],
+      // happy: { id: 'css' }
     },
-    /*
-      {
-        test: /\.css/,
-        loaders: [
-          'style-loader',
-          `css-loader?${JSON.stringify({
-            sourceMap: debug,
-            // CSS Modules https://github.com/css-modules/css-modules
-            modules: true,
-            localIdentName: debug ? '[name]_[local]_[hash:base64:3]' : '[hash:base64:4]',
-            // CSS Nano http://cssnano.co/options/
-            minimize: !debug,
-          })}`,
-          'postcss-loader',
-        ],
-      },*/
+      /*
+       {
+       test: /\.css/,
+       loaders: [
+       'style-loader',
+       `css-loader?${JSON.stringify({
+       sourceMap: debug,
+       // CSS Modules https://github.com/css-modules/css-modules
+       modules: true,
+       localIdentName: debug ? '[name]_[local]_[hash:base64:3]' : '[hash:base64:4]',
+       // CSS Nano http://cssnano.co/options/
+       minimize: !debug,
+       })}`,
+       'postcss-loader',
+       ],
+       },*/
       {
         test: /\.json$/,
         exclude: /routes/,
-         /* path.resolve(process.cwd(), './routes.json'),
-        ],*/
+        /* path.resolve(process.cwd(), './routes.json'),
+         ],*/
         loader: 'json-loader',
-      },
-      {
+      }, {
         test: /\.json$/,
         include: [
           path.resolve(process.cwd(), './routes.json'),
@@ -185,55 +196,57 @@ eslint: {
           `babel-loader?${JSON.stringify(babelConfig)}`,
           path.resolve(process.cwd(), './utils/routes-loader.js'),
         ],
-      },
-      {
+      }, {
         test: /\.md$/,
         loader: path.resolve(process.cwd(), './utils/markdown-loader.js'),
-      },
-      {
+      }, {
         test: /\.(png|jpg|jpeg|gif|svg|woff|woff2)$/,
+        exclude: /tiles/,
         loader: 'url-loader?limit=10000',
-      },
-        {
-            test: /\.woff(\?.*)?$/,
-            loader: 'url?prefix=fonts/&name=[path][name].[ext]&limit=10000&mimetype=application/font-woff'
-        },
-        {
-            test: /\.woff2(\?.*)?$/,
-            loader: 'url?prefix=fonts/&name=[path][name].[ext]&limit=10000&mimetype=application/font-woff2'
-        },
-        {test: /\.otf(\?.*)?$/, loader: 'file?prefix=fonts/&name=[path][name].[ext]&limit=10000&mimetype=font/opentype'},
-        {
-            test: /\.ttf(\?.*)?$/,
-            loader: 'url?prefix=fonts/&name=[path][name].[ext]&limit=10000&mimetype=application/octet-stream'
-        },
-        {test: /\.eot(\?.*)?$/, loader: 'file?prefix=fonts/&name=[path][name].[ext]'},
-        {test: /\.svg(\?.*)?$/, loader: 'url?prefix=fonts/&name=[path][name].[ext]&limit=10000&mimetype=image/svg+xml'},
-      {
+      }, {
+        test: /\.woff(\?.*)?$/,
+        loader: 'url?prefix=fonts/&name=[path][name].[ext]&limit=10000&mimetype=application/font-woff'
+      }, {
+        test: /\.woff2(\?.*)?$/,
+        loader: 'url?prefix=fonts/&name=[path][name].[ext]&limit=10000&mimetype=application/font-woff2'
+      }, {
+        test: /\.otf(\?.*)?$/,
+        loader: 'file?prefix=fonts/&name=[path][name].[ext]&limit=10000&mimetype=font/opentype'
+      }, {
+        test: /\.ttf(\?.*)?$/,
+        loader: 'url?prefix=fonts/&name=[path][name].[ext]&limit=10000&mimetype=application/octet-stream'
+      }, {
+        test: /\.eot(\?.*)?$/,
+        loader: 'file?prefix=fonts/&name=[path][name].[ext]'
+      }, {
+        test: /\.svg(\?.*)?$/,
+        loader: 'url?prefix=fonts/&name=[path][name].[ext]&limit=10000&mimetype=image/svg+xml'
+      }, {
         test: /\.(wav|mp3)$/,
         loader: 'file-loader',
       },
     ],
   },
   resolve: {
-  //  packageMains: ['webpack', 'browser', 'web', 'style', 'main'],
+    //  packageMains: ['webpack', 'browser', 'web', 'style', 'main'],
 
-        extensions: ['', '.webpack.js', '.web.js', '.js', '.jsx', '.json'],
+    extensions: ['', '.webpack.js', '.web.js', '.js', '.jsx', '.json'],
 
-    },
+  },
 
-    externals: {
+  externals: {
     jquery: 'jQuery',
-    ajv:'Ajv'
-        }
-    ,
+   // ajv: 'Ajv'
+  },
   // The list of plugins for PostCSS
   // https://github.com/postcss/postcss
   postcss(bundler) {
     return [
       // Transfer @import rule by inlining content, e.g. @import 'normalize.css'
       // https://github.com/postcss/postcss-import
-      require('postcss-import')({ addDependencyTo: bundler }),
+      require('postcss-import')({
+        addDependencyTo: bundler
+      }),
       // W3C variables, e.g. :root { --color: red; } div { background: var(--color); }
       // https://github.com/postcss/postcss-custom-properties
       require('postcss-custom-properties')(),
@@ -275,7 +288,7 @@ eslint: {
 
 };
 
-   // new webpack.optimize.CommonsChunkPlugin('bundle' null, false)
+// new webpack.optimize.CommonsChunkPlugin('bundle' null, false)
 // Optimize the bundle in release (production) mode
 config.plugins.push(new webpack.optimize.CommonsChunkPlugin('main'));
 config.plugins.push(new webpack.IgnorePlugin(/regenerator|nodent|js\-beautify/, /ajv/));

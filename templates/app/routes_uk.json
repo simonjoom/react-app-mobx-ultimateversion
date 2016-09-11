@@ -21,6 +21,16 @@
     }
   },
   {
+    "path": "/instructors",
+    "component": "./routes/Instructors",
+    "description":"Instructors Skiscool",
+    "title":"Instructors Skiscool",
+    "h1":"Instructors Skiscool",
+    "h2":"Our selection",
+    "chunk":"card",
+    "lang":"uk"
+  },
+  {
     "path": "/login_uk",
     "component": "./routes/Login",
     "description":"Ввійти MySite",

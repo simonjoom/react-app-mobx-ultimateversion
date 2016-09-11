@@ -51,6 +51,16 @@
     "title":"Perfil MySite"
   },
   {
+    "path": "/instructors",
+    "component": "./routes/Instructors",
+    "description":"Instructors Skiscool",
+    "title":"Instructors Skiscool",
+    "h1":"Instructors Skiscool",
+    "h2":"Our selection",
+    "chunk":"card",
+    "lang":"pt"
+  },
+  {
     "path": "/root_pt",
     "component": "./routes/Root",
     "lang":"pt",

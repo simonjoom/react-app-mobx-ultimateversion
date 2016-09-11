@@ -59,36 +59,36 @@ const Register = observer(() => {
       <Divider />
       <span className="h1">OR</span>
       <form>
-        <TextField
-          name={form.fields.username.name}
-          value={form.fields.username.value || ''}
-          hintText={form.fields.username.label}
-          floatingLabelText={form.fields.username.label}
-          errorText={form.fields.username.errorMessage}
-          onChange={form.syncValue}
-        />
-        <TextField
-          hintText={form.fields.email.label}
-          floatingLabelText={form.fields.email.label}
-          name={form.fields.email.name}
-          value={form.fields.email.value || ''}
-          errorText={form.fields.email.errorMessage}
-          onChange={form.syncValue}
-        />
-        <TextField
-          hintText={form.fields.password.label}
-          floatingLabelText={form.fields.password.label}
-          name={form.fields.password.name}
-          value={form.fields.password.value || ''}
-          errorText={form.fields.password.errorMessage}
-          onChange={form.syncValue}
-        />
+        	<TextField
+						name={form.$('username').name}
+						value={form.$('username').value}
+						hintText={form.$('username').label}
+						floatingLabelText={form.$('username').label}
+						errorText={form.$('username').errorMessage}
+						onChange={form.$('username').sync}
+					/>
+					<TextField
+						name={form.$('email').name}
+						value={form.$('email').value}
+						hintText={form.$('email').label}
+						floatingLabelText={form.$('email').label}
+						errorText={form.$('email').errorMessage}
+						onChange={form.$('email').sync}
+					/>
+					<TextField
+						hintText={form.$('password').label}
+						floatingLabelText={form.$('password').label}
+						name={form.$('password').name}
+						value={form.$('password').value}
+						errorText={form.$('password').errorMessage}
+						onChange={form.$('password').sync}
+					/>
         <div className="mt3">
           <FlatButton
             type="submit"
             disabled={!form.isValid}
             className={cx({ [`${myrefs}`]: !form.isValid })}
-            onClick={form.handleOnSubmit}
+						onClick={form.handleOnSubmit}
             backgroundColor="#a4c639"
             hoverColor="#8AA62F"
           >

@@ -30,6 +30,16 @@
     "h2":"h2 subtitle",
     "lang":"fr"
   },
+  {
+    "path": "/instructors",
+    "component": "./routes/Instructors",
+    "description":"Instructors Skiscool",
+    "title":"Instructors Skiscool",
+    "h1":"Instructors Skiscool",
+    "h2":"Our selection",
+    "chunk":"card",
+    "lang":"fr"
+  },
 {
     "path": "/contact_fr",
     "component": "./routes/Contact",

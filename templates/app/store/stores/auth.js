@@ -11,21 +11,55 @@ export default class AuthStore {
     // get token from localStorage
       console.log(window.localStorage)
     // auto-login with jwt
-   //if (window.localStorage.getItem('feathers-jwt'))
-    this.jwtAuth();
+	console.log(window.localStorage);
+		let managecrossstorage;
+		// auto-login with jwt
+		window._q && window._q.whenDone(() => {
+			//check in crossbrowser
+			const that = this;
+			const $ = jQuery;
+			managecrossstorage = ()=> {
+				window.hubstorage = new CrossStorageClient('http://localhost:3001/dist/hub.html');
+
+				window.hubstorage.onConnect().then(function () {
+					return window.hubstorage.get('feathers-jwt');
+				}).then(function (res) {
+					if (res) {
+						window.localStorage.setItem('feathers-jwt', res);
+						that.jwtAuth();
+					} else {
+						window.localStorage.clear();
+						that.jwtAuth();
+					}
+				});
+			}
+			$(document).ready(managecrossstorage);
+		});
   }
 
   @action
   updateUser(data = {}) {
-  if(data.token)
-  window.localStorage.setItem('feathers-jwt',data.token);
-  this.user = data.facebook ||data || {};
+  if (!data.token) {
+			window.hubstorage.onConnect().then(function () {
+				return window.hubstorage.del('feathers-jwt');
+			});
+		}
+		if (data && data.token) {
+			window.localStorage.setItem('feathers-jwt', data.token);
+
+			window.hubstorage.onConnect().then(function () {
+				return window.hubstorage.set('feathers-jwt', data.token);
+			});
+		}
+		if (data.user)
+			this.user = data.facebook ||data.user||data || {};
+
   }
 
  jwtAuth() {
     return app()
       .authenticate({})
-      .then((result) => this.updateUser(result.user))
+      .then((result) => this.updateUser(result))
       .catch((err) => {
       console.error('errorauth')
       console.error(err)}

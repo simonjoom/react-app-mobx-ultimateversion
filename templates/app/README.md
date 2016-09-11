@@ -33,7 +33,7 @@ We together using the following technologies:
 * [mobx](https://mobxjs.github.io/mobx/best/devtools.html) Better than redux in my opinion to maintain code  
 * [mobx Dev Tools](https://github.com/mobxjs/mobx-react-devtools) for next generation DX (developer experience). 
 * [ESLint](http://eslint.org) to maintain a consistent code style 
-* [mobx-ajv-form](https://github.com/erikras/lru-memoize) best form validation AJV 
+* [mobx-react-form](https://github.com/foxhound87/mobx-react-form) best form validation with mobx
 * [style-loader](https://github.com/webpack/style-loader), and [less-loader](https://github.com/webpack/less-loader) to allow import of stylesheets in plain css, sass and less,
 * [bootstrap v3](http://getbootstrap.com/) bootstrap + jquery CDN loaded async with https://www.npmjs.com/package/async-js
  
@@ -61,7 +61,7 @@ see code head section in index.ejs
 
         Updated new mobx + ajv-form version 
             "mobx": "^2.5.0",
-            "mobx-ajv-form": "^1.8.0",
+            "react-mobx-form" 
         
         eslint + jsx-control-statements lint support for better tracking bug code    
            
@@ -94,16 +94,6 @@ and replace by mine (i did some little hack to make the new work with my config)
 
 >* I added ukrainien flag in material-ui-country-flags  
 > Do unzip ./temp/material-ui-country-flags.zip to ./temp/node_modules/  
-
->* Little mod to support Object.entries in mobx-react-matchmedia and update mobx v2.5:  
-> Do unzip ./temp/mobx-react-matchmedia.zip to ./temp/node_modules/
-
->* Manual things be sure to remove:
-     
-        ./temp/node_module/mobx-ajv-form/node_module/mobx   
-        ./temp/node_module/mobx-ajv-form/node_module/ajv 
-        
-     node_module folders are created improperly by  mobx-ajv-form  due to the new mobx version
 
 
 b) install my config with nginx for proxying all listening mysite.com:80 to localhost  

@@ -1,8 +1,8 @@
 {
-  "name": "react-app-ssr-tools",
-  "version": "1.1.2",
-  "description": "Boilerplate and tooling for JavaScript application development with React with ssr",
-  "repository": "simonjoom/react-app-ssr",
+  "name": "react-app-mobx-ultimateversion",
+  "version": "2.2.1",
+  "description": "Boilerplate and tooling for JavaScript application development with React in multi-language",
+  "repository": "simonjoom/react-app-mobx-ultimateversion",
   "author": "Simon  ",
   "contributors": [
     "Konstantin Tarkus <hello@tarkus.me> (https://tarkus.me)"
@@ -110,6 +110,7 @@
     "react-app": "^1.1.2"
   },
   "devDependencies": {
+    "babel-polyfill": "^6.13.0",
     "eslint-loader": "^1.5.0",
     "history": "^3.0.0",
     "react": "^15.3.1",

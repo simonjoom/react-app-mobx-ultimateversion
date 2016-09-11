@@ -59,36 +59,35 @@ const Login = observer(() => {
       />
       <Divider />
       <span className="h1">OR</span>
-      <form>
-        <TextField
-          hintText="Email"
-          floatingLabelText="Email"
-          name={form.fields.email.name}
-          value={form.fields.email.value || ''}
-          onChange={form.syncValue}
-          errorText={form.fields.email.errorMessage}
-        />
-        <TextField
-          hintText="Password"
-          floatingLabelText="Password"
-          name={form.fields.password.name}
-          value={form.fields.password.value || ''}
-          onChange={form.syncValue}
-          errorText={form.fields.password.errorMessage}
-        />
-        <div className="mt3">
-          <FlatButton
-            type="submit"
-            disabled={!form.isValid}
-            className={cx({ [`${myrefs}`]: !form.isValid })}
-            onClick={form.handleOnSubmit}
-            backgroundColor="#a4c639"
-            hoverColor="#8AA62F"
-          >
-            Login
-          </FlatButton>
-        </div>
-
+      	<form>
+				<TextField
+					hintText="Email"
+					floatingLabelText="Email"
+					name={form.$('email').name}
+					value={form.$('email').value || ''}
+					onChange={form.$('email').sync}
+					errorText={form.$('email').errorMessage}
+				/>
+				<TextField
+					hintText="Password"
+					floatingLabelText="Password"
+					name={form.$('password').name}
+					value={form.$('password').value || ''}
+					onChange={form.$('password').sync}
+					errorText={form.$('password').errorMessage}
+				/>
+				<div className="mt3">
+					<FlatButton
+						type="submit"
+						disabled={!form.isValid}
+						className={cx({ [`${myrefs}`]: !form.isValid })}
+						onClick={form.handleOnSubmit}
+						backgroundColor="#a4c639"
+						hoverColor="#8AA62F"
+					>
+						Login
+					</FlatButton>
+				</div>
         <div className={cx(errorMessage, { hide: !form.isValid && form.genericErrorMessage })}>
           {form.genericErrorMessage}
         </div>
