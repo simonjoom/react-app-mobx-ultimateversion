@@ -1,0 +1,19 @@
+<!doctype html>
+<head>
+    <title>Cross Storage Hub</title>
+</head>
+<body>
+<script type="text/javascript" src="./hub.min.js"></script>
+<script>
+    // Limit requests to any client running on .localhost:300x
+    CrossStorageHub.init([
+        { origin: /:\/\/(uk\.)?mysite.com$/, allow: ['get', 'set', 'del'] },
+        { origin: /:\/\/(ru\.)?mysite.com$/, allow: ['get', 'set', 'del'] },
+        { origin: /:\/\/(pt\.)?mysite.com$/, allow: ['get', 'set', 'del'] },
+        { origin: /:\/\/(fr\.)?mysite.com$/, allow: ['get', 'set', 'del'] },
+        { origin: /:\/\/(www\.)?mysite.eu$/, allow: ['get', 'set', 'del'] },
+        { origin: /.*localhost:300\d$/, allow: ['get', 'set', 'del'] }
+    ]);
+</script>
+</body>
+</html>

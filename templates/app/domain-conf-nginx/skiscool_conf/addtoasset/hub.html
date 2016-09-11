@@ -1,0 +1,19 @@
+<!doctype html>
+<head>
+    <title>Cross Storage Hub</title>
+</head>
+<body>
+<script type="text/javascript" src="./hub.min.js"></script>
+<script>
+    // Limit requests to any client running on .localhost:300x
+    CrossStorageHub.init([
+        { origin: /:\/\/(uk\.)?skiscool.com$/, allow: ['get', 'set', 'del'] },
+        { origin: /:\/\/(ru\.)?skiscool.com$/, allow: ['get', 'set', 'del'] },
+        { origin: /:\/\/(pt\.)?skiscool.com$/, allow: ['get', 'set', 'del'] },
+        { origin: /:\/\/(fr\.)?skiscool.com$/, allow: ['get', 'set', 'del'] },
+        { origin: /:\/\/(www\.)?skiscool.eu$/, allow: ['get', 'set', 'del'] },
+        { origin: /.*localhost:300\d$/, allow: ['get', 'set', 'del'] }
+    ]);
+</script>
+</body>
+</html>
