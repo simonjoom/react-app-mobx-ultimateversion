@@ -15,7 +15,7 @@ import AppBar from './AppBar';
 import AppNav from './AppNav';
 import Debug from './Debug';
 import style from './style.css';
-import Account from '../Account';
+import AuthModal from '../AuthModal';
 
 // lazy loading chunk 'Account'
 /*
@@ -38,15 +38,6 @@ console.log(s);
 
 const handleThemeToggle = () => {
   dispatch('ui.theme.toggleTheme');
-};
-/*
- const handleclicktoModal = (check) => {
- dispatch('ui.accountModal.checkclicktoModal',check);
- };*/
-
-const showCreateAccountDialog = (user) => {
-  dispatch('ui.accountModal.showCreateAccountModal', 'open');
-  dispatch('createUser.setAccountInfo', user);
 };
 
 @observer(['context', 'appstate'])
@@ -84,17 +75,13 @@ class App extends Component {
   }
 
   render() {
-    const { ui, auth, createUser } = this.props.appstate;
+    const { ui, auth } = this.props.appstate;
     const isDev = true;
     const Debug = true;
     console.log(typeof window === 'object' ? 'client-side' : 'server-side');
     const bp = ui.breakpoints;
     const { xs, su, mu } = bp;
 
-    if (auth.user && auth.user.usertype === '' && this.flagFirst) {
-      this.flagFirst = false;
-      showCreateAccountDialog(auth.user);
-    }
     const SU = style.su;
     //if account still not loaded lazy load chunk of it on click
     /*
@@ -153,8 +140,10 @@ class App extends Component {
           autoHideDuration={ui.snackBar.duration}
           onRequestClose={ui.snackBar.close}
         />
-        <Account />
-
+        <AuthModal
+          open={ui.authModal.isOpen}
+          showSection={ui.authModal.showSection}
+        />
       </div>
     );
   }
