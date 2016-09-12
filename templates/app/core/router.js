@@ -1,4 +1,6 @@
 import Layout from '../components/Layout';
+const App = require('../components/App/App.js').default;
+
 function decodeParam(val) {
   if (!(typeof val === 'string' || val.length === 0)) {
     return val;
@@ -105,12 +107,14 @@ function resolve(routes, context) {
           props = {};
 				const comp= route.component.replace('./routes/', '');
             return (
+              <App>
             <Layout
         comp={comp}
         title={myprops.h1}
         subtitle={myprops.h2}
       >
             <Component
+              className="clearfix"
               route={route}
               error={context.error}
               {...data}
@@ -118,6 +122,7 @@ function resolve(routes, context) {
               {...myprops}
             />
             </Layout>
+              </App>
             );
             })
     }
