@@ -1,0 +1,9 @@
+.su {
+    min-height: 400px;
+    margin-left: 256px;
+}
+
+.content {
+    padding-top: 0;
+    display: block;
+}
