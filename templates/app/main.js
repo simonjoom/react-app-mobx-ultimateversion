@@ -5,6 +5,8 @@ import { readState, saveState } from 'history/lib/DOMStateStorage';
 import { AppContainer } from 'react-hot-loader';
 import { Provider } from 'mobx-react';
 import { MatchMediaProvider } from 'mobx-react-matchmedia';
+import App from './components/App';
+import Layout from './components/Layout';
 import {
   addEventListener,
   removeEventListener,
@@ -13,7 +15,6 @@ import {
 } from './core/DOMUtils';
 import router from './core/router';
 import history from './core/history';
-//import App from './components/App';
 // import FastClick from 'fastclick';
 import $store from './store/stores'; // initialize stores
 import dicoarray_func from './get-dico_chunk';
@@ -24,7 +25,7 @@ window.__routesfr__ = require('./routes_fr.json');
 window.__routesru__ = require('./routes_ru.json');
 window.__routesuk__ = require('./routes_uk.json');
 window.__routespt__ = require('./routes_pt.json');
-
+window.LAYOUT = Layout;
 /*
  import { app } from '~/temp/shared/app';
  /socket use and working!
@@ -64,8 +65,9 @@ function checkhostnamechange(oh) {
   }
 }
 
-checkhostnamechange('');
 
+checkhostnamechange('');
+console.log('r')
 const MOUNT_NODE = document.getElementById('root');
 
 let currentLocation, currentLang;
@@ -134,12 +136,17 @@ function renderComponent(component) {
   ReactDOM.render(
     <Provider context={context} appstate={store}>
       <AppContainer>
-        <MatchMediaProvider breakpoints={breakpoints} children={component}/>
+        <MatchMediaProvider breakpoints={breakpoints}>
+          <App children={component}/>
+        </MatchMediaProvider>
       </AppContainer>
-    </Provider>, MOUNT_NODE, () => {
+    </Provider>,
+    MOUNT_NODE, () => {
       // document.title = result.title || '';
       renderComplete(currentLocation.state);
-    });
+    }
+  )
+  ;
 }
 
 
@@ -169,7 +176,6 @@ function render(location, force) {
 // renderComponent(<login/>);
   } else {
     console.log(oldhost);
-    // checkhostnamechange(oldhost);
     console.log(currentLocation);
     console.log(location.pathname);
     if (force || (location.pathname !== currentLocation.pathname)) {
@@ -235,11 +241,6 @@ function createApp(hist) {
 
 createApp(history);
 
-/* currentLocation = history.getCurrentLocation();
- render(history.getCurrentLocation());
- //routes =require("./routes.json");
- });
- });*/
 
 // Enable Hot Module Replacement (HMR)
 if (module.hot) {
