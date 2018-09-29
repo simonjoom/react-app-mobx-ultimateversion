@@ -1,3 +1,21 @@
+
+THIS IS AN OUTDATED PROJECT
+if you need an universal Application around gatsby apollo using graphql (prisma) then just follow the link:
+Please right now refer to 
+https://github.com/simonjoom/Gatsby-apollo-chatkiller
+
+I think now gatsby remain the best to make a ssr react application to have nice SEO
+
+So now the technologie used like prerender are old age.
+
+
+
+
+
+
+
+
+
 # Ultimate boilerplate react-app-mobx with mutilanguage/multidomain support
 
 This boilerplate created in order to help developper to create multi-language react website with material-ui support.  
